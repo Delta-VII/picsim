@@ -176,6 +176,21 @@ public partial class Pic
     
     private void rlf()
     {
+        byte address = DecodeFBits();
+        byte temp = GetRAM(address);
+
+        bool carry;
+
+        if ((temp | 0b_1000_000) == 0)
+        {
+            SetC(false);
+        }
+        else
+        {
+            SetC(true);
+        }
+        byte value = Convert.ToByte(temp << 1);
+        SaveResult(DecodeDBit(),value, address);
         CheckInterrupts();
         _laufzeit += 1;
         RefreshRegisters();
@@ -184,10 +199,24 @@ public partial class Pic
     
     private void rrf()
     {
+        byte address = DecodeFBits();
+        byte temp = GetRAM(address);
+
+        bool carry;
+
+        if ((temp | 0b_0000_0001) == 0)
+        {
+            SetC(false);
+        }
+        else
+        {
+            SetC(true);
+        }
+        byte value = Convert.ToByte(temp >> 1);
+        SaveResult(DecodeDBit(),value, address);
         CheckInterrupts();
         _laufzeit += 1;
         RefreshRegisters();
-        
     }
     
     private void subwf()
@@ -326,6 +355,15 @@ public partial class Pic
     private void call()
     {
         _stack.Push(_programCounter + 1);
+        _stackpointer++;
+        int literal = DecodeLiteralJump();
+        byte pcl = Convert.ToByte(literal);
+        byte pclath = Convert.ToByte(_programCounter | 0b_0001_1111_0000_0000);
+        byte pclath43 = Convert.ToByte(pclath | 0b_1_1000);
+        int value = pclath43 | pcl;
+        _programCounter = value;
+        _laufzeit =+ 2;
+
     }
     
     private void clrwdt()
@@ -338,8 +376,13 @@ public partial class Pic
     private void gOTO()
     {
         int literal = DecodeLiteralJump();
-        _programCounter =+ 1;
-        
+        byte pcl = Convert.ToByte(literal);
+        byte pclath = Convert.ToByte(_programCounter | 0b_0001_1111_0000_0000);
+        byte pclath43 = Convert.ToByte(pclath | 0b_1_1000);
+        int value = pclath43 | pcl;
+        _programCounter = value;
+        _laufzeit =+ 2;
+
     }
     
     private void iorwl()
@@ -363,17 +406,31 @@ public partial class Pic
     
     private void retfie()
     {
-        
+        int value = (int) _stack.Pop();
+        _stackpointer--;
+        _programCounter = value;
+        WriteRAM(Intcon, Convert.ToByte(GetRAM(Intcon) | 0b_0100_0000));
+        _laufzeit += 1;
+        nop();
     }
     
     private void retlw()
     {
-        
+        int value = (int) _stack.Pop();
+        _stackpointer--;
+        _wreg = DecodeLiteralGeneral();
+        _programCounter = value;
+        _laufzeit += 1;
+        nop();
     }
     
     private void rETURN()
     {
-        
+        int value = (int) _stack.Pop();
+        _stackpointer--;
+        _programCounter = value;
+        _laufzeit += 1;
+        nop();
     }
     
     private void sleep()
