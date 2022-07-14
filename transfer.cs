@@ -4,10 +4,22 @@ namespace picsim;
 
 public class Transfer
 {
-    public byte Ram1
+    public Transfer(byte[] ram, int programCounter, Stack stack, int stackpointer, string path, ushort ioToggle, ushort controlButtons, int[] breakpoints)
+    {
+        Ram = ram;
+        ProgramCounter = programCounter;
+        Stack = stack;
+        Stackpointer = stackpointer;
+        Path = path;
+        IoToggle = ioToggle;
+        ControlButtons = controlButtons;
+        Breakpoints = breakpoints;
+    }
+
+    public byte[] Ram1
     {
         get => Ram;
-        set => Ram = value;
+        set => Ram = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public int ProgramCounter1
@@ -53,7 +65,7 @@ public class Transfer
     }
 
     //Sim to GUI
-    private byte Ram;
+    private byte[] Ram;
     private int ProgramCounter;
     private Stack Stack;
     private int Stackpointer;
