@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace picsim
+namespace Try
 {
     class controller
     {
         private Pic uc = new Pic();
-        private static Timer systick;
         private string[] Program;
+        private TransferGuiToSim Tgui2Sim;
+        private TransferSimToGUI Tsim2Gui;
+
+        public TransferGuiToSim GetTgui2Sim(TransferGuiToSim guiToSim)
+        {
+            return guiToSim;
+        }
 
         public async void test()
         {
@@ -21,7 +27,7 @@ namespace picsim
             
         }
 
-
+        
 
     }
     
