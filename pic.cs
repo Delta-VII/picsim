@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections;
 
-namespace picsim
+namespace Try
 {
 
 	public partial class Pic
 	{
-		//pic parts
-		private byte[] _ram = new byte[256];
-		private int _ramPointer = 0;
-		private ushort[] _programMemory = new ushort[1024];
+		
+		//pic components
+		public byte[] _ram = new byte[256];
+        private ushort[] _programMemory = new ushort[1024];
 		private byte _wreg = 0;
-		private int _laufzeit = 0;
+		public int _laufzeit = 0;
 		private int _programCounter = 0;
 		private ushort _instructionRegister = 0;
-		private Stack _stack = new Stack();
-		private int _stackpointer;
+		public Stack _stack = new Stack();
+		public int _stackpointer;
 		private byte[] _eeprom = new byte[64];
+
+		public event EventHandler<UpdateRegistersEventArgs> EvtUpdateRegisters;
 
 		public int GetProgramCounter()
 		{
@@ -49,6 +51,7 @@ namespace picsim
 				_ram[address] = value;
 				_ram[address + 128] = value;
 			}
+            
 			else
 			{
 				if ((GetRAM(Status) | Rp0) == 0)
@@ -63,7 +66,7 @@ namespace picsim
 					}
 
 				}
-				else if ((GetRAM(Status) | Rp0) == 1)
+				else if ((GetRAM(Status) | Rp0) == 32)
 				{
 					if (address < 255)
 					{
@@ -75,7 +78,16 @@ namespace picsim
 					}
 				}
 
+			}if((address == 0x88) && ((GetRAM(Status) & 0b_0010_0000)== 32)&&((GetRAM(Eecon1) | 0b_0001_0000) == 2)){
+				if ((GetRAM(Eecon1) & 0b00000110) == 6)
+				{
+					int eeaddr = GetRAM(Eeadr);
+					int eedat = GetRAM(Eedata);
+					_eeprom[eeaddr]= Convert.ToByte(eedat);
+					WriteRAM(Eecon1, GetRAM(Eecon1 | 0b_0001_0000));
+				}
 			}
+			
 		}
 
 		private byte GetRAM(ushort address)
@@ -89,9 +101,7 @@ namespace picsim
 			{
 				SetZ(true);
 			}
-			else if (value != 0)
-
-			{
+			else {
 				SetZ(false);
 			}
 		}
@@ -103,7 +113,6 @@ namespace picsim
 				SetC(false);
 			}
 			else if (value > 255)
-
 			{
 				SetC(true);
 			}
@@ -364,7 +373,7 @@ namespace picsim
 		}
 
 		public async Task<int> Step(int mode)
-		{
+		{/*
 			switch (mode)
 			{
 				//Run Mode
@@ -380,8 +389,11 @@ namespace picsim
 					_programCounter = +1;
 					break;
 			}
+			*/
+			WriteRAM(0x30, Convert.ToByte(GetRAM(0xB0) + 1));
+			RefreshRegisters();
 
-			return 1;
+            return 1;
 		}
 
 		private bool DecodeDBit()
@@ -431,6 +443,7 @@ namespace picsim
 		{
 			RefreshProgram();
 			RefreshIndirectAddress();
+			EvtUpdateRegisters?.Invoke(this, new UpdateRegistersEventArgs(14151801));
 		}
 
 		private void CheckInterrupts()
@@ -439,7 +452,7 @@ namespace picsim
 			{
 				if ((GetRAM(Intcon & 0b_0010_0000) == 32) && (GetRAM(Intcon) & 0b_0000_0100) == 4)
 				{
-					Tmr0_int();
+					Interrupt();
 				}
 			}
 
@@ -450,7 +463,7 @@ namespace picsim
 					if ((((GetRAM(Intcon) & 0b_0000_0001) == 0) & ((GetRAM(Intcon) & 0b_0100_0000) == 64)) ||
 					    (((GetRAM(Intcon) & 0b_0000_0001) == 1) && ((GetRAM(Intcon) & 0b_0100_0000) == 0)))
 					{
-						Tmr0_int();
+						Interrupt();
 					}
 				}
 			}
@@ -459,21 +472,21 @@ namespace picsim
 			{
 				if (((GetRAM(Intcon) & 0b_0000_1000) == 8) & ((GetRAM(Intcon) & 0b_0000_0001) == 1))
 				{
-					Tmr0_int();
+					Interrupt();
 				}
 			}
 		}
 
-		void Tmr0_int()
+		void Interrupt()
 		{
 			WriteRAM(Intcon, Intcon & 0b_0111_1111);
 			_stack.Push(_programCounter);
 			_stackpointer++;
 
 		}
-
+		//TODO: FIXME
 		private void RefreshProgram()
-		{
+		{/*
 			byte pcl = Convert.ToByte(_programCounter | 0b_0000_0000_1111_1111);
 			byte pclath = Convert.ToByte(_programCounter | 0b_0001_1111_0000_0000);
 
@@ -481,6 +494,7 @@ namespace picsim
 			WriteRAM(Pclath, pclath);
 
 			_programCounter = pclath | pcl;
+			*/
 		}
 
 		private void RefreshIndirectAddress()
@@ -488,6 +502,6 @@ namespace picsim
 			byte pointer = GetRAM(Fsr);
 			WriteRAM(Indaddr, GetRAM(pointer));
 		}
-	}
+    }
 } 
         

@@ -1,7 +1,8 @@
-﻿namespace picsim;
+﻿namespace Try;
 
 public partial class Pic
 {
+    
     private void addwf()
     {
         CheckInterrupts();

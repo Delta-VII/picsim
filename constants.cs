@@ -1,4 +1,4 @@
-﻿namespace picsim;
+﻿namespace Try;
 
 public partial class Pic
 {

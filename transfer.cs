@@ -1,17 +1,9 @@
 ﻿using System.Collections;
 
-namespace picsim;
+namespace Try;
 
 public class TransferSimToGUI
 {
-    public TransferSimToGUI(byte[] ram, int laufzeit, Stack stack, int stackpointer)
-    {
-        Ram = ram;
-        _laufzeit = laufzeit;
-        Stack = stack;
-        Stackpointer = stackpointer;
-    }
-
     public byte[] Ram1
     {
         get => Ram;
@@ -81,16 +73,7 @@ public class TransferGuiToSim
         set => Watchdog = value;
     }
 
-    public TransferGuiToSim(string path, ushort ioToggle, ushort controlButtons, int[] breakpoints, int runMode, bool watchdog)
-    {
-        Path = path;
-        IoToggle = ioToggle;
-        ControlButtons = controlButtons;
-        Breakpoints = breakpoints;
-        RunMode = runMode;
-        Watchdog = watchdog;
-    }
-
+    
     private string Path;
     private ushort IoToggle;
     private ushort ControlButtons;

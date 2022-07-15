@@ -6,9 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Runtime.ExceptionServices;
+using System.Windows.Forms;
 
 namespace Try
 {
@@ -18,19 +19,34 @@ namespace Try
         private DateTime referenceTime;
         private TimeSpan ts = default;
         private int codePointer;
+        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        private picUtil _picUtil;
+        //private TransferGuiToSim transferGuiToSim;
+        //private TransferSimToGUI transferSimToGui;
+
         public MainForm()
+        {/*
+            //transferGuiToSim = new TransferGuiToSim()
+            //{
+            //    Path1 = new ushort[] {1,2,3},
+            //    IoToggle1 = new ushort[] {1,2,3},
+            //    ControlButtons1 = new ushort[] {1,2,3},
+            //    Breakpoints1 = new int[] {1,2,3},
+            //    RunMode1 = new ushort[] {1,2,3},
+            //    Watchdog1 = new ushort[] {1,2,3}
+            //};
+            //transferSimToGui = new TransferSimToGUI();
+            */
+            
 
-        // erste Tabelle
 
-        {
 
+            // erste Tabelle
             InitializeComponent();
 
             dataGrid1.Columns[0].Name = "Product ID";
             dataGrid1.Columns[1].Name = "Product Name";
             dataGrid1.Columns[2].Name = "Product Price";
-
-
 
             FullfillRows("00");
             FullfillRows("08");
@@ -65,7 +81,19 @@ namespace Try
             FullfillRows("F0");
             FullfillRows("F8");
             timer1.Interval = 10;
+            timer1.Tick += timer1_Tick;
+
+            _picUtil = new picUtil();
+            _picUtil.EvtNewDataReceived += OnNewTransferDataReceived;
+            byte biss = 42;
+            _picUtil.Tsim2Gui1 = new TransferSimToGUI()
+            {
+                Ram1 = new byte[] { new byte(), 00 , biss }
+            };
         }
+
+
+
 
         //Zweite Tabelle
 
@@ -75,22 +103,23 @@ namespace Try
             dataGrid1.Rows.Add(row);
         }
         private void timer1_Tick(object sender, System.EventArgs e)
-        {            
+        {
             timerValueLabel.Text = Convert.ToString(DateTime.Now - referenceTime);
-            ts =  referenceTime - DateTime.Now;
-        }     
-        
+            ts = referenceTime - DateTime.Now;
+            //UpdateGUI();
+        }
+
         // Button handling
         private void Start_Click(object sender, System.EventArgs e)
         {
-            if( this.Filelines != default)
+            if (this.Filelines != default)
             {
                 timer1.Enabled = true;
                 Start.Enabled = false;
                 Stop.Enabled = true;
                 referenceTime = DateTime.Now.Add(ts);
             }
-                
+
         }
         private void Stop_Click(object sender, EventArgs e)
         {
@@ -100,7 +129,7 @@ namespace Try
             timerValueLabel.Text = Convert.ToString(DateTime.Now - referenceTime);
         }
 
-        private void Reset_Click(object sender, EventArgs e)
+        private void New_Click(object sender, EventArgs e)
         {
             this.Dispose(false);
             MainForm NewForm = new MainForm();
@@ -110,13 +139,14 @@ namespace Try
         private void Step_Click_1(object sender, EventArgs e)
         {
             codeGrid.ClearSelection();
-            codePointer++;            
+            codePointer++;
             codeGrid.Rows[codePointer].Selected = true;
+            _picUtil.test();
         }
 
         private void Go_Click(object sender, EventArgs e)
         {
-                       
+
         }
 
         private void File_Click(object sender, EventArgs e)
@@ -134,16 +164,23 @@ namespace Try
                     //Get the path of specified file
                     filePath = openFileDialog.FileName;
                     this.Filelines = System.IO.File.ReadLines(filePath).ToList();
-
-                    foreach (String item in this.Filelines )
+                    bool FirstCharEqu0 = false;
+                    int i = 0;
+                    foreach (String item in this.Filelines)
                     {
                         codeGrid.Rows.Add(item);
+                        i++;
+                        if (item[0] == '0' && FirstCharEqu0 == false)
+                        {
+                            FirstCharEqu0 = true;
+                            codePointer = i - 1;
+                        }
                     }
-                    codePointer = 0;
+
                     codeGrid.ClearSelection();
-                    codeGrid.Rows[codePointer].Selected = true;                    
+                    codeGrid.Rows[codePointer].Selected = true;
                 }
-            }       
+            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -155,14 +192,30 @@ namespace Try
         {
 
         }
+
+        private void codeGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Reset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnNewTransferDataReceived(object sender, NewDataReceiedEventArgs e)
+        {
+            dataGrid1?.Rows.Clear();
+            for (int i = 0; i < _picUtil.Tsim2Gui1.Ram1.Length; i++)
+            {
+                FullfillRows(_picUtil.Tsim2Gui1.Ram1[i].ToString());
+            }
+            //MessageBox.Show($"Laufzeit:{_picUtil.Tsim2Gui1.Laufzeit}\nStack:{_picUtil.Tsim2Gui1.Stack1}\nPointer:{_picUtil.Tsim2Gui1.Stackpointer1}");
+        }
+
+        //void UpdateGUI()
+        //{
+        //    _picUtil.
+        //}
     }
-
-      
-
-    
 }
-
-
-
-
- 

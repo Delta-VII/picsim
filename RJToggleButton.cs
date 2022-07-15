@@ -1,4 +1,6 @@
-﻿namespace Try.RJControls
+﻿using System.Drawing.Drawing2D;
+
+namespace Try.RJControls
 {
     internal class RJToggleButton
     {

@@ -30,7 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGrid1 = new System.Windows.Forms.DataGridView();
-            this.Reset = new System.Windows.Forms.Button();
+            this.CNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C00 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.New = new System.Windows.Forms.Button();
             this.Step = new System.Windows.Forms.Button();
             this.Go = new System.Windows.Forms.Button();
             this.File = new System.Windows.Forms.Button();
@@ -63,15 +72,6 @@
             this.rb3Tgl = new System.Windows.Forms.Label();
             this.rb4Tgl = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C00 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RAGrid = new System.Windows.Forms.DataGridView();
             this.rara = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ra7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,16 +106,6 @@
             this.ra1Toggle = new Try.RJControls.RJTogglebutton();
             this.ra0Toggle = new Try.RJControls.RJTogglebutton();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.GIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.T0IE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RBIB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.T0IF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INTF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RBIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IRP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RP0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,6 +114,16 @@
             this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.GIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T0IE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RBIB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T0IF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INTF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RBIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.RBP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IntEdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T0CS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -136,6 +136,7 @@
             this.intconLabel = new System.Windows.Forms.Label();
             this.ffLabel = new System.Windows.Forms.Label();
             this.nullLabel = new System.Windows.Forms.Label();
+            this.Reset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -161,286 +162,12 @@
             this.C5,
             this.C6,
             this.C7});
-            this.dataGrid1.Location = new System.Drawing.Point(0, 12);
+            this.dataGrid1.Location = new System.Drawing.Point(0, 14);
+            this.dataGrid1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGrid1.Name = "dataGrid1";
             this.dataGrid1.ReadOnly = true;
-            this.dataGrid1.Size = new System.Drawing.Size(268, 730);
+            this.dataGrid1.Size = new System.Drawing.Size(313, 842);
             this.dataGrid1.TabIndex = 1;
-            // 
-            // Reset
-            // 
-            this.Reset.Location = new System.Drawing.Point(1073, 516);
-            this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(75, 23);
-            this.Reset.TabIndex = 2;
-            this.Reset.Text = "Reset";
-            this.Reset.UseVisualStyleBackColor = true;
-            this.Reset.Click += new System.EventHandler(this.Reset_Click);
-            // 
-            // Step
-            // 
-            this.Step.Location = new System.Drawing.Point(1073, 548);
-            this.Step.Name = "Step";
-            this.Step.Size = new System.Drawing.Size(75, 23);
-            this.Step.TabIndex = 4;
-            this.Step.Text = "Step";
-            this.Step.UseVisualStyleBackColor = true;
-            this.Step.Click += new System.EventHandler(this.Step_Click_1);
-            // 
-            // Go
-            // 
-            this.Go.Location = new System.Drawing.Point(1073, 577);
-            this.Go.Name = "Go";
-            this.Go.Size = new System.Drawing.Size(75, 23);
-            this.Go.TabIndex = 7;
-            this.Go.Text = "Go";
-            this.Go.UseVisualStyleBackColor = true;
-            this.Go.Click += new System.EventHandler(this.Go_Click);
-            // 
-            // File
-            // 
-            this.File.Location = new System.Drawing.Point(1073, 427);
-            this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(75, 23);
-            this.File.TabIndex = 9;
-            this.File.Text = "File";
-            this.File.UseVisualStyleBackColor = true;
-            this.File.Click += new System.EventHandler(this.File_Click);
-            // 
-            // Start
-            // 
-            this.Start.Location = new System.Drawing.Point(1073, 456);
-            this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(75, 23);
-            this.Start.TabIndex = 11;
-            this.Start.Text = "Start";
-            this.Start.UseVisualStyleBackColor = true;
-            this.Start.Click += new System.EventHandler(this.Start_Click);
-            // 
-            // Stop
-            // 
-            this.Stop.Location = new System.Drawing.Point(1073, 487);
-            this.Stop.Name = "Stop";
-            this.Stop.Size = new System.Drawing.Size(75, 23);
-            this.Stop.TabIndex = 12;
-            this.Stop.Text = "Stop";
-            this.Stop.UseVisualStyleBackColor = true;
-            this.Stop.Click += new System.EventHandler(this.Stop_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timerValueLabel
-            // 
-            this.timerValueLabel.AutoSize = true;
-            this.timerValueLabel.Location = new System.Drawing.Point(1128, 393);
-            this.timerValueLabel.Name = "timerValueLabel";
-            this.timerValueLabel.Size = new System.Drawing.Size(49, 13);
-            this.timerValueLabel.TabIndex = 19;
-            this.timerValueLabel.Text = "00:00:00";
-            // 
-            // timerLabel
-            // 
-            this.timerLabel.AutoSize = true;
-            this.timerLabel.Location = new System.Drawing.Point(1070, 393);
-            this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Size = new System.Drawing.Size(33, 13);
-            this.timerLabel.TabIndex = 20;
-            this.timerLabel.Text = "Timer";
-            // 
-            // codeGrid
-            // 
-            this.codeGrid.AllowUserToAddRows = false;
-            this.codeGrid.AllowUserToDeleteRows = false;
-            this.codeGrid.AllowUserToResizeColumns = false;
-            this.codeGrid.AllowUserToResizeRows = false;
-            this.codeGrid.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.codeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.codeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column14});
-            this.codeGrid.Enabled = false;
-            this.codeGrid.Location = new System.Drawing.Point(661, 289);
-            this.codeGrid.Name = "codeGrid";
-            this.codeGrid.ReadOnly = true;
-            this.codeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.codeGrid.ShowCellErrors = false;
-            this.codeGrid.ShowCellToolTips = false;
-            this.codeGrid.ShowEditingIcon = false;
-            this.codeGrid.ShowRowErrors = false;
-            this.codeGrid.Size = new System.Drawing.Size(390, 453);
-            this.codeGrid.TabIndex = 21;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Column14";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 600;
-            // 
-            // ra1Label
-            // 
-            this.ra1Label.AutoSize = true;
-            this.ra1Label.Location = new System.Drawing.Point(1038, 12);
-            this.ra1Label.Name = "ra1Label";
-            this.ra1Label.Size = new System.Drawing.Size(13, 13);
-            this.ra1Label.TabIndex = 22;
-            this.ra1Label.Text = "1";
-            // 
-            // ra0Label
-            // 
-            this.ra0Label.AutoSize = true;
-            this.ra0Label.Location = new System.Drawing.Point(988, 12);
-            this.ra0Label.Name = "ra0Label";
-            this.ra0Label.Size = new System.Drawing.Size(13, 13);
-            this.ra0Label.TabIndex = 23;
-            this.ra0Label.Text = "0";
-            // 
-            // rb0Label
-            // 
-            this.rb0Label.AutoSize = true;
-            this.rb0Label.Location = new System.Drawing.Point(1147, 12);
-            this.rb0Label.Name = "rb0Label";
-            this.rb0Label.Size = new System.Drawing.Size(13, 13);
-            this.rb0Label.TabIndex = 38;
-            this.rb0Label.Text = "0";
-            // 
-            // rb1Label
-            // 
-            this.rb1Label.AutoSize = true;
-            this.rb1Label.Location = new System.Drawing.Point(1197, 12);
-            this.rb1Label.Name = "rb1Label";
-            this.rb1Label.Size = new System.Drawing.Size(13, 13);
-            this.rb1Label.TabIndex = 39;
-            this.rb1Label.Text = "1";
-            // 
-            // ra0Tgl
-            // 
-            this.ra0Tgl.AutoSize = true;
-            this.ra0Tgl.Location = new System.Drawing.Point(950, 28);
-            this.ra0Tgl.Name = "ra0Tgl";
-            this.ra0Tgl.Size = new System.Drawing.Size(28, 13);
-            this.ra0Tgl.TabIndex = 40;
-            this.ra0Tgl.Text = "RA0";
-            // 
-            // ra1Tgl
-            // 
-            this.ra1Tgl.AutoSize = true;
-            this.ra1Tgl.Location = new System.Drawing.Point(950, 51);
-            this.ra1Tgl.Name = "ra1Tgl";
-            this.ra1Tgl.Size = new System.Drawing.Size(28, 13);
-            this.ra1Tgl.TabIndex = 41;
-            this.ra1Tgl.Text = "RA1";
-            // 
-            // ra2Tgl
-            // 
-            this.ra2Tgl.AutoSize = true;
-            this.ra2Tgl.Location = new System.Drawing.Point(950, 75);
-            this.ra2Tgl.Name = "ra2Tgl";
-            this.ra2Tgl.Size = new System.Drawing.Size(28, 13);
-            this.ra2Tgl.TabIndex = 42;
-            this.ra2Tgl.Text = "RA2";
-            // 
-            // ra3Tgl
-            // 
-            this.ra3Tgl.AutoSize = true;
-            this.ra3Tgl.Location = new System.Drawing.Point(950, 101);
-            this.ra3Tgl.Name = "ra3Tgl";
-            this.ra3Tgl.Size = new System.Drawing.Size(28, 13);
-            this.ra3Tgl.TabIndex = 43;
-            this.ra3Tgl.Text = "RA3";
-            // 
-            // ra4Tgl
-            // 
-            this.ra4Tgl.AutoSize = true;
-            this.ra4Tgl.Location = new System.Drawing.Point(950, 124);
-            this.ra4Tgl.Name = "ra4Tgl";
-            this.ra4Tgl.Size = new System.Drawing.Size(28, 13);
-            this.ra4Tgl.TabIndex = 44;
-            this.ra4Tgl.Text = "RA4";
-            // 
-            // ra5Tgl
-            // 
-            this.ra5Tgl.AutoSize = true;
-            this.ra5Tgl.Location = new System.Drawing.Point(950, 147);
-            this.ra5Tgl.Name = "ra5Tgl";
-            this.ra5Tgl.Size = new System.Drawing.Size(28, 13);
-            this.ra5Tgl.TabIndex = 45;
-            this.ra5Tgl.Text = "RA5";
-            // 
-            // ra6Tgl
-            // 
-            this.ra6Tgl.AutoSize = true;
-            this.ra6Tgl.Location = new System.Drawing.Point(950, 170);
-            this.ra6Tgl.Name = "ra6Tgl";
-            this.ra6Tgl.Size = new System.Drawing.Size(28, 13);
-            this.ra6Tgl.TabIndex = 46;
-            this.ra6Tgl.Text = "RA6";
-            // 
-            // ra7Tgl
-            // 
-            this.ra7Tgl.AutoSize = true;
-            this.ra7Tgl.Location = new System.Drawing.Point(950, 193);
-            this.ra7Tgl.Name = "ra7Tgl";
-            this.ra7Tgl.Size = new System.Drawing.Size(28, 13);
-            this.ra7Tgl.TabIndex = 47;
-            this.ra7Tgl.Text = "RA7";
-            // 
-            // rb0Tgl
-            // 
-            this.rb0Tgl.AutoSize = true;
-            this.rb0Tgl.Location = new System.Drawing.Point(1116, 32);
-            this.rb0Tgl.Name = "rb0Tgl";
-            this.rb0Tgl.Size = new System.Drawing.Size(28, 13);
-            this.rb0Tgl.TabIndex = 48;
-            this.rb0Tgl.Text = "RB0";
-            // 
-            // rb1Tgl
-            // 
-            this.rb1Tgl.AutoSize = true;
-            this.rb1Tgl.Location = new System.Drawing.Point(1116, 55);
-            this.rb1Tgl.Name = "rb1Tgl";
-            this.rb1Tgl.Size = new System.Drawing.Size(28, 13);
-            this.rb1Tgl.TabIndex = 49;
-            this.rb1Tgl.Text = "RB1";
-            // 
-            // rb2Tgl
-            // 
-            this.rb2Tgl.AutoSize = true;
-            this.rb2Tgl.Location = new System.Drawing.Point(1116, 78);
-            this.rb2Tgl.Name = "rb2Tgl";
-            this.rb2Tgl.Size = new System.Drawing.Size(28, 13);
-            this.rb2Tgl.TabIndex = 50;
-            this.rb2Tgl.Text = "RB2";
-            // 
-            // rb3Tgl
-            // 
-            this.rb3Tgl.AutoSize = true;
-            this.rb3Tgl.Location = new System.Drawing.Point(1116, 101);
-            this.rb3Tgl.Name = "rb3Tgl";
-            this.rb3Tgl.Size = new System.Drawing.Size(28, 13);
-            this.rb3Tgl.TabIndex = 51;
-            this.rb3Tgl.Text = "RB3";
-            // 
-            // rb4Tgl
-            // 
-            this.rb4Tgl.AutoSize = true;
-            this.rb4Tgl.Location = new System.Drawing.Point(1116, 124);
-            this.rb4Tgl.Name = "rb4Tgl";
-            this.rb4Tgl.Size = new System.Drawing.Size(28, 13);
-            this.rb4Tgl.TabIndex = 52;
-            this.rb4Tgl.Text = "RB4";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1240, 917);
-            this.dataGridView1.TabIndex = 0;
             // 
             // CNames
             // 
@@ -514,6 +241,309 @@
             this.C7.ReadOnly = true;
             this.C7.Width = 25;
             // 
+            // New
+            // 
+            this.New.Location = new System.Drawing.Point(1252, 699);
+            this.New.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.New.Name = "New";
+            this.New.Size = new System.Drawing.Size(88, 27);
+            this.New.TabIndex = 2;
+            this.New.Text = "New";
+            this.New.UseVisualStyleBackColor = true;
+            this.New.Click += new System.EventHandler(this.New_Click);
+            // 
+            // Step
+            // 
+            this.Step.Location = new System.Drawing.Point(1252, 632);
+            this.Step.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Step.Name = "Step";
+            this.Step.Size = new System.Drawing.Size(88, 27);
+            this.Step.TabIndex = 4;
+            this.Step.Text = "Step";
+            this.Step.UseVisualStyleBackColor = true;
+            this.Step.Click += new System.EventHandler(this.Step_Click_1);
+            // 
+            // Go
+            // 
+            this.Go.Location = new System.Drawing.Point(1252, 666);
+            this.Go.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Go.Name = "Go";
+            this.Go.Size = new System.Drawing.Size(88, 27);
+            this.Go.TabIndex = 7;
+            this.Go.Text = "Go";
+            this.Go.UseVisualStyleBackColor = true;
+            this.Go.Click += new System.EventHandler(this.Go_Click);
+            // 
+            // File
+            // 
+            this.File.Location = new System.Drawing.Point(1252, 493);
+            this.File.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.File.Name = "File";
+            this.File.Size = new System.Drawing.Size(88, 27);
+            this.File.TabIndex = 9;
+            this.File.Text = "File";
+            this.File.UseVisualStyleBackColor = true;
+            this.File.Click += new System.EventHandler(this.File_Click);
+            // 
+            // Start
+            // 
+            this.Start.Location = new System.Drawing.Point(1252, 526);
+            this.Start.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Start.Name = "Start";
+            this.Start.Size = new System.Drawing.Size(88, 27);
+            this.Start.TabIndex = 11;
+            this.Start.Text = "Start";
+            this.Start.UseVisualStyleBackColor = true;
+            this.Start.Click += new System.EventHandler(this.Start_Click);
+            // 
+            // Stop
+            // 
+            this.Stop.Location = new System.Drawing.Point(1252, 562);
+            this.Stop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Stop.Name = "Stop";
+            this.Stop.Size = new System.Drawing.Size(88, 27);
+            this.Stop.TabIndex = 12;
+            this.Stop.Text = "Stop";
+            this.Stop.UseVisualStyleBackColor = true;
+            this.Stop.Click += new System.EventHandler(this.Stop_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerValueLabel
+            // 
+            this.timerValueLabel.AutoSize = true;
+            this.timerValueLabel.Location = new System.Drawing.Point(1316, 453);
+            this.timerValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.timerValueLabel.Name = "timerValueLabel";
+            this.timerValueLabel.Size = new System.Drawing.Size(49, 15);
+            this.timerValueLabel.TabIndex = 19;
+            this.timerValueLabel.Text = "00:00:00";
+            // 
+            // timerLabel
+            // 
+            this.timerLabel.AutoSize = true;
+            this.timerLabel.Location = new System.Drawing.Point(1248, 453);
+            this.timerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.timerLabel.Name = "timerLabel";
+            this.timerLabel.Size = new System.Drawing.Size(37, 15);
+            this.timerLabel.TabIndex = 20;
+            this.timerLabel.Text = "Timer";
+            // 
+            // codeGrid
+            // 
+            this.codeGrid.AllowUserToAddRows = false;
+            this.codeGrid.AllowUserToDeleteRows = false;
+            this.codeGrid.AllowUserToResizeColumns = false;
+            this.codeGrid.AllowUserToResizeRows = false;
+            this.codeGrid.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.codeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.codeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column14});
+            this.codeGrid.Enabled = false;
+            this.codeGrid.Location = new System.Drawing.Point(771, 333);
+            this.codeGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.codeGrid.Name = "codeGrid";
+            this.codeGrid.ReadOnly = true;
+            this.codeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.codeGrid.ShowCellErrors = false;
+            this.codeGrid.ShowCellToolTips = false;
+            this.codeGrid.ShowEditingIcon = false;
+            this.codeGrid.ShowRowErrors = false;
+            this.codeGrid.Size = new System.Drawing.Size(455, 523);
+            this.codeGrid.TabIndex = 21;
+            this.codeGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.codeGrid_CellContentClick);
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Column14";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 600;
+            // 
+            // ra1Label
+            // 
+            this.ra1Label.AutoSize = true;
+            this.ra1Label.Location = new System.Drawing.Point(1211, 14);
+            this.ra1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra1Label.Name = "ra1Label";
+            this.ra1Label.Size = new System.Drawing.Size(13, 15);
+            this.ra1Label.TabIndex = 22;
+            this.ra1Label.Text = "1";
+            // 
+            // ra0Label
+            // 
+            this.ra0Label.AutoSize = true;
+            this.ra0Label.Location = new System.Drawing.Point(1153, 14);
+            this.ra0Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra0Label.Name = "ra0Label";
+            this.ra0Label.Size = new System.Drawing.Size(13, 15);
+            this.ra0Label.TabIndex = 23;
+            this.ra0Label.Text = "0";
+            // 
+            // rb0Label
+            // 
+            this.rb0Label.AutoSize = true;
+            this.rb0Label.Location = new System.Drawing.Point(1338, 14);
+            this.rb0Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rb0Label.Name = "rb0Label";
+            this.rb0Label.Size = new System.Drawing.Size(13, 15);
+            this.rb0Label.TabIndex = 38;
+            this.rb0Label.Text = "0";
+            // 
+            // rb1Label
+            // 
+            this.rb1Label.AutoSize = true;
+            this.rb1Label.Location = new System.Drawing.Point(1396, 14);
+            this.rb1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rb1Label.Name = "rb1Label";
+            this.rb1Label.Size = new System.Drawing.Size(13, 15);
+            this.rb1Label.TabIndex = 39;
+            this.rb1Label.Text = "1";
+            // 
+            // ra0Tgl
+            // 
+            this.ra0Tgl.AutoSize = true;
+            this.ra0Tgl.Location = new System.Drawing.Point(1108, 32);
+            this.ra0Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra0Tgl.Name = "ra0Tgl";
+            this.ra0Tgl.Size = new System.Drawing.Size(28, 15);
+            this.ra0Tgl.TabIndex = 40;
+            this.ra0Tgl.Text = "RA0";
+            // 
+            // ra1Tgl
+            // 
+            this.ra1Tgl.AutoSize = true;
+            this.ra1Tgl.Location = new System.Drawing.Point(1108, 59);
+            this.ra1Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra1Tgl.Name = "ra1Tgl";
+            this.ra1Tgl.Size = new System.Drawing.Size(28, 15);
+            this.ra1Tgl.TabIndex = 41;
+            this.ra1Tgl.Text = "RA1";
+            // 
+            // ra2Tgl
+            // 
+            this.ra2Tgl.AutoSize = true;
+            this.ra2Tgl.Location = new System.Drawing.Point(1108, 87);
+            this.ra2Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra2Tgl.Name = "ra2Tgl";
+            this.ra2Tgl.Size = new System.Drawing.Size(28, 15);
+            this.ra2Tgl.TabIndex = 42;
+            this.ra2Tgl.Text = "RA2";
+            // 
+            // ra3Tgl
+            // 
+            this.ra3Tgl.AutoSize = true;
+            this.ra3Tgl.Location = new System.Drawing.Point(1108, 117);
+            this.ra3Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra3Tgl.Name = "ra3Tgl";
+            this.ra3Tgl.Size = new System.Drawing.Size(28, 15);
+            this.ra3Tgl.TabIndex = 43;
+            this.ra3Tgl.Text = "RA3";
+            // 
+            // ra4Tgl
+            // 
+            this.ra4Tgl.AutoSize = true;
+            this.ra4Tgl.Location = new System.Drawing.Point(1108, 143);
+            this.ra4Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra4Tgl.Name = "ra4Tgl";
+            this.ra4Tgl.Size = new System.Drawing.Size(28, 15);
+            this.ra4Tgl.TabIndex = 44;
+            this.ra4Tgl.Text = "RA4";
+            // 
+            // ra5Tgl
+            // 
+            this.ra5Tgl.AutoSize = true;
+            this.ra5Tgl.Location = new System.Drawing.Point(1108, 170);
+            this.ra5Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra5Tgl.Name = "ra5Tgl";
+            this.ra5Tgl.Size = new System.Drawing.Size(28, 15);
+            this.ra5Tgl.TabIndex = 45;
+            this.ra5Tgl.Text = "RA5";
+            // 
+            // ra6Tgl
+            // 
+            this.ra6Tgl.AutoSize = true;
+            this.ra6Tgl.Location = new System.Drawing.Point(1108, 196);
+            this.ra6Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra6Tgl.Name = "ra6Tgl";
+            this.ra6Tgl.Size = new System.Drawing.Size(28, 15);
+            this.ra6Tgl.TabIndex = 46;
+            this.ra6Tgl.Text = "RA6";
+            // 
+            // ra7Tgl
+            // 
+            this.ra7Tgl.AutoSize = true;
+            this.ra7Tgl.Location = new System.Drawing.Point(1108, 223);
+            this.ra7Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ra7Tgl.Name = "ra7Tgl";
+            this.ra7Tgl.Size = new System.Drawing.Size(28, 15);
+            this.ra7Tgl.TabIndex = 47;
+            this.ra7Tgl.Text = "RA7";
+            // 
+            // rb0Tgl
+            // 
+            this.rb0Tgl.AutoSize = true;
+            this.rb0Tgl.Location = new System.Drawing.Point(1302, 37);
+            this.rb0Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rb0Tgl.Name = "rb0Tgl";
+            this.rb0Tgl.Size = new System.Drawing.Size(27, 15);
+            this.rb0Tgl.TabIndex = 48;
+            this.rb0Tgl.Text = "RB0";
+            // 
+            // rb1Tgl
+            // 
+            this.rb1Tgl.AutoSize = true;
+            this.rb1Tgl.Location = new System.Drawing.Point(1302, 63);
+            this.rb1Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rb1Tgl.Name = "rb1Tgl";
+            this.rb1Tgl.Size = new System.Drawing.Size(27, 15);
+            this.rb1Tgl.TabIndex = 49;
+            this.rb1Tgl.Text = "RB1";
+            // 
+            // rb2Tgl
+            // 
+            this.rb2Tgl.AutoSize = true;
+            this.rb2Tgl.Location = new System.Drawing.Point(1302, 90);
+            this.rb2Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rb2Tgl.Name = "rb2Tgl";
+            this.rb2Tgl.Size = new System.Drawing.Size(27, 15);
+            this.rb2Tgl.TabIndex = 50;
+            this.rb2Tgl.Text = "RB2";
+            // 
+            // rb3Tgl
+            // 
+            this.rb3Tgl.AutoSize = true;
+            this.rb3Tgl.Location = new System.Drawing.Point(1302, 117);
+            this.rb3Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rb3Tgl.Name = "rb3Tgl";
+            this.rb3Tgl.Size = new System.Drawing.Size(27, 15);
+            this.rb3Tgl.TabIndex = 51;
+            this.rb3Tgl.Text = "RB3";
+            // 
+            // rb4Tgl
+            // 
+            this.rb4Tgl.AutoSize = true;
+            this.rb4Tgl.Location = new System.Drawing.Point(1302, 143);
+            this.rb4Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rb4Tgl.Name = "rb4Tgl";
+            this.rb4Tgl.Size = new System.Drawing.Size(27, 15);
+            this.rb4Tgl.TabIndex = 52;
+            this.rb4Tgl.Text = "RB4";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1447, 1058);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // RAGrid
             // 
             this.RAGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -527,9 +557,10 @@
             this.ra2,
             this.ra1,
             this.ra0});
-            this.RAGrid.Location = new System.Drawing.Point(274, 10);
+            this.RAGrid.Location = new System.Drawing.Point(320, 12);
+            this.RAGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.RAGrid.Name = "RAGrid";
-            this.RAGrid.Size = new System.Drawing.Size(270, 81);
+            this.RAGrid.Size = new System.Drawing.Size(315, 93);
             this.RAGrid.TabIndex = 64;
             // 
             // rara
@@ -616,9 +647,10 @@
             this.rb2,
             this.rb1,
             this.rb0});
-            this.RBGrid.Location = new System.Drawing.Point(274, 97);
+            this.RBGrid.Location = new System.Drawing.Point(320, 112);
+            this.RBGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.RBGrid.Name = "RBGrid";
-            this.RBGrid.Size = new System.Drawing.Size(270, 81);
+            this.RBGrid.Size = new System.Drawing.Size(315, 93);
             this.RBGrid.TabIndex = 65;
             // 
             // rbrb
@@ -695,11 +727,12 @@
             // rb4Toggle
             // 
             this.rb4Toggle.AutoSize = true;
-            this.rb4Toggle.Location = new System.Drawing.Point(1150, 120);
-            this.rb4Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.rb4Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.rb4Toggle.Location = new System.Drawing.Point(1342, 138);
+            this.rb4Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.rb4Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.rb4Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.rb4Toggle.Name = "rb4Toggle";
-            this.rb4Toggle.Size = new System.Drawing.Size(60, 17);
+            this.rb4Toggle.Size = new System.Drawing.Size(70, 19);
             this.rb4Toggle.TabIndex = 63;
             this.rb4Toggle.Text = "rjTogglebutton13";
             this.rb4Toggle.UseVisualStyleBackColor = true;
@@ -707,11 +740,12 @@
             // rb3Toggle
             // 
             this.rb3Toggle.AutoSize = true;
-            this.rb3Toggle.Location = new System.Drawing.Point(1150, 97);
-            this.rb3Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.rb3Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.rb3Toggle.Location = new System.Drawing.Point(1342, 112);
+            this.rb3Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.rb3Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.rb3Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.rb3Toggle.Name = "rb3Toggle";
-            this.rb3Toggle.Size = new System.Drawing.Size(60, 17);
+            this.rb3Toggle.Size = new System.Drawing.Size(70, 19);
             this.rb3Toggle.TabIndex = 62;
             this.rb3Toggle.Text = "rjTogglebutton12";
             this.rb3Toggle.UseVisualStyleBackColor = true;
@@ -719,11 +753,12 @@
             // rb2Toggle
             // 
             this.rb2Toggle.AutoSize = true;
-            this.rb2Toggle.Location = new System.Drawing.Point(1150, 74);
-            this.rb2Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.rb2Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.rb2Toggle.Location = new System.Drawing.Point(1342, 85);
+            this.rb2Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.rb2Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.rb2Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.rb2Toggle.Name = "rb2Toggle";
-            this.rb2Toggle.Size = new System.Drawing.Size(60, 17);
+            this.rb2Toggle.Size = new System.Drawing.Size(70, 19);
             this.rb2Toggle.TabIndex = 61;
             this.rb2Toggle.Text = "rjTogglebutton11";
             this.rb2Toggle.UseVisualStyleBackColor = true;
@@ -731,11 +766,12 @@
             // rb1Toggle
             // 
             this.rb1Toggle.AutoSize = true;
-            this.rb1Toggle.Location = new System.Drawing.Point(1150, 51);
-            this.rb1Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.rb1Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.rb1Toggle.Location = new System.Drawing.Point(1342, 59);
+            this.rb1Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.rb1Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.rb1Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.rb1Toggle.Name = "rb1Toggle";
-            this.rb1Toggle.Size = new System.Drawing.Size(60, 17);
+            this.rb1Toggle.Size = new System.Drawing.Size(70, 19);
             this.rb1Toggle.TabIndex = 60;
             this.rb1Toggle.Text = "rjTogglebutton10";
             this.rb1Toggle.UseVisualStyleBackColor = true;
@@ -743,11 +779,12 @@
             // rb0Toggle
             // 
             this.rb0Toggle.AutoSize = true;
-            this.rb0Toggle.Location = new System.Drawing.Point(1150, 28);
-            this.rb0Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.rb0Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.rb0Toggle.Location = new System.Drawing.Point(1342, 32);
+            this.rb0Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.rb0Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.rb0Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.rb0Toggle.Name = "rb0Toggle";
-            this.rb0Toggle.Size = new System.Drawing.Size(60, 17);
+            this.rb0Toggle.Size = new System.Drawing.Size(70, 19);
             this.rb0Toggle.TabIndex = 59;
             this.rb0Toggle.Text = "rjTogglebutton9";
             this.rb0Toggle.UseVisualStyleBackColor = true;
@@ -755,11 +792,12 @@
             // ra7Toggle
             // 
             this.ra7Toggle.AutoSize = true;
-            this.ra7Toggle.Location = new System.Drawing.Point(991, 189);
-            this.ra7Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.ra7Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.ra7Toggle.Location = new System.Drawing.Point(1156, 218);
+            this.ra7Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ra7Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.ra7Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.ra7Toggle.Name = "ra7Toggle";
-            this.ra7Toggle.Size = new System.Drawing.Size(60, 17);
+            this.ra7Toggle.Size = new System.Drawing.Size(70, 19);
             this.ra7Toggle.TabIndex = 58;
             this.ra7Toggle.Text = "rjTogglebutton8";
             this.ra7Toggle.UseVisualStyleBackColor = true;
@@ -767,11 +805,12 @@
             // ra6Toggle
             // 
             this.ra6Toggle.AutoSize = true;
-            this.ra6Toggle.Location = new System.Drawing.Point(991, 166);
-            this.ra6Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.ra6Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.ra6Toggle.Location = new System.Drawing.Point(1156, 192);
+            this.ra6Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ra6Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.ra6Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.ra6Toggle.Name = "ra6Toggle";
-            this.ra6Toggle.Size = new System.Drawing.Size(60, 17);
+            this.ra6Toggle.Size = new System.Drawing.Size(70, 19);
             this.ra6Toggle.TabIndex = 57;
             this.ra6Toggle.Text = "rjTogglebutton7";
             this.ra6Toggle.UseVisualStyleBackColor = true;
@@ -779,11 +818,12 @@
             // ra5Toggle
             // 
             this.ra5Toggle.AutoSize = true;
-            this.ra5Toggle.Location = new System.Drawing.Point(991, 143);
-            this.ra5Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.ra5Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.ra5Toggle.Location = new System.Drawing.Point(1156, 165);
+            this.ra5Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ra5Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.ra5Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.ra5Toggle.Name = "ra5Toggle";
-            this.ra5Toggle.Size = new System.Drawing.Size(60, 17);
+            this.ra5Toggle.Size = new System.Drawing.Size(70, 19);
             this.ra5Toggle.TabIndex = 56;
             this.ra5Toggle.Text = "rjTogglebutton6";
             this.ra5Toggle.UseVisualStyleBackColor = true;
@@ -791,11 +831,12 @@
             // ra4Toggle
             // 
             this.ra4Toggle.AutoSize = true;
-            this.ra4Toggle.Location = new System.Drawing.Point(991, 120);
-            this.ra4Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.ra4Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.ra4Toggle.Location = new System.Drawing.Point(1156, 138);
+            this.ra4Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ra4Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.ra4Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.ra4Toggle.Name = "ra4Toggle";
-            this.ra4Toggle.Size = new System.Drawing.Size(60, 17);
+            this.ra4Toggle.Size = new System.Drawing.Size(70, 19);
             this.ra4Toggle.TabIndex = 55;
             this.ra4Toggle.Text = "rjTogglebutton5";
             this.ra4Toggle.UseVisualStyleBackColor = true;
@@ -803,11 +844,12 @@
             // ra3Toggle
             // 
             this.ra3Toggle.AutoSize = true;
-            this.ra3Toggle.Location = new System.Drawing.Point(991, 97);
-            this.ra3Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.ra3Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.ra3Toggle.Location = new System.Drawing.Point(1156, 112);
+            this.ra3Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ra3Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.ra3Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.ra3Toggle.Name = "ra3Toggle";
-            this.ra3Toggle.Size = new System.Drawing.Size(60, 17);
+            this.ra3Toggle.Size = new System.Drawing.Size(70, 19);
             this.ra3Toggle.TabIndex = 54;
             this.ra3Toggle.Text = "rjTogglebutton4";
             this.ra3Toggle.UseVisualStyleBackColor = true;
@@ -815,11 +857,12 @@
             // ra2Toggle
             // 
             this.ra2Toggle.AutoSize = true;
-            this.ra2Toggle.Location = new System.Drawing.Point(991, 74);
-            this.ra2Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.ra2Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.ra2Toggle.Location = new System.Drawing.Point(1156, 85);
+            this.ra2Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ra2Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.ra2Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.ra2Toggle.Name = "ra2Toggle";
-            this.ra2Toggle.Size = new System.Drawing.Size(60, 17);
+            this.ra2Toggle.Size = new System.Drawing.Size(70, 19);
             this.ra2Toggle.TabIndex = 53;
             this.ra2Toggle.Text = "rjTogglebutton3";
             this.ra2Toggle.UseVisualStyleBackColor = true;
@@ -827,11 +870,12 @@
             // ra1Toggle
             // 
             this.ra1Toggle.AutoSize = true;
-            this.ra1Toggle.Location = new System.Drawing.Point(991, 51);
-            this.ra1Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.ra1Toggle.MinimumSize = new System.Drawing.Size(10, 11);
+            this.ra1Toggle.Location = new System.Drawing.Point(1156, 59);
+            this.ra1Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ra1Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.ra1Toggle.MinimumSize = new System.Drawing.Size(12, 13);
             this.ra1Toggle.Name = "ra1Toggle";
-            this.ra1Toggle.Size = new System.Drawing.Size(60, 17);
+            this.ra1Toggle.Size = new System.Drawing.Size(70, 19);
             this.ra1Toggle.TabIndex = 24;
             this.ra1Toggle.Text = "rjTogglebutton2";
             this.ra1Toggle.UseVisualStyleBackColor = true;
@@ -839,11 +883,12 @@
             // ra0Toggle
             // 
             this.ra0Toggle.AutoSize = true;
-            this.ra0Toggle.Location = new System.Drawing.Point(991, 28);
-            this.ra0Toggle.MaximumSize = new System.Drawing.Size(60, 0);
-            this.ra0Toggle.MinimumSize = new System.Drawing.Size(10, 8);
+            this.ra0Toggle.Location = new System.Drawing.Point(1156, 32);
+            this.ra0Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ra0Toggle.MaximumSize = new System.Drawing.Size(70, 0);
+            this.ra0Toggle.MinimumSize = new System.Drawing.Size(12, 9);
             this.ra0Toggle.Name = "ra0Toggle";
-            this.ra0Toggle.Size = new System.Drawing.Size(60, 17);
+            this.ra0Toggle.Size = new System.Drawing.Size(70, 19);
             this.ra0Toggle.TabIndex = 13;
             this.ra0Toggle.Text = "rjTogglebutton1";
             this.ra0Toggle.UseVisualStyleBackColor = true;
@@ -860,11 +905,68 @@
             this.Z,
             this.DC,
             this.C});
-            this.dataGridView2.Location = new System.Drawing.Point(274, 312);
+            this.dataGridView2.Location = new System.Drawing.Point(320, 360);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(364, 42);
+            this.dataGridView2.Size = new System.Drawing.Size(425, 48);
             this.dataGridView2.TabIndex = 66;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // IRP
+            // 
+            this.IRP.FillWeight = 40F;
+            this.IRP.HeaderText = "IRP";
+            this.IRP.Name = "IRP";
+            this.IRP.Width = 40;
+            // 
+            // RP1
+            // 
+            this.RP1.FillWeight = 40F;
+            this.RP1.HeaderText = "RP1";
+            this.RP1.Name = "RP1";
+            this.RP1.Width = 40;
+            // 
+            // RP0
+            // 
+            this.RP0.FillWeight = 40F;
+            this.RP0.HeaderText = "RP0";
+            this.RP0.Name = "RP0";
+            this.RP0.Width = 40;
+            // 
+            // TO
+            // 
+            this.TO.FillWeight = 40F;
+            this.TO.HeaderText = "TO";
+            this.TO.Name = "TO";
+            this.TO.Width = 40;
+            // 
+            // PD
+            // 
+            this.PD.FillWeight = 40F;
+            this.PD.HeaderText = "PD";
+            this.PD.Name = "PD";
+            this.PD.Width = 40;
+            // 
+            // Z
+            // 
+            this.Z.FillWeight = 40F;
+            this.Z.HeaderText = "Z";
+            this.Z.Name = "Z";
+            this.Z.Width = 40;
+            // 
+            // DC
+            // 
+            this.DC.FillWeight = 40F;
+            this.DC.HeaderText = "DC";
+            this.DC.Name = "DC";
+            this.DC.Width = 40;
+            // 
+            // C
+            // 
+            this.C.FillWeight = 40F;
+            this.C.HeaderText = "C";
+            this.C.Name = "C";
+            this.C.Width = 40;
             // 
             // dataGridView3
             // 
@@ -878,28 +980,12 @@
             this.T0IF,
             this.INTF,
             this.RBIF});
-            this.dataGridView3.Location = new System.Drawing.Point(274, 446);
+            this.dataGridView3.Location = new System.Drawing.Point(320, 515);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(364, 42);
+            this.dataGridView3.Size = new System.Drawing.Size(425, 48);
             this.dataGridView3.TabIndex = 67;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RBP,
-            this.IntEdg,
-            this.T0CS,
-            this.T0SE,
-            this.PSA,
-            this.PS2,
-            this.PS1,
-            this.PS0});
-            this.dataGridView4.Location = new System.Drawing.Point(274, 376);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(364, 42);
-            this.dataGridView4.TabIndex = 68;
             // 
             // GIE
             // 
@@ -957,61 +1043,23 @@
             this.RBIF.Name = "RBIF";
             this.RBIF.Width = 40;
             // 
-            // IRP
+            // dataGridView4
             // 
-            this.IRP.FillWeight = 40F;
-            this.IRP.HeaderText = "IRP";
-            this.IRP.Name = "IRP";
-            this.IRP.Width = 40;
-            // 
-            // RP1
-            // 
-            this.RP1.FillWeight = 40F;
-            this.RP1.HeaderText = "RP1";
-            this.RP1.Name = "RP1";
-            this.RP1.Width = 40;
-            // 
-            // RP0
-            // 
-            this.RP0.FillWeight = 40F;
-            this.RP0.HeaderText = "RP0";
-            this.RP0.Name = "RP0";
-            this.RP0.Width = 40;
-            // 
-            // TO
-            // 
-            this.TO.FillWeight = 40F;
-            this.TO.HeaderText = "TO";
-            this.TO.Name = "TO";
-            this.TO.Width = 40;
-            // 
-            // PD
-            // 
-            this.PD.FillWeight = 40F;
-            this.PD.HeaderText = "PD";
-            this.PD.Name = "PD";
-            this.PD.Width = 40;
-            // 
-            // Z
-            // 
-            this.Z.FillWeight = 40F;
-            this.Z.HeaderText = "Z";
-            this.Z.Name = "Z";
-            this.Z.Width = 40;
-            // 
-            // DC
-            // 
-            this.DC.FillWeight = 40F;
-            this.DC.HeaderText = "DC";
-            this.DC.Name = "DC";
-            this.DC.Width = 40;
-            // 
-            // C
-            // 
-            this.C.FillWeight = 40F;
-            this.C.HeaderText = "C";
-            this.C.Name = "C";
-            this.C.Width = 40;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RBP,
+            this.IntEdg,
+            this.T0CS,
+            this.T0SE,
+            this.PSA,
+            this.PS2,
+            this.PS1,
+            this.PS0});
+            this.dataGridView4.Location = new System.Drawing.Point(320, 434);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(425, 48);
+            this.dataGridView4.TabIndex = 68;
             // 
             // RBP
             // 
@@ -1072,44 +1120,59 @@
             // optionLabel
             // 
             this.optionLabel.AutoSize = true;
-            this.optionLabel.Location = new System.Drawing.Point(316, 360);
+            this.optionLabel.Location = new System.Drawing.Point(369, 415);
+            this.optionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.optionLabel.Name = "optionLabel";
-            this.optionLabel.Size = new System.Drawing.Size(38, 13);
+            this.optionLabel.Size = new System.Drawing.Size(44, 15);
             this.optionLabel.TabIndex = 69;
             this.optionLabel.Text = "Option";
             // 
             // intconLabel
             // 
             this.intconLabel.AutoSize = true;
-            this.intconLabel.Location = new System.Drawing.Point(316, 430);
+            this.intconLabel.Location = new System.Drawing.Point(369, 496);
+            this.intconLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.intconLabel.Name = "intconLabel";
-            this.intconLabel.Size = new System.Drawing.Size(48, 13);
+            this.intconLabel.Size = new System.Drawing.Size(50, 15);
             this.intconLabel.TabIndex = 70;
             this.intconLabel.Text = "INTCON";
             // 
             // ffLabel
             // 
             this.ffLabel.AutoSize = true;
-            this.ffLabel.Location = new System.Drawing.Point(395, 360);
+            this.ffLabel.Location = new System.Drawing.Point(461, 415);
+            this.ffLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ffLabel.Name = "ffLabel";
-            this.ffLabel.Size = new System.Drawing.Size(19, 13);
+            this.ffLabel.Size = new System.Drawing.Size(19, 15);
             this.ffLabel.TabIndex = 71;
             this.ffLabel.Text = "FF";
             // 
             // nullLabel
             // 
             this.nullLabel.AutoSize = true;
-            this.nullLabel.Location = new System.Drawing.Point(395, 430);
+            this.nullLabel.Location = new System.Drawing.Point(461, 496);
+            this.nullLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nullLabel.Name = "nullLabel";
-            this.nullLabel.Size = new System.Drawing.Size(19, 13);
+            this.nullLabel.Size = new System.Drawing.Size(19, 15);
             this.nullLabel.TabIndex = 72;
             this.nullLabel.Text = "00";
             // 
+            // Reset
+            // 
+            this.Reset.Location = new System.Drawing.Point(1252, 595);
+            this.Reset.Name = "Reset";
+            this.Reset.Size = new System.Drawing.Size(88, 31);
+            this.Reset.TabIndex = 73;
+            this.Reset.Text = "Reset";
+            this.Reset.UseVisualStyleBackColor = true;
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 917);
+            this.ClientSize = new System.Drawing.Size(1447, 1058);
+            this.Controls.Add(this.Reset);
             this.Controls.Add(this.nullLabel);
             this.Controls.Add(this.ffLabel);
             this.Controls.Add(this.intconLabel);
@@ -1157,9 +1220,10 @@
             this.Controls.Add(this.File);
             this.Controls.Add(this.Go);
             this.Controls.Add(this.Step);
-            this.Controls.Add(this.Reset);
+            this.Controls.Add(this.New);
             this.Controls.Add(this.dataGrid1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
@@ -1177,7 +1241,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGrid1;
-        private System.Windows.Forms.Button Reset;
+        private System.Windows.Forms.Button New;
         private System.Windows.Forms.Button Step;
         private System.Windows.Forms.Button Go;
         private System.Windows.Forms.Button File;
@@ -1283,6 +1347,7 @@
         private System.Windows.Forms.Label intconLabel;
         private System.Windows.Forms.Label ffLabel;
         private System.Windows.Forms.Label nullLabel;
+        private Button Reset;
     }
 }
 
