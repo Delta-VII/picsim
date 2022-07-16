@@ -20,7 +20,9 @@ namespace Try
         private TimeSpan ts = default;
         private int codePointer;
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        private int offset;
         private picUtil _picUtil;
+        public List<string> Program = new List<string>();
         //private TransferGuiToSim transferGuiToSim;
         //private TransferSimToGUI transferSimToGui;
 
@@ -118,6 +120,7 @@ namespace Try
                 Start.Enabled = false;
                 Stop.Enabled = true;
                 referenceTime = DateTime.Now.Add(ts);
+                _picUtil.InitSimulator(Program);
             }
 
         }
@@ -139,14 +142,19 @@ namespace Try
         private void Step_Click_1(object sender, EventArgs e)
         {
             codeGrid.ClearSelection();
+            _picUtil.Run();
             codePointer++;
             codeGrid.Rows[codePointer].Selected = true;
-            _picUtil.test();
+            
         }
 
         private void Go_Click(object sender, EventArgs e)
         {
-
+            while (true)
+            {
+                _picUtil.Run();
+                
+            }
         }
 
         private void File_Click(object sender, EventArgs e)
@@ -176,7 +184,7 @@ namespace Try
                             codePointer = i - 1;
                         }
                     }
-
+                    loadProgram();
                     codeGrid.ClearSelection();
                     codeGrid.Rows[codePointer].Selected = true;
                 }
@@ -213,9 +221,17 @@ namespace Try
             //MessageBox.Show($"Laufzeit:{_picUtil.Tsim2Gui1.Laufzeit}\nStack:{_picUtil.Tsim2Gui1.Stack1}\nPointer:{_picUtil.Tsim2Gui1.Stackpointer1}");
         }
 
-        //void UpdateGUI()
-        //{
-        //    _picUtil.
-        //}
+        public void loadProgram()
+        {
+            foreach (String item in this.Filelines)
+            {
+                if (item[0] == '0')
+                {
+                    Program.Add(item.Substring(5,5));
+                }
+                
+            }
+        }
+
     }
 }

@@ -337,22 +337,20 @@
             this.codeGrid.AllowUserToAddRows = false;
             this.codeGrid.AllowUserToDeleteRows = false;
             this.codeGrid.AllowUserToResizeColumns = false;
-            this.codeGrid.AllowUserToResizeRows = false;
             this.codeGrid.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.codeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.codeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column14});
-            this.codeGrid.Enabled = false;
-            this.codeGrid.Location = new System.Drawing.Point(771, 333);
+            this.codeGrid.Location = new System.Drawing.Point(320, 442);
             this.codeGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.codeGrid.Name = "codeGrid";
             this.codeGrid.ReadOnly = true;
-            this.codeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.codeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.codeGrid.ShowCellErrors = false;
             this.codeGrid.ShowCellToolTips = false;
             this.codeGrid.ShowEditingIcon = false;
             this.codeGrid.ShowRowErrors = false;
-            this.codeGrid.Size = new System.Drawing.Size(455, 523);
+            this.codeGrid.Size = new System.Drawing.Size(906, 414);
             this.codeGrid.TabIndex = 21;
             this.codeGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.codeGrid_CellContentClick);
             // 
@@ -905,7 +903,7 @@
             this.Z,
             this.DC,
             this.C});
-            this.dataGridView2.Location = new System.Drawing.Point(320, 360);
+            this.dataGridView2.Location = new System.Drawing.Point(320, 211);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(425, 48);
@@ -980,7 +978,7 @@
             this.T0IF,
             this.INTF,
             this.RBIF});
-            this.dataGridView3.Location = new System.Drawing.Point(320, 515);
+            this.dataGridView3.Location = new System.Drawing.Point(320, 366);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(425, 48);
@@ -1055,7 +1053,7 @@
             this.PS2,
             this.PS1,
             this.PS0});
-            this.dataGridView4.Location = new System.Drawing.Point(320, 434);
+            this.dataGridView4.Location = new System.Drawing.Point(320, 297);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(425, 48);
@@ -1120,7 +1118,7 @@
             // optionLabel
             // 
             this.optionLabel.AutoSize = true;
-            this.optionLabel.Location = new System.Drawing.Point(369, 415);
+            this.optionLabel.Location = new System.Drawing.Point(320, 262);
             this.optionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.optionLabel.Name = "optionLabel";
             this.optionLabel.Size = new System.Drawing.Size(44, 15);
@@ -1130,7 +1128,7 @@
             // intconLabel
             // 
             this.intconLabel.AutoSize = true;
-            this.intconLabel.Location = new System.Drawing.Point(369, 496);
+            this.intconLabel.Location = new System.Drawing.Point(320, 348);
             this.intconLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.intconLabel.Name = "intconLabel";
             this.intconLabel.Size = new System.Drawing.Size(50, 15);
@@ -1140,7 +1138,7 @@
             // ffLabel
             // 
             this.ffLabel.AutoSize = true;
-            this.ffLabel.Location = new System.Drawing.Point(461, 415);
+            this.ffLabel.Location = new System.Drawing.Point(372, 262);
             this.ffLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ffLabel.Name = "ffLabel";
             this.ffLabel.Size = new System.Drawing.Size(19, 15);
@@ -1150,7 +1148,7 @@
             // nullLabel
             // 
             this.nullLabel.AutoSize = true;
-            this.nullLabel.Location = new System.Drawing.Point(461, 496);
+            this.nullLabel.Location = new System.Drawing.Point(670, 262);
             this.nullLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nullLabel.Name = "nullLabel";
             this.nullLabel.Size = new System.Drawing.Size(19, 15);

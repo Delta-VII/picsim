@@ -39,14 +39,14 @@ namespace Try
             uc.EvtUpdateRegisters += OnEvtUpdateRegisters;
         }
 
-        public async void test()
+        public async void Run()
         {
-            await uc.Step(0);
+            await uc.Step();
         }
 
-        public void InitSimulator()
+        public void InitSimulator(List<string> s)
         {
-
+            uc.SetProgramMemory(s.ToArray());
         }
 
         public TransferGuiToSim Tgui2Sim1

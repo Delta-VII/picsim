@@ -29,7 +29,7 @@ namespace Try
 		{
 			for (int i = 0; i < s.Length; i++)
 			{
-				ushort temp = ushort.Parse(s[i]);
+				ushort temp = ushort.Parse(s[i], System.Globalization.NumberStyles.HexNumber);
 				_programMemory[i] = temp;
 			}
 		}
@@ -96,6 +96,7 @@ namespace Try
 		}
 
 		private void CheckZ(byte value)
+		
 		{
 			if (value == 0)
 			{
@@ -188,7 +189,7 @@ namespace Try
 			string[] OpcodesControl = Opcodes.GetOpCodesControl();
 
 			int prog = _instructionRegister;
-			string temp = prog.ToString();
+			string temp = Convert.ToString(prog,2);
 
 			foreach (string s in ByteWiseOpcodes)
 			{
@@ -372,27 +373,11 @@ namespace Try
 			}
 		}
 
-		public async Task<int> Step(int mode)
-		{/*
-			switch (mode)
-			{
-				//Run Mode
-				case 0:
-					for (int i = 0; i < 1024; i++)
-					{
-						_programCounter = +1;
-					}
-
-					break;
-				//Step Mode
-				case 1:
-					_programCounter = +1;
-					break;
-			}
-			*/
-			WriteRAM(0x30, Convert.ToByte(GetRAM(0xB0) + 1));
-			RefreshRegisters();
-
+		public async Task<int> Step()
+		{
+			Execute();
+			_programCounter += 1;
+			
             return 1;
 		}
 
@@ -501,6 +486,14 @@ namespace Try
 		{
 			byte pointer = GetRAM(Fsr);
 			WriteRAM(Indaddr, GetRAM(pointer));
+		}
+
+		private void Execute()
+		{
+			_instructionRegister = _programMemory[_programCounter];
+			DecodeInstruction(DecodeOperation());
+			_programCounter += 1;
+			Console.WriteLine("W-Register: {0} | DC: {1} | C: {2} | Z: {3}", _wreg, Dc, C, Z);
 		}
     }
 } 
