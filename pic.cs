@@ -11,12 +11,20 @@ namespace Try
 		public byte[] _ram = new byte[256];
         private ushort[] _programMemory = new ushort[1024];
 		private byte _wreg = 0;
-		public int _laufzeit = 0;
+		public int _ProgrammLaufzeit = 0;
 		private int _programCounter = 0;
 		private ushort _instructionRegister = 0;
 		public Stack _stack = new Stack();
 		public int _stackpointer;
 		private byte[] _eeprom = new byte[64];
+		private int Cycle;
+		private int Cycle2;
+		private int Quarz;
+		private int Quarz2;
+		private int laufzeit;
+		private int laufzeit2;
+		private double osc;
+		private int TriggerWatchdog;
 
 		public event EventHandler<UpdateRegistersEventArgs> EvtUpdateRegisters;
 
@@ -33,8 +41,151 @@ namespace Try
 				_programMemory[i] = temp;
 			}
 		}
+		
+		public void Reset(){
+			for(int i = 0; i<_ram.Length;i++){
+				WriteRAM(i,0);
+			}
+			WriteRAM(0x3,24);
+			WriteRAM(0x83,24);
+			_wreg=0;
+			_programCounter = 0;
+			Cycle = 500;
+			Cycle2 = 500;
+			Quarz = 0;
+			Quarz2=0;
+			_stackpointer= 0;
+		}
+		
+		private void Watchdogcycle(){
+			
+			Quarz++;
+			laufzeit = Convert.ToInt32((4/osc)*Quarz);
+			laufzeit2 = Convert.ToInt32((4/osc)*Quarz2);
+			if (TriggerWatchdog == 1)
+			{
+				Quarz2++;
+				if ((GetRAM(Option) & 0b_0000_1000) == 8) {
+					int prescaletmp = GetRAM(Option) & 0b00000111;
+					int prescale = Convert.ToInt32(Math.Pow(2, (prescaletmp)));
+					if (Cycle2 == 500)
+					{
+						Cycle2 = prescale;
+					}
+					if(laufzeit2>18000){Quarz2=0;Cycle2--;}
 
-		private void WriteRAM(ushort address, byte value)
+					if (Cycle2 == 0) {
+						Cycle2 = prescale;
+						if((GetRAM(Status)&0b_0000_1000)==8){
+							Reset();
+						}
+						else
+						{
+							WriteRAM(Status,(Convert.ToByte(GetRAM(Status)|0b_0000_1000)));
+						}
+						
+					}
+
+
+				}
+				if ((GetRAM(Option) & 0b_0000_1000) == 0) {
+					if(laufzeit2>18000)
+					{
+						Quarz2 =0;
+						if ((GetRAM(Status) & 0b00001000) == 8)
+						{
+							Reset();
+						}
+						else
+						{
+							WriteRAM(Status,(Convert.ToByte(GetRAM(Status) | 0b_0000_1000)));
+						}
+						
+					}
+				}
+				
+			}
+		}
+
+		void timersetcycle() {
+        Quarz++;
+        if (TriggerWatchdog == 1){Quarz2++;};
+        if ((GetRAM(Option) & 0b00100000) == 0)
+        {
+            if ((GetRAM(Option) & 0b00001000) == 0)
+            {        
+                int prescaletmp = GetRAM(Option) & 0b00000111;
+                int prescale = Convert.ToInt32(Math.Pow(2, (prescaletmp+1)));
+                if (Cycle == 500)
+                {
+	                Cycle = prescale;
+                }
+                Cycle--;
+                if (Cycle == 0) {
+	                Cycle = prescale;
+                    SRAM[TMR0]++;                           //SRAM wird erhöt wenn cyclecounts entsprechend dem Prescaler durchgelaufen sind
+                }
+                if (SRAM[TMR0] > 255) {
+                    SRAM[TMR0] = SRAM[TMR0] & 0b11111111; // TMR0 wird auf Überlauf kontrolliert
+                    SRAM[INTCON] = SRAM[INTCON] | 0b00000100;
+                    checkinterrupt();
+                }
+
+            }
+            if ((SRAM[OPTION] & 0b00001000) == 8) {         //Kein Prescaler gesetzt
+                    SRAM[TMR0]++;                           //SRAM wird erhöt wenn cyclecounts entsprechend dem Prescaler durchgelaufen sind
+            }
+                if (SRAM[TMR0] > 255) {
+                    SRAM[TMR0] = SRAM[TMR0] & 0b11111111; // TMR0 wird auf Überlauf kontrolliert
+                    SRAM[INTCON] = SRAM[INTCON] | 0b00000100;
+                    Interrupt();
+                }
+
+        }
+    }
+
+
+    void timersetIO() {                                           //Timerfunktion für das zählen der IO Flanken
+        if ((SRAM[OPTION] & 0b00100000) == 32) {                  //Transition on RA4/T0CKI pin
+            int T0CSstate = (SRAM[OPTION] & 0b00010000) > 4;
+            if ((SRAM[OPTION] & 0b00001000) == 0) {              //Prescaler to TMR0
+                int Ra4state = (SRAM[PORTA] & 0b00010000) > 4;   //if RA4 =0 : RA4state = 0 / if RA4 = 1 : Ra4State = 1
+                if (Ra4state == 1 && T0CSstate == 0) {
+                    cyclecount++;
+                }
+                if (Ra4state == 0 && T0CSstate == 1) {
+                    cyclecount++;
+                }
+                int prescaletmp = SRAM[OPTION] & 0b00000111;
+                int prescale = pow(2, (prescaletmp+1));
+                if (cyclecount >= prescale) {
+                    cyclecount = 0;
+                    SRAM[TMR0]++;                           //SRAM wird erhöt wenn cyclecounts entsprechend dem Prescaler durchgelaufen sind
+                }
+                if (SRAM[TMR0] > 255) {
+                    SRAM[TMR0] = SRAM[TMR0] & 0b11111111;// TMR0 wird auf Überlauf kontrolliert
+                    SRAM[INTCON] = SRAM[INTCON] | 0b00000100;
+                }
+            }
+            if ((SRAM[OPTION] & 0b00001000) == 8) {              //Kein Prescaler
+                int Ra4state = (SRAM[PORTA] & 0b00010000) > 4;   //if RA4 =0 : RA4state = 0/ if RA4 = 1 : Ra4State = 1
+                if (Ra4state == 1 && T0CSstate == 0) {
+                    SRAM[TMR0]++;
+                }
+                if (Ra4state == 0 && T0CSstate == 1) {
+                    SRAM[TMR0]++;
+                }
+                if (SRAM[TMR0] > 255) {
+                    SRAM[TMR0] = SRAM[TMR0] & 0b11111111;       // TMR0 wird auf Überlauf kontrolliert unf fängt wieder bei 0 an
+                    SRAM[INTCON] = SRAM[INTCON] | 0b00000100;   //Timerinterrupt flag be Überlauf setzen
+                    checkinterrupt();
+                }
+
+            }
+        }
+    }
+		
+		private void WriteRAM(int address, byte value)
 		{
 			if (address == Status)
 			{

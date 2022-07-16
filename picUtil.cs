@@ -82,7 +82,7 @@ namespace Try
         private void OnEvtUpdateRegisters(object sender, UpdateRegistersEventArgs e)
         {
             this.Tsim2Gui1.Ram1 = uc._ram;
-            this.Tsim2Gui1.Laufzeit = uc._laufzeit;
+            this.Tsim2Gui1.Laufzeit = uc._ProgrammLaufzeit;
             this.Tsim2Gui1.Stack1 = uc._stack;
             this.Tsim2Gui1.Stackpointer1 = uc._stackpointer;
             EvtNewDataReceived?.Invoke(this, new NewDataReceiedEventArgs(true));

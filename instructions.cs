@@ -13,7 +13,7 @@ public partial class Pic
         CheckDC(value);
         CheckC(value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
     }
     
@@ -25,7 +25,7 @@ public partial class Pic
         byte value = Convert.ToByte(_wreg & temp) ;
         CheckZ(value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -36,7 +36,7 @@ public partial class Pic
         int address = DecodeFBits();
         WriteRAM(Convert.ToByte(address), 0);
         SetZ(true);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();    
     }
     
@@ -45,7 +45,7 @@ public partial class Pic
         CheckInterrupts();
         _wreg = 0;
         SetZ(true);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -58,7 +58,7 @@ public partial class Pic
         byte value = Convert.ToByte(~temp);
         CheckZ(value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -71,7 +71,7 @@ public partial class Pic
         byte value = Convert.ToByte(temp - 1) ;
         CheckZ(value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -85,14 +85,14 @@ public partial class Pic
         SaveResult(DecodeDBit(), value, address);
         if (value != 0)
         {
-            _laufzeit += 1;
+            _ProgrammLaufzeit += 1;
             RefreshRegisters();
         }
         else
         {
             _programCounter =+ 2;
             nop();
-            _laufzeit += 1;
+            _ProgrammLaufzeit += 1;
             RefreshRegisters();
         }
         RefreshRegisters();
@@ -107,7 +107,7 @@ public partial class Pic
         byte value = Convert.ToByte(temp + 1) ;
         CheckZ(value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
     }
     
@@ -120,14 +120,14 @@ public partial class Pic
         SaveResult(DecodeDBit(), value, address);
         if (value != 0)
         {
-            _laufzeit += 1;
+            _ProgrammLaufzeit += 1;
             RefreshRegisters();
         }
         else
         {
             _programCounter =+ 2;
             nop();
-            _laufzeit += 1;
+            _ProgrammLaufzeit += 1;
             RefreshRegisters();
         }
         RefreshRegisters();
@@ -141,7 +141,7 @@ public partial class Pic
         byte value = Convert.ToByte(_wreg | temp) ;
         CheckZ(value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -153,7 +153,7 @@ public partial class Pic
         byte value = GetRAM(address);
         CheckZ(value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -163,14 +163,14 @@ public partial class Pic
         CheckInterrupts();
         byte address = DecodeFBits();
         WriteRAM(address,_wreg);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();    
     }
     
     private void nop()
     {
         CheckInterrupts();
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -193,7 +193,7 @@ public partial class Pic
         byte value = Convert.ToByte(temp << 1);
         SaveResult(DecodeDBit(),value, address);
         CheckInterrupts();
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -216,7 +216,7 @@ public partial class Pic
         byte value = Convert.ToByte(temp >> 1);
         SaveResult(DecodeDBit(),value, address);
         CheckInterrupts();
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
     }
     
@@ -230,7 +230,7 @@ public partial class Pic
         CheckDC(value);
         CheckC(value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -245,7 +245,7 @@ public partial class Pic
         byte result = Convert.ToByte(lowerNibble | upperNibble);
         
         WriteRAM(address, value);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -257,7 +257,7 @@ public partial class Pic
 
         byte result = Convert.ToByte(_wreg ^ value);
         SaveResult(DecodeDBit(), value, address);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -270,7 +270,7 @@ public partial class Pic
         byte Bitin = Convert.ToByte(~bit);
         byte result = Convert.ToByte(Bitin & value);
         WriteRAM(address,result);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -283,7 +283,7 @@ public partial class Pic
         byte Bitin = Convert.ToByte(~bit);
         byte result = Convert.ToByte(Bitin | value);
         WriteRAM(address,result);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -298,12 +298,12 @@ public partial class Pic
         {
             _programCounter =+ 2;
             nop();
-            _laufzeit += 1;
+            _ProgrammLaufzeit += 1;
             RefreshRegisters();
         }
         else
         {
-            _laufzeit += 1;
+            _ProgrammLaufzeit += 1;
             RefreshRegisters();
         }
     }
@@ -316,14 +316,14 @@ public partial class Pic
         byte Bitin = Convert.ToByte(~bit);
         if ((Bitin & value) == 0)
         {
-            _laufzeit += 1;
+            _ProgrammLaufzeit += 1;
             RefreshRegisters();
         }
         else
         {
             _programCounter =+ 2;
             nop();
-            _laufzeit += 1;
+            _ProgrammLaufzeit += 1;
             RefreshRegisters();
         }
         
@@ -336,7 +336,7 @@ public partial class Pic
         CheckZ(_wreg);
         CheckC(_wreg);
         CheckDC(_wreg);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -348,7 +348,7 @@ public partial class Pic
         byte literal = DecodeLiteralGeneral();
         _wreg = Convert.ToByte(_wreg & literal);
         CheckZ(_wreg);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -363,13 +363,13 @@ public partial class Pic
         byte pclath43 = Convert.ToByte(pclath | 0b_1_1000);
         int value = pclath43 | pcl;
         _programCounter = value;
-        _laufzeit =+ 2;
+        _ProgrammLaufzeit =+ 2;
 
     }
     
     private void clrwdt()
     {
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -382,7 +382,7 @@ public partial class Pic
         byte pclath43 = Convert.ToByte(pclath | 0b_1_1000);
         int value = pclath43 | pcl;
         _programCounter = value;
-        _laufzeit =+ 2;
+        _ProgrammLaufzeit =+ 2;
 
     }
     
@@ -391,7 +391,7 @@ public partial class Pic
         byte literal = DecodeLiteralGeneral();
         _wreg = Convert.ToByte(_wreg | literal);
         CheckZ(_wreg);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -400,7 +400,7 @@ public partial class Pic
     {
         byte literal = DecodeLiteralGeneral();
         _wreg = literal;
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -411,7 +411,7 @@ public partial class Pic
         _stackpointer--;
         _programCounter = value;
         WriteRAM(Intcon, Convert.ToByte(GetRAM(Intcon) | 0b_0100_0000));
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         nop();
     }
     
@@ -421,7 +421,7 @@ public partial class Pic
         _stackpointer--;
         _wreg = DecodeLiteralGeneral();
         _programCounter = value;
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         nop();
     }
     
@@ -430,13 +430,13 @@ public partial class Pic
         int value = (int) _stack.Pop();
         _stackpointer--;
         _programCounter = value;
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         nop();
     }
     
     private void sleep()
     {
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -448,7 +448,7 @@ public partial class Pic
         CheckZ(_wreg);
         CheckC(_wreg);
         CheckDC(_wreg);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
         
     }
@@ -458,7 +458,7 @@ public partial class Pic
         byte literal = DecodeLiteralGeneral();
         _wreg = Convert.ToByte(_wreg ^ literal);
         CheckZ(_wreg);
-        _laufzeit += 1;
+        _ProgrammLaufzeit += 1;
         RefreshRegisters();
     }
     
