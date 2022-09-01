@@ -2,12 +2,12 @@
 
 namespace Try;
 
-public class TransferSimToGUI
+public class TransferSimToGui
 {
     public byte[] Ram1
     {
-        get => Ram;
-        set => Ram = value ?? throw new ArgumentNullException(nameof(value));
+        get => _ram;
+        set => _ram = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public int Laufzeit
@@ -18,66 +18,79 @@ public class TransferSimToGUI
 
     public Stack Stack1
     {
-        get => Stack;
-        set => Stack = value ?? throw new ArgumentNullException(nameof(value));
+        get => _stack;
+        set => _stack = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public int Stackpointer1
     {
-        get => Stackpointer;
-        set => Stackpointer = value;
+        get => _stackpointer;
+        set => _stackpointer = value;
     }
 
-    private byte[] Ram;
+    public bool[] Sfr
+    {
+        get => _sFr;
+        set => _sFr = value;
+    }
+
+    private byte[] _ram;
     private int _laufzeit;
-    private Stack Stack;
-    private int Stackpointer;
-    
+    private Stack _stack;
+    private int _stackpointer;
+    private bool[] _sFr;
 }
 
 public class TransferGuiToSim
 {
     public string Path1
     {
-        get => Path;
-        set => Path = value ?? throw new ArgumentNullException(nameof(value));
+        get => _path;
+        set => _path = value ?? throw new ArgumentNullException(nameof(value));
     }
 
-    public ushort IoToggle1
+    public bool[] IoToggleRa
     {
-        get => IoToggle;
-        set => IoToggle = value;
+        get => _ioToggleRa;
+        set => _ioToggleRa = value;
+    }
+
+    public bool[] IoToggleRb
+    {
+        get => _ioToggleRb;
+        set => _ioToggleRb = value;
     }
 
     public ushort ControlButtons1
     {
-        get => ControlButtons;
-        set => ControlButtons = value;
+        get => _controlButtons;
+        set => _controlButtons = value;
     }
 
     public int[] Breakpoints1
     {
-        get => Breakpoints;
-        set => Breakpoints = value ?? throw new ArgumentNullException(nameof(value));
+        get => _breakpoints;
+        set => _breakpoints = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public int RunMode1
     {
-        get => RunMode;
-        set => RunMode = value;
+        get => _runMode;
+        set => _runMode = value;
     }
 
     public bool Watchdog1
     {
-        get => Watchdog;
-        set => Watchdog = value;
+        get => _watchdog;
+        set => _watchdog = value;
     }
 
     
-    private string Path;
-    private ushort IoToggle;
-    private ushort ControlButtons;
-    private int[] Breakpoints;
-    private int RunMode;
-    private bool Watchdog;
+    private string _path;
+    private bool[] _ioToggleRa;
+    private bool[] _ioToggleRb;
+    private ushort _controlButtons;
+    private int[] _breakpoints;
+    private int _runMode;
+    private bool _watchdog;
 }

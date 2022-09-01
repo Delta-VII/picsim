@@ -2,18 +2,18 @@
 
 namespace Try.RJControls
 {
-    internal class RJToggleButton
+    internal class RjToggleButton
     {
-        public class RJTogglebutton : CheckBox
+        public class RjTogglebutton : CheckBox
         {
             // Fields
-            private Color onBackColor = Color.Cyan;
-            private Color onToggleColor = Color.WhiteSmoke;
-            private Color offbackcolor = Color.Gray;
-            private Color offToggleColor = Color.Gainsboro;
+            private Color _onBackColor = Color.Cyan;
+            private Color _onToggleColor = Color.WhiteSmoke;
+            private Color _offbackcolor = Color.Gray;
+            private Color _offToggleColor = Color.Gainsboro;
 
             // Constructor
-            public RJTogglebutton()
+            public RjTogglebutton()
             {
                 this.MinimumSize = new Size(45, 22);
             }
@@ -45,17 +45,17 @@ namespace Try.RJControls
                 if (this.Checked) //ON
                 {
                     //Draw the control surface
-                    pevent.Graphics.FillPath(new SolidBrush(onBackColor), GetFigurePath());
+                    pevent.Graphics.FillPath(new SolidBrush(_onBackColor), GetFigurePath());
                     // Draw
-                    pevent.Graphics.FillEllipse(new SolidBrush(onToggleColor),
+                    pevent.Graphics.FillEllipse(new SolidBrush(_onToggleColor),
                         new Rectangle(this.Width - this.Height + 1, 2, toggleSize, toggleSize));
                 }
                 else // Off
                 {
                     // Draw the Control Surface
-                    pevent.Graphics.FillPath(new SolidBrush(onBackColor), GetFigurePath());
+                    pevent.Graphics.FillPath(new SolidBrush(_onBackColor), GetFigurePath());
                     // Draw
-                    pevent.Graphics.FillEllipse(new SolidBrush(onToggleColor),
+                    pevent.Graphics.FillEllipse(new SolidBrush(_onToggleColor),
                         new Rectangle(2, 2, toggleSize, toggleSize));
                 }
             }

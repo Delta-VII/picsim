@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGrid1 = new System.Windows.Forms.DataGridView();
             this.CNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C00 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,7 +40,7 @@
             this.C5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.New = new System.Windows.Forms.Button();
+            this.Reset = new System.Windows.Forms.Button();
             this.Step = new System.Windows.Forms.Button();
             this.Go = new System.Windows.Forms.Button();
             this.File = new System.Windows.Forms.Button();
@@ -92,19 +93,19 @@
             this.rb2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rb1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rb0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rb4Toggle = new Try.RJControls.RJTogglebutton();
-            this.rb3Toggle = new Try.RJControls.RJTogglebutton();
-            this.rb2Toggle = new Try.RJControls.RJTogglebutton();
-            this.rb1Toggle = new Try.RJControls.RJTogglebutton();
-            this.rb0Toggle = new Try.RJControls.RJTogglebutton();
-            this.ra7Toggle = new Try.RJControls.RJTogglebutton();
-            this.ra6Toggle = new Try.RJControls.RJTogglebutton();
-            this.ra5Toggle = new Try.RJControls.RJTogglebutton();
-            this.ra4Toggle = new Try.RJControls.RJTogglebutton();
-            this.ra3Toggle = new Try.RJControls.RJTogglebutton();
-            this.ra2Toggle = new Try.RJControls.RJTogglebutton();
-            this.ra1Toggle = new Try.RJControls.RJTogglebutton();
-            this.ra0Toggle = new Try.RJControls.RJTogglebutton();
+            this.rb4Toggle = new Try.RJControls.RjTogglebutton();
+            this.rb3Toggle = new Try.RJControls.RjTogglebutton();
+            this.rb2Toggle = new Try.RJControls.RjTogglebutton();
+            this.rb1Toggle = new Try.RJControls.RjTogglebutton();
+            this.rb0Toggle = new Try.RJControls.RjTogglebutton();
+            this.ra7Toggle = new Try.RJControls.RjTogglebutton();
+            this.ra6Toggle = new Try.RJControls.RjTogglebutton();
+            this.ra5Toggle = new Try.RJControls.RjTogglebutton();
+            this.ra4Toggle = new Try.RJControls.RjTogglebutton();
+            this.ra3Toggle = new Try.RJControls.RjTogglebutton();
+            this.ra2Toggle = new Try.RJControls.RjTogglebutton();
+            this.ra1Toggle = new Try.RJControls.RjTogglebutton();
+            this.ra0Toggle = new Try.RJControls.RjTogglebutton();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.IRP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -136,7 +137,49 @@
             this.intconLabel = new System.Windows.Forms.Label();
             this.ffLabel = new System.Windows.Forms.Label();
             this.nullLabel = new System.Windows.Forms.Label();
-            this.Reset = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.specialFuncLabel = new System.Windows.Forms.Label();
+            this.wRegLabel = new System.Windows.Forms.Label();
+            this.wRegValueLabel = new System.Windows.Forms.Label();
+            this.fsrLabel = new System.Windows.Forms.Label();
+            this.fsrValueLabel = new System.Windows.Forms.Label();
+            this.pclLabel = new System.Windows.Forms.Label();
+            this.pclValueLabel = new System.Windows.Forms.Label();
+            this.pclathLabel = new System.Windows.Forms.Label();
+            this.pclathValueLabel = new System.Windows.Forms.Label();
+            this.statusLabel = new System.Windows.Forms.Label();
+            this.statusValueLabel = new System.Windows.Forms.Label();
+            this.sichtbarLabel = new System.Windows.Forms.Label();
+            this.versteckLabel = new System.Windows.Forms.Label();
+            this.pcLabel = new System.Windows.Forms.Label();
+            this.pcValueLabel = new System.Windows.Forms.Label();
+            this.stackpointerLabel = new System.Windows.Forms.Label();
+            this.vtLabel = new System.Windows.Forms.Label();
+            this.wdtLabel = new System.Windows.Forms.Label();
+            this.stackPoitnerValueLabel = new System.Windows.Forms.Label();
+            this.ff_Label = new System.Windows.Forms.Label();
+            this.freqLabel = new System.Windows.Forms.Label();
+            this.wdtActiveCheckBox = new System.Windows.Forms.CheckBox();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -145,6 +188,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGrid1
@@ -162,7 +207,7 @@
             this.C5,
             this.C6,
             this.C7});
-            this.dataGrid1.Location = new System.Drawing.Point(0, 14);
+            this.dataGrid1.Location = new System.Drawing.Point(-24, -135);
             this.dataGrid1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGrid1.Name = "dataGrid1";
             this.dataGrid1.ReadOnly = true;
@@ -241,20 +286,20 @@
             this.C7.ReadOnly = true;
             this.C7.Width = 25;
             // 
-            // New
+            // Reset
             // 
-            this.New.Location = new System.Drawing.Point(1252, 699);
-            this.New.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.New.Name = "New";
-            this.New.Size = new System.Drawing.Size(88, 27);
-            this.New.TabIndex = 2;
-            this.New.Text = "New";
-            this.New.UseVisualStyleBackColor = true;
-            this.New.Click += new System.EventHandler(this.New_Click);
+            this.Reset.Location = new System.Drawing.Point(327, 754);
+            this.Reset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Reset.Name = "Reset";
+            this.Reset.Size = new System.Drawing.Size(88, 27);
+            this.Reset.TabIndex = 2;
+            this.Reset.Text = "Reset";
+            this.Reset.UseVisualStyleBackColor = true;
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
             // Step
             // 
-            this.Step.Location = new System.Drawing.Point(1252, 632);
+            this.Step.Location = new System.Drawing.Point(423, 754);
             this.Step.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Step.Name = "Step";
             this.Step.Size = new System.Drawing.Size(88, 27);
@@ -265,7 +310,7 @@
             // 
             // Go
             // 
-            this.Go.Location = new System.Drawing.Point(1252, 666);
+            this.Go.Location = new System.Drawing.Point(519, 754);
             this.Go.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Go.Name = "Go";
             this.Go.Size = new System.Drawing.Size(88, 27);
@@ -276,7 +321,7 @@
             // 
             // File
             // 
-            this.File.Location = new System.Drawing.Point(1252, 493);
+            this.File.Location = new System.Drawing.Point(39, 754);
             this.File.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.File.Name = "File";
             this.File.Size = new System.Drawing.Size(88, 27);
@@ -287,7 +332,7 @@
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(1252, 526);
+            this.Start.Location = new System.Drawing.Point(135, 754);
             this.Start.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(88, 27);
@@ -298,7 +343,7 @@
             // 
             // Stop
             // 
-            this.Stop.Location = new System.Drawing.Point(1252, 562);
+            this.Stop.Location = new System.Drawing.Point(231, 754);
             this.Stop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Stop.Name = "Stop";
             this.Stop.Size = new System.Drawing.Size(88, 27);
@@ -315,7 +360,7 @@
             // timerValueLabel
             // 
             this.timerValueLabel.AutoSize = true;
-            this.timerValueLabel.Location = new System.Drawing.Point(1316, 453);
+            this.timerValueLabel.Location = new System.Drawing.Point(369, 729);
             this.timerValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timerValueLabel.Name = "timerValueLabel";
             this.timerValueLabel.Size = new System.Drawing.Size(49, 15);
@@ -325,7 +370,7 @@
             // timerLabel
             // 
             this.timerLabel.AutoSize = true;
-            this.timerLabel.Location = new System.Drawing.Point(1248, 453);
+            this.timerLabel.Location = new System.Drawing.Point(320, 729);
             this.timerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timerLabel.Name = "timerLabel";
             this.timerLabel.Size = new System.Drawing.Size(37, 15);
@@ -337,22 +382,23 @@
             this.codeGrid.AllowUserToAddRows = false;
             this.codeGrid.AllowUserToDeleteRows = false;
             this.codeGrid.AllowUserToResizeColumns = false;
+            this.codeGrid.AllowUserToResizeRows = false;
             this.codeGrid.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.codeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.codeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column14});
-            this.codeGrid.Location = new System.Drawing.Point(320, 442);
+            this.codeGrid.Enabled = false;
+            this.codeGrid.Location = new System.Drawing.Point(771, 333);
             this.codeGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.codeGrid.Name = "codeGrid";
             this.codeGrid.ReadOnly = true;
-            this.codeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.codeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.codeGrid.ShowCellErrors = false;
             this.codeGrid.ShowCellToolTips = false;
             this.codeGrid.ShowEditingIcon = false;
             this.codeGrid.ShowRowErrors = false;
-            this.codeGrid.Size = new System.Drawing.Size(906, 414);
+            this.codeGrid.Size = new System.Drawing.Size(638, 448);
             this.codeGrid.TabIndex = 21;
-            this.codeGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.codeGrid_CellContentClick);
             // 
             // Column14
             // 
@@ -539,7 +585,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1447, 1058);
+            this.dataGridView1.Size = new System.Drawing.Size(1415, 793);
             this.dataGridView1.TabIndex = 0;
             // 
             // RAGrid
@@ -560,6 +606,7 @@
             this.RAGrid.Name = "RAGrid";
             this.RAGrid.Size = new System.Drawing.Size(315, 93);
             this.RAGrid.TabIndex = 64;
+            this.RAGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RAGrid_CellContentClick);
             // 
             // rara
             // 
@@ -650,6 +697,7 @@
             this.RBGrid.Name = "RBGrid";
             this.RBGrid.Size = new System.Drawing.Size(315, 93);
             this.RBGrid.TabIndex = 65;
+            this.RBGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RBGrid_CellContentClick);
             // 
             // rbrb
             // 
@@ -903,7 +951,7 @@
             this.Z,
             this.DC,
             this.C});
-            this.dataGridView2.Location = new System.Drawing.Point(320, 211);
+            this.dataGridView2.Location = new System.Drawing.Point(320, 489);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(425, 48);
@@ -978,7 +1026,7 @@
             this.T0IF,
             this.INTF,
             this.RBIF});
-            this.dataGridView3.Location = new System.Drawing.Point(320, 366);
+            this.dataGridView3.Location = new System.Drawing.Point(320, 644);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(425, 48);
@@ -1053,7 +1101,7 @@
             this.PS2,
             this.PS1,
             this.PS0});
-            this.dataGridView4.Location = new System.Drawing.Point(320, 297);
+            this.dataGridView4.Location = new System.Drawing.Point(320, 563);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(425, 48);
@@ -1118,7 +1166,7 @@
             // optionLabel
             // 
             this.optionLabel.AutoSize = true;
-            this.optionLabel.Location = new System.Drawing.Point(320, 262);
+            this.optionLabel.Location = new System.Drawing.Point(369, 545);
             this.optionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.optionLabel.Name = "optionLabel";
             this.optionLabel.Size = new System.Drawing.Size(44, 15);
@@ -1128,7 +1176,7 @@
             // intconLabel
             // 
             this.intconLabel.AutoSize = true;
-            this.intconLabel.Location = new System.Drawing.Point(320, 348);
+            this.intconLabel.Location = new System.Drawing.Point(369, 625);
             this.intconLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.intconLabel.Name = "intconLabel";
             this.intconLabel.Size = new System.Drawing.Size(50, 15);
@@ -1138,7 +1186,7 @@
             // ffLabel
             // 
             this.ffLabel.AutoSize = true;
-            this.ffLabel.Location = new System.Drawing.Point(372, 262);
+            this.ffLabel.Location = new System.Drawing.Point(461, 545);
             this.ffLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ffLabel.Name = "ffLabel";
             this.ffLabel.Size = new System.Drawing.Size(19, 15);
@@ -1148,29 +1196,457 @@
             // nullLabel
             // 
             this.nullLabel.AutoSize = true;
-            this.nullLabel.Location = new System.Drawing.Point(670, 262);
+            this.nullLabel.Location = new System.Drawing.Point(461, 625);
             this.nullLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nullLabel.Name = "nullLabel";
             this.nullLabel.Size = new System.Drawing.Size(19, 15);
             this.nullLabel.TabIndex = 72;
             this.nullLabel.Text = "00";
             // 
-            // Reset
+            // label1
             // 
-            this.Reset.Location = new System.Drawing.Point(1252, 595);
-            this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(88, 31);
-            this.Reset.TabIndex = 73;
-            this.Reset.Text = "Reset";
-            this.Reset.UseVisualStyleBackColor = true;
-            this.Reset.Click += new System.EventHandler(this.Reset_Click);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1447, 1027);
+            this.label1.TabIndex = 73;
+            // 
+            // specialFuncLabel
+            // 
+            this.specialFuncLabel.AutoSize = true;
+            this.specialFuncLabel.Location = new System.Drawing.Point(334, 280);
+            this.specialFuncLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.specialFuncLabel.Name = "specialFuncLabel";
+            this.specialFuncLabel.Size = new System.Drawing.Size(132, 15);
+            this.specialFuncLabel.TabIndex = 74;
+            this.specialFuncLabel.Text = "Spezialfunktionsregister";
+            this.specialFuncLabel.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // wRegLabel
+            // 
+            this.wRegLabel.AutoSize = true;
+            this.wRegLabel.Location = new System.Drawing.Point(337, 333);
+            this.wRegLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.wRegLabel.Name = "wRegLabel";
+            this.wRegLabel.Size = new System.Drawing.Size(43, 15);
+            this.wRegLabel.TabIndex = 75;
+            this.wRegLabel.Text = "W-Reg";
+            // 
+            // wRegValueLabel
+            // 
+            this.wRegValueLabel.AutoSize = true;
+            this.wRegValueLabel.Location = new System.Drawing.Point(399, 333);
+            this.wRegValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.wRegValueLabel.Name = "wRegValueLabel";
+            this.wRegValueLabel.Size = new System.Drawing.Size(64, 15);
+            this.wRegValueLabel.TabIndex = 76;
+            this.wRegValueLabel.Text = "wRegValue";
+            // 
+            // fsrLabel
+            // 
+            this.fsrLabel.AutoSize = true;
+            this.fsrLabel.Location = new System.Drawing.Point(337, 353);
+            this.fsrLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fsrLabel.Name = "fsrLabel";
+            this.fsrLabel.Size = new System.Drawing.Size(26, 15);
+            this.fsrLabel.TabIndex = 77;
+            this.fsrLabel.Text = "FSR";
+            // 
+            // fsrValueLabel
+            // 
+            this.fsrValueLabel.AutoSize = true;
+            this.fsrValueLabel.Location = new System.Drawing.Point(399, 353);
+            this.fsrValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fsrValueLabel.Name = "fsrValueLabel";
+            this.fsrValueLabel.Size = new System.Drawing.Size(48, 15);
+            this.fsrValueLabel.TabIndex = 78;
+            this.fsrValueLabel.Text = "fsrValue";
+            // 
+            // pclLabel
+            // 
+            this.pclLabel.AutoSize = true;
+            this.pclLabel.Location = new System.Drawing.Point(337, 373);
+            this.pclLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pclLabel.Name = "pclLabel";
+            this.pclLabel.Size = new System.Drawing.Size(51, 15);
+            this.pclLabel.TabIndex = 79;
+            this.pclLabel.Text = "pclLabel";
+            // 
+            // pclValueLabel
+            // 
+            this.pclValueLabel.AutoSize = true;
+            this.pclValueLabel.Location = new System.Drawing.Point(400, 373);
+            this.pclValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pclValueLabel.Name = "pclValueLabel";
+            this.pclValueLabel.Size = new System.Drawing.Size(51, 15);
+            this.pclValueLabel.TabIndex = 80;
+            this.pclValueLabel.Text = "pclValue";
+            // 
+            // pclathLabel
+            // 
+            this.pclathLabel.AutoSize = true;
+            this.pclathLabel.Location = new System.Drawing.Point(337, 392);
+            this.pclathLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pclathLabel.Name = "pclathLabel";
+            this.pclathLabel.Size = new System.Drawing.Size(50, 15);
+            this.pclathLabel.TabIndex = 81;
+            this.pclathLabel.Text = "PCLATH";
+            // 
+            // pclathValueLabel
+            // 
+            this.pclathValueLabel.AutoSize = true;
+            this.pclathValueLabel.Location = new System.Drawing.Point(402, 392);
+            this.pclathValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pclathValueLabel.Name = "pclathValueLabel";
+            this.pclathValueLabel.Size = new System.Drawing.Size(68, 15);
+            this.pclathValueLabel.TabIndex = 82;
+            this.pclathValueLabel.Text = "pclathValue";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(337, 412);
+            this.statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(39, 15);
+            this.statusLabel.TabIndex = 83;
+            this.statusLabel.Text = "Status";
+            // 
+            // statusValueLabel
+            // 
+            this.statusValueLabel.AutoSize = true;
+            this.statusValueLabel.Location = new System.Drawing.Point(404, 412);
+            this.statusValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.statusValueLabel.Name = "statusValueLabel";
+            this.statusValueLabel.Size = new System.Drawing.Size(66, 15);
+            this.statusValueLabel.TabIndex = 84;
+            this.statusValueLabel.Text = "statusValue";
+            // 
+            // sichtbarLabel
+            // 
+            this.sichtbarLabel.AutoSize = true;
+            this.sichtbarLabel.Location = new System.Drawing.Point(334, 306);
+            this.sichtbarLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sichtbarLabel.Name = "sichtbarLabel";
+            this.sichtbarLabel.Size = new System.Drawing.Size(49, 15);
+            this.sichtbarLabel.TabIndex = 85;
+            this.sichtbarLabel.Text = "sichtbar";
+            // 
+            // versteckLabel
+            // 
+            this.versteckLabel.AutoSize = true;
+            this.versteckLabel.Location = new System.Drawing.Point(542, 305);
+            this.versteckLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.versteckLabel.Name = "versteckLabel";
+            this.versteckLabel.Size = new System.Drawing.Size(54, 15);
+            this.versteckLabel.TabIndex = 86;
+            this.versteckLabel.Text = "versteckt";
+            // 
+            // pcLabel
+            // 
+            this.pcLabel.AutoSize = true;
+            this.pcLabel.Location = new System.Drawing.Point(546, 333);
+            this.pcLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pcLabel.Name = "pcLabel";
+            this.pcLabel.Size = new System.Drawing.Size(22, 15);
+            this.pcLabel.TabIndex = 87;
+            this.pcLabel.Text = "PC";
+            // 
+            // pcValueLabel
+            // 
+            this.pcValueLabel.AutoSize = true;
+            this.pcValueLabel.Location = new System.Drawing.Point(654, 333);
+            this.pcValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pcValueLabel.Name = "pcValueLabel";
+            this.pcValueLabel.Size = new System.Drawing.Size(48, 15);
+            this.pcValueLabel.TabIndex = 88;
+            this.pcValueLabel.Text = "pcValue";
+            // 
+            // stackpointerLabel
+            // 
+            this.stackpointerLabel.AutoSize = true;
+            this.stackpointerLabel.Location = new System.Drawing.Point(546, 353);
+            this.stackpointerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.stackpointerLabel.Name = "stackpointerLabel";
+            this.stackpointerLabel.Size = new System.Drawing.Size(73, 15);
+            this.stackpointerLabel.TabIndex = 89;
+            this.stackpointerLabel.Text = "Stackpointer";
+            // 
+            // vtLabel
+            // 
+            this.vtLabel.AutoSize = true;
+            this.vtLabel.Location = new System.Drawing.Point(546, 372);
+            this.vtLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.vtLabel.Name = "vtLabel";
+            this.vtLabel.Size = new System.Drawing.Size(20, 15);
+            this.vtLabel.TabIndex = 90;
+            this.vtLabel.Text = "VT";
+            // 
+            // wdtLabel
+            // 
+            this.wdtLabel.AutoSize = true;
+            this.wdtLabel.Location = new System.Drawing.Point(546, 412);
+            this.wdtLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.wdtLabel.Name = "wdtLabel";
+            this.wdtLabel.Size = new System.Drawing.Size(31, 15);
+            this.wdtLabel.TabIndex = 92;
+            this.wdtLabel.Text = "WDT";
+            // 
+            // stackPoitnerValueLabel
+            // 
+            this.stackPoitnerValueLabel.AutoSize = true;
+            this.stackPoitnerValueLabel.Location = new System.Drawing.Point(654, 353);
+            this.stackPoitnerValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.stackPoitnerValueLabel.Name = "stackPoitnerValueLabel";
+            this.stackPoitnerValueLabel.Size = new System.Drawing.Size(100, 15);
+            this.stackPoitnerValueLabel.TabIndex = 93;
+            this.stackPoitnerValueLabel.Text = "stackpointerValue";
+            // 
+            // ff_Label
+            // 
+            this.ff_Label.AutoSize = true;
+            this.ff_Label.Location = new System.Drawing.Point(606, 373);
+            this.ff_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ff_Label.Name = "ff_Label";
+            this.ff_Label.Size = new System.Drawing.Size(19, 15);
+            this.ff_Label.TabIndex = 94;
+            this.ff_Label.Text = "FF";
+            // 
+            // freqLabel
+            // 
+            this.freqLabel.AutoSize = true;
+            this.freqLabel.Location = new System.Drawing.Point(606, 412);
+            this.freqLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.freqLabel.Name = "freqLabel";
+            this.freqLabel.Size = new System.Drawing.Size(37, 15);
+            this.freqLabel.TabIndex = 96;
+            this.freqLabel.Text = "0.0 us";
+            // 
+            // wdtActiveCheckBox
+            // 
+            this.wdtActiveCheckBox.AutoSize = true;
+            this.wdtActiveCheckBox.Location = new System.Drawing.Point(546, 389);
+            this.wdtActiveCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.wdtActiveCheckBox.Name = "wdtActiveCheckBox";
+            this.wdtActiveCheckBox.Size = new System.Drawing.Size(78, 19);
+            this.wdtActiveCheckBox.TabIndex = 97;
+            this.wdtActiveCheckBox.Text = "WDT aktiv";
+            this.wdtActiveCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.dataGridView5.Location = new System.Drawing.Point(654, 12);
+            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(315, 93);
+            this.dataGridView5.TabIndex = 98;
+            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "TRISA";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "7";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "6";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "5";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "4";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "3";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "2";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "1";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "0";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 25;
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18});
+            this.dataGridView6.Location = new System.Drawing.Point(654, 111);
+            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.Size = new System.Drawing.Size(315, 93);
+            this.dataGridView6.TabIndex = 99;
+            this.dataGridView6.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView6_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn10.HeaderText = "TRISA";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn11.HeaderText = "7";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn12.HeaderText = "6";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn13.HeaderText = "5";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn14.HeaderText = "4";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn15.HeaderText = "3";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn16.HeaderText = "2";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn17.HeaderText = "1";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn18.HeaderText = "0";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 25;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1447, 1058);
-            this.Controls.Add(this.Reset);
+            this.ClientSize = new System.Drawing.Size(1415, 793);
+            this.Controls.Add(this.dataGridView6);
+            this.Controls.Add(this.dataGridView5);
+            this.Controls.Add(this.wdtActiveCheckBox);
+            this.Controls.Add(this.freqLabel);
+            this.Controls.Add(this.ff_Label);
+            this.Controls.Add(this.stackPoitnerValueLabel);
+            this.Controls.Add(this.wdtLabel);
+            this.Controls.Add(this.vtLabel);
+            this.Controls.Add(this.stackpointerLabel);
+            this.Controls.Add(this.pcValueLabel);
+            this.Controls.Add(this.pcLabel);
+            this.Controls.Add(this.versteckLabel);
+            this.Controls.Add(this.sichtbarLabel);
+            this.Controls.Add(this.statusValueLabel);
+            this.Controls.Add(this.statusLabel);
+            this.Controls.Add(this.pclathValueLabel);
+            this.Controls.Add(this.pclathLabel);
+            this.Controls.Add(this.pclValueLabel);
+            this.Controls.Add(this.pclLabel);
+            this.Controls.Add(this.fsrValueLabel);
+            this.Controls.Add(this.fsrLabel);
+            this.Controls.Add(this.wRegValueLabel);
+            this.Controls.Add(this.wRegLabel);
+            this.Controls.Add(this.specialFuncLabel);
             this.Controls.Add(this.nullLabel);
             this.Controls.Add(this.ffLabel);
             this.Controls.Add(this.intconLabel);
@@ -1218,8 +1694,9 @@
             this.Controls.Add(this.File);
             this.Controls.Add(this.Go);
             this.Controls.Add(this.Step);
-            this.Controls.Add(this.New);
+            this.Controls.Add(this.Reset);
             this.Controls.Add(this.dataGrid1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
@@ -1232,6 +1709,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1239,7 +1718,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGrid1;
-        private System.Windows.Forms.Button New;
+        private System.Windows.Forms.Button Reset;
         private System.Windows.Forms.Button Step;
         private System.Windows.Forms.Button Go;
         private System.Windows.Forms.Button File;
@@ -1249,7 +1728,7 @@
         private System.Windows.Forms.PageSetupDialog pageSetupDialog2;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog3;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog4;
-        private RJControls.RJTogglebutton ra0Toggle;
+        private RJControls.RjTogglebutton ra0Toggle;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label timerValueLabel;
         private System.Windows.Forms.Label timerLabel;
@@ -1257,7 +1736,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Label ra1Label;
         private System.Windows.Forms.Label ra0Label;
-        private RJControls.RJTogglebutton ra1Toggle;
+        private RJControls.RjTogglebutton ra1Toggle;
         private System.Windows.Forms.Label rb0Label;
         private System.Windows.Forms.Label rb1Label;
         private System.Windows.Forms.Label ra0Tgl;
@@ -1274,17 +1753,17 @@
         private System.Windows.Forms.Label rb3Tgl;
         private System.Windows.Forms.Label rb4Tgl;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private RJControls.RJTogglebutton ra2Toggle;
-        private RJControls.RJTogglebutton ra3Toggle;
-        private RJControls.RJTogglebutton ra4Toggle;
-        private RJControls.RJTogglebutton ra5Toggle;
-        private RJControls.RJTogglebutton ra6Toggle;
-        private RJControls.RJTogglebutton ra7Toggle;
-        private RJControls.RJTogglebutton rb0Toggle;
-        private RJControls.RJTogglebutton rb1Toggle;
-        private RJControls.RJTogglebutton rb2Toggle;
-        private RJControls.RJTogglebutton rb3Toggle;
-        private RJControls.RJTogglebutton rb4Toggle;
+        private RJControls.RjTogglebutton ra2Toggle;
+        private RJControls.RjTogglebutton ra3Toggle;
+        private RJControls.RjTogglebutton ra4Toggle;
+        private RJControls.RjTogglebutton ra5Toggle;
+        private RJControls.RjTogglebutton ra6Toggle;
+        private RJControls.RjTogglebutton ra7Toggle;
+        private RJControls.RjTogglebutton rb0Toggle;
+        private RJControls.RjTogglebutton rb1Toggle;
+        private RJControls.RjTogglebutton rb2Toggle;
+        private RJControls.RjTogglebutton rb3Toggle;
+        private RJControls.RjTogglebutton rb4Toggle;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNames;
         private System.Windows.Forms.DataGridViewTextBoxColumn C00;
         private System.Windows.Forms.DataGridViewTextBoxColumn C01;
@@ -1345,7 +1824,49 @@
         private System.Windows.Forms.Label intconLabel;
         private System.Windows.Forms.Label ffLabel;
         private System.Windows.Forms.Label nullLabel;
-        private Button Reset;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label specialFuncLabel;
+        private System.Windows.Forms.Label wRegLabel;
+        private System.Windows.Forms.Label wRegValueLabel;
+        private System.Windows.Forms.Label fsrLabel;
+        private System.Windows.Forms.Label fsrValueLabel;
+        private System.Windows.Forms.Label pclLabel;
+        private System.Windows.Forms.Label pclValueLabel;
+        private System.Windows.Forms.Label pclathLabel;
+        private System.Windows.Forms.Label pclathValueLabel;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.Label statusValueLabel;
+        private System.Windows.Forms.Label sichtbarLabel;
+        private System.Windows.Forms.Label versteckLabel;
+        private System.Windows.Forms.Label pcLabel;
+        private System.Windows.Forms.Label pcValueLabel;
+        private System.Windows.Forms.Label stackpointerLabel;
+        private System.Windows.Forms.Label vtLabel;
+        private System.Windows.Forms.Label wdtLabel;
+        private System.Windows.Forms.Label stackPoitnerValueLabel;
+        private System.Windows.Forms.Label ff_Label;
+        private System.Windows.Forms.Label freqLabel;
+        private System.Windows.Forms.CheckBox wdtActiveCheckBox;
+        private DataGridView dataGridView5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridView dataGridView6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
     }
 }
 

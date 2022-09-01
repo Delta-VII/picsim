@@ -6,49 +6,71 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.IO;
 using System.Collections;
-using System.Runtime.ExceptionServices;
-using System.Windows.Forms;
 
 namespace Try
 {
     public partial class MainForm : Form
     {
-        private List<string> Filelines;
-        private DateTime referenceTime;
-        private TimeSpan ts = default;
-        private int codePointer;
-        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
-        private int offset;
-        private picUtil _picUtil;
+        private List<string> _filelines;
+        private DateTime _referenceTime;
+        private TimeSpan _ts = default;
+        private int _codePointer;
+        private PicUtil _pU;
         public List<string> Program = new List<string>();
-        //private TransferGuiToSim transferGuiToSim;
-        //private TransferSimToGUI transferSimToGui;
 
         public MainForm()
-        {/*
-            //transferGuiToSim = new TransferGuiToSim()
-            //{
-            //    Path1 = new ushort[] {1,2,3},
-            //    IoToggle1 = new ushort[] {1,2,3},
-            //    ControlButtons1 = new ushort[] {1,2,3},
-            //    Breakpoints1 = new int[] {1,2,3},
-            //    RunMode1 = new ushort[] {1,2,3},
-            //    Watchdog1 = new ushort[] {1,2,3}
-            //};
-            //transferSimToGui = new TransferSimToGUI();
-            */
-            
 
+        // erste Tabelle
 
+        {
 
-            // erste Tabelle
             InitializeComponent();
+            _pU = new PicUtil();
+            _pU.EvtUpdateRegisters += OnEvtUpdateRegisters;
 
             dataGrid1.Columns[0].Name = "Product ID";
             dataGrid1.Columns[1].Name = "Product Name";
             dataGrid1.Columns[2].Name = "Product Price";
+
+            //243
+
+            for (int i = 1; i < dataGridView5.ColumnCount; i++)
+            {
+                dataGridView5.Rows[0].Cells[i].Value = "i";
+            }
+
+            for (int i = 1; i < dataGridView6.ColumnCount; i++)
+            {
+                dataGridView6.Rows[0].Cells[i].Value = "o";
+            }
+
+            for (int i = 1; i < RAGrid.ColumnCount; i++)
+            {
+                RAGrid.Rows[0].Cells[i].Value = 1;
+            }
+
+            for (int i = 1; i < RBGrid.ColumnCount; i++)
+            {
+                RBGrid.Rows[0].Cells[i].Value = 1;
+            }
+
+            for (int i = 1; i < dataGridView2.ColumnCount; i++)
+            {
+                dataGridView2.Rows[0].Cells[i].Value = 0;
+            }
+
+            for (int i = 1; i < dataGridView4.ColumnCount; i++)
+            {
+                dataGridView4.Rows[0].Cells[i].Value = 0;
+            }
+
+            for (int i = 1; i < dataGridView3.ColumnCount; i++)
+            {
+                dataGridView3.Rows[0].Cells[i].Value = 0;
+            }
 
             FullfillRows("00");
             FullfillRows("08");
@@ -84,18 +106,7 @@ namespace Try
             FullfillRows("F8");
             timer1.Interval = 10;
             timer1.Tick += timer1_Tick;
-
-            _picUtil = new picUtil();
-            _picUtil.EvtNewDataReceived += OnNewTransferDataReceived;
-            byte biss = 42;
-            _picUtil.Tsim2Gui1 = new TransferSimToGUI()
-            {
-                Ram1 = new byte[] { new byte(), 00 , biss }
-            };
         }
-
-
-
 
         //Zweite Tabelle
 
@@ -106,21 +117,20 @@ namespace Try
         }
         private void timer1_Tick(object sender, System.EventArgs e)
         {
-            timerValueLabel.Text = Convert.ToString(DateTime.Now - referenceTime);
-            ts = referenceTime - DateTime.Now;
-            //UpdateGUI();
+            timerValueLabel.Text = Convert.ToString(DateTime.Now - _referenceTime);
+            _ts = _referenceTime - DateTime.Now;
         }
 
         // Button handling
         private void Start_Click(object sender, System.EventArgs e)
         {
-            if (this.Filelines != default)
+            if (this._filelines != default)
             {
                 timer1.Enabled = true;
                 Start.Enabled = false;
                 Stop.Enabled = true;
-                referenceTime = DateTime.Now.Add(ts);
-                _picUtil.InitSimulator(Program);
+                _referenceTime = DateTime.Now.Add(_ts);
+                _pU.InitSimulator(Program);
             }
 
         }
@@ -129,32 +139,27 @@ namespace Try
             timer1.Enabled = false;
             Stop.Enabled = false;
             Start.Enabled = true;
-            timerValueLabel.Text = Convert.ToString(DateTime.Now - referenceTime);
+            timerValueLabel.Text = Convert.ToString(DateTime.Now - _referenceTime);
         }
 
-        private void New_Click(object sender, EventArgs e)
+        private void Reset_Click(object sender, EventArgs e)
         {
             this.Dispose(false);
-            MainForm NewForm = new MainForm();
-            NewForm.Show();
+            MainForm newForm = new MainForm();
+            newForm.Show();
         }
 
         private void Step_Click_1(object sender, EventArgs e)
         {
             codeGrid.ClearSelection();
-            _picUtil.Run();
-            codePointer++;
-            codeGrid.Rows[codePointer].Selected = true;
-            
+            _pU.Run();
+            _codePointer++;
+            codeGrid.Rows[_codePointer].Selected = true;
         }
 
         private void Go_Click(object sender, EventArgs e)
         {
-            while (true)
-            {
-                _picUtil.Run();
-                
-            }
+
         }
 
         private void File_Click(object sender, EventArgs e)
@@ -171,22 +176,22 @@ namespace Try
                 {
                     //Get the path of specified file
                     filePath = openFileDialog.FileName;
-                    this.Filelines = System.IO.File.ReadLines(filePath).ToList();
+                    this._filelines = System.IO.File.ReadLines(filePath).ToList();
                     bool FirstCharEqu0 = false;
                     int i = 0;
-                    foreach (String item in this.Filelines)
+                    foreach (String item in this._filelines)
                     {
                         codeGrid.Rows.Add(item);
                         i++;
                         if (item[0] == '0' && FirstCharEqu0 == false)
                         {
                             FirstCharEqu0 = true;
-                            codePointer = i - 1;
+                            _codePointer = i - 1;
                         }
                     }
                     loadProgram();
                     codeGrid.ClearSelection();
-                    codeGrid.Rows[codePointer].Selected = true;
+                    codeGrid.Rows[_codePointer].Selected = true;
                 }
             }
         }
@@ -201,29 +206,74 @@ namespace Try
 
         }
 
-        private void codeGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Reset_Click(object sender, EventArgs e)
+        private void RAGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void OnNewTransferDataReceived(object sender, NewDataReceiedEventArgs e)
-        {
-            dataGrid1?.Rows.Clear();
-            for (int i = 0; i < _picUtil.Tsim2Gui1.Ram1.Length; i++)
+            bool[] raValues = new bool[8];
+            if (sender is DataGridView dGv)
             {
-                FullfillRows(_picUtil.Tsim2Gui1.Ram1[i].ToString());
+                if (dGv.CurrentCell.Value is int)
+                {
+                    dGv.CurrentCell.Value = (int)dGv.CurrentCell.Value == 1 ? 0 : 1;
+                }
+                for (int i = 1; i < RAGrid.ColumnCount; i++)
+                {
+                    raValues[i - 1] = (int)RAGrid.Rows[0].Cells[i].Value == 1 ? true : false;
+                }
+                _pU.Tgui2Sim.IoToggleRa = raValues;
             }
-            //MessageBox.Show($"Laufzeit:{_picUtil.Tsim2Gui1.Laufzeit}\nStack:{_picUtil.Tsim2Gui1.Stack1}\nPointer:{_picUtil.Tsim2Gui1.Stackpointer1}");
         }
 
+        private void RBGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool[] rbValues = new bool[8];
+            if (sender is DataGridView dGv)
+            {
+                if (dGv.CurrentCell.Value is int)
+                {
+                    dGv.CurrentCell.Value = (int)dGv.CurrentCell.Value == 1 ? 0 : 1;
+                }
+                for (int i = 1; i < RBGrid.ColumnCount; i++)
+                {
+                    rbValues[i - 1] = (int)RBGrid.Rows[0].Cells[i].Value == 1 ? true : false;
+                }
+                _pU.Tgui2Sim.IoToggleRb = rbValues;
+            }
+        }
+
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //do nothing
+        }
+
+        private void dataGridView6_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //do nothing
+        }
+
+        private void OnEvtUpdateRegisters(object sender, UpdateRegistersEventArgs e)
+        {
+            for (int i = 0; i < dataGridView2.ColumnCount; i++)
+            {
+                dataGridView2.Rows[0].Cells[i + 1].Value = _pU.Tsim2Gui1.Sfr[i];
+            }
+            for (int i = 0; i < dataGridView4.ColumnCount; i++)
+            {
+                dataGridView4.Rows[0].Cells[i + 1].Value = _pU.Tsim2Gui1.Sfr[i + 8];
+            }
+            for (int i = 0; i < dataGridView3.ColumnCount; i++)
+            {
+                dataGridView3.Rows[0].Cells[i + 1].Value = _pU.Tsim2Gui1.Sfr[i + 16];
+            }
+        }
+        
         public void loadProgram()
         {
-            foreach (String item in this.Filelines)
+            foreach (String item in this._filelines)
             {
                 if (item[0] == '0')
                 {

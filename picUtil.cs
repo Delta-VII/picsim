@@ -25,28 +25,31 @@ namespace Try
 
 
 
-    class picUtil
+    class PicUtil
     {
-        private Pic uc = new Pic();
-        private string[] Program;
-        private TransferGuiToSim Tgui2Sim;
-        private TransferSimToGUI Tsim2Gui;
+        private Pic _uc = new Pic();
+        private string[] _program;
+        public TransferGuiToSim Tgui2Sim;
+        public TransferSimToGui Tsim2Gui;
 
         public event EventHandler<NewDataReceiedEventArgs> EvtNewDataReceived;
+        public event EventHandler<UpdateRegistersEventArgs> EvtUpdateRegisters;
 
-        public picUtil()
+        public PicUtil()
         {
-            uc.EvtUpdateRegisters += OnEvtUpdateRegisters;
+            _uc.EvtUpdateRegisters += OnEvtUpdateRegisters;
+            Tgui2Sim = new TransferGuiToSim();
+            Tsim2Gui = new TransferSimToGui();
         }
 
         public async void Run()
         {
-            await uc.Step();
+            await _uc.Step();
         }
 
         public void InitSimulator(List<string> s)
         {
-            uc.SetProgramMemory(s.ToArray());
+            _uc.SetProgramMemory(s.ToArray());
         }
 
         public TransferGuiToSim Tgui2Sim1
@@ -64,7 +67,7 @@ namespace Try
             }
         }
 
-        public TransferSimToGUI Tsim2Gui1
+        public TransferSimToGui Tsim2Gui1
         {
             //get => Tsim2Gui;
             //set => Tsim2Gui = value ?? throw new ArgumentNullException(nameof(value));
@@ -81,10 +84,10 @@ namespace Try
 
         private void OnEvtUpdateRegisters(object sender, UpdateRegistersEventArgs e)
         {
-            this.Tsim2Gui1.Ram1 = uc._ram;
-            this.Tsim2Gui1.Laufzeit = uc._ProgrammLaufzeit;
-            this.Tsim2Gui1.Stack1 = uc._stack;
-            this.Tsim2Gui1.Stackpointer1 = uc._stackpointer;
+            this.Tsim2Gui1.Ram1 = _uc.Ram;
+            this.Tsim2Gui1.Laufzeit = _uc.ProgrammLaufzeit;
+            this.Tsim2Gui1.Stack1 = _uc.Stack;
+            this.Tsim2Gui1.Stackpointer1 = _uc.Stackpointer;
             EvtNewDataReceived?.Invoke(this, new NewDataReceiedEventArgs(true));
         }
     }

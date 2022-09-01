@@ -8,31 +8,28 @@ namespace Try
 	{
 		
 		//pic components
-		public byte[] _ram = new byte[256];
+		public byte[] Ram = new byte[256];
         private ushort[] _programMemory = new ushort[1024];
-		private byte _wreg = 0;
-		public int _ProgrammLaufzeit = 0;
-		private int _programCounter = 0;
-		private ushort _instructionRegister = 0;
-		public Stack _stack = new Stack();
-		public int _stackpointer;
+		private byte _wreg;
+		public int ProgrammLaufzeit;
+		private int _programCounter;
+		private ushort _instructionRegister;
+		public Stack Stack = new Stack();
+		public int Stackpointer;
 		private byte[] _eeprom = new byte[64];
-		private int Cycle;
-		private int Cycle2;
-		private int Quarz;
-		private int Quarz2;
-		private int laufzeit;
-		private int laufzeit2;
-		private double osc;
-		private int TriggerWatchdog;
+		private int _cycle;
+		private int _cycle2;
+		private int _quarz;
+		private int _quarz2;
+		private int _laufzeit;
+		private int _laufzeit2;
+		private byte _latcha;
+		private byte _latchb;
+		private double _osc;
+		private int _triggerWatchdog;
 
 		public event EventHandler<UpdateRegistersEventArgs> EvtUpdateRegisters;
 
-		public int GetProgramCounter()
-		{
-			return _programCounter;
-		}
-		
 		public void SetProgramMemory(string[] s)
 		{
 			for (int i = 0; i < s.Length; i++)
@@ -43,62 +40,139 @@ namespace Try
 		}
 		
 		public void Reset(){
-			for(int i = 0; i<_ram.Length;i++){
-				WriteRAM(i,0);
+			for(int i = 0; i<Ram.Length;i++){
+				WriteRam(i,0);
 			}
-			WriteRAM(0x3,24);
-			WriteRAM(0x83,24);
+			WriteRam(0x3,24);
+			WriteRam(0x83,24);
 			_wreg=0;
 			_programCounter = 0;
-			Cycle = 500;
-			Cycle2 = 500;
-			Quarz = 0;
-			Quarz2=0;
-			_stackpointer= 0;
+			_cycle = 500;
+			_cycle2 = 500;
+			_quarz = 0;
+			_quarz2=0;
+			Stackpointer= 0;
 		}
+		
+		void PORTAchange(int valuePORTA){
+      for(int i = 0; i<8;i++){
+          int k = Convert.ToInt32(Math.Pow(2,i));
+          if(((GetRam(Trisa) & k) == 0) & ((valuePORTA & k)== 0) ){
+              WriteRam(Porta,Convert.ToByte(GetRam(Porta) & ((~k) & 0b_1111_1111)));
+          }
+          if(((GetRam(Trisa)&k)==0) & ((valuePORTA&k)==k) ){
+              WriteRam(Porta,Convert.ToByte(GetRam(Porta) | k));
+          }
+          if(((GetRam(Trisa) & k) == k) & ((valuePORTA & k) == 0)){
+              _latcha = Convert.ToByte(_latcha & ((~k) & 0b_1111_1111));
+          }
+          if(((GetRam(Trisa) & k) == k) & ((valuePORTA & k) == k)){
+              _latcha = Convert.ToByte(_latcha | k);
+          } 
+      } 
+		}
+
+    void PORTBchange(int valuePORTB){
+	    if (((((valuePORTB & 1) == 0)) && ((GetRam(Portb) & 1) == 1)) ||
+	        ((((valuePORTB & 1) == 1)) && ((GetRam(Portb) & 1) == 0)))
+	    {
+		    Interrupt();
+	    }
+        for(int i = 0; i<8;i++){
+          int k = Convert.ToInt32(Math.Pow(2,i));
+          if(((GetRam(Trisb) & k) == 0) & ((valuePORTB & k) == 0)){
+              WriteRam(Portb, Convert.ToByte(GetRam(Portb) & ((~k) & 0b_1111_1111)));
+          }
+          if(((GetRam(Trisb) & k) == 0) & ((valuePORTB & k) == k)){
+              WriteRam(Portb, Convert.ToByte((GetRam(Portb) | k)));
+          }
+          if(((GetRam(Trisb)&k)==k)   & ((valuePORTB&k)==0) ){
+              _latchb = Convert.ToByte(_latchb & ((~k) & 0b_1111_1111));
+          }
+          if(((GetRam(Trisb)&k)==k)   & ((valuePORTB&k)==k) ){
+              _latchb = Convert.ToByte(_latchb | k);
+          }
+          
+        }
+    }
+
+    void TRISAchange(){
+        for(int i = 0; i<8;i++){
+            int k = Convert.ToInt32(Math.Pow(2,i));
+            if(((GetRam(Trisa) & k) == k)){
+
+            }
+            if(((GetRam(Trisa)&k)==0) && ((_latcha&k) ==0)){
+                WriteRam(Porta, Convert.ToByte(GetRam(Porta) & ((~k) & 0b_1111_1111)));
+
+            }
+            if(((GetRam(Trisa)&k)==0) && ((_latcha&k) ==k)){
+                 WriteRam(Porta, Convert.ToByte(GetRam(Porta) | k));
+                 _latcha = Convert.ToByte(_latcha & ((~k)&0b11111111));
+            }
+        }
+    }
+
+    void TRISBchange(){
+        for(int i = 0; i<8;i++){
+            int k = Convert.ToInt32(Math.Pow(2,i));
+            if (((GetRam(Trisb) & k) == k))
+            {
+	            
+            }
+            if(((GetRam(Trisb) & k)== 0) && ((_latchb&k) == 0)){
+                WriteRam(Portb, Convert.ToByte(GetRam(Portb) & ((~k) & 0b_1111_1111)));
+
+            }
+            if(((GetRam(Trisb)&k)==0) && ((_latchb&k) ==k)){
+                 WriteRam(Portb,Convert.ToByte(GetRam(Portb) | k));
+                 _latchb = Convert.ToByte(_latchb & ((~k) & 0b_1111_1111));
+            }
+        }
+    }
 		
 		private void Watchdogcycle(){
 			
-			Quarz++;
-			laufzeit = Convert.ToInt32((4/osc)*Quarz);
-			laufzeit2 = Convert.ToInt32((4/osc)*Quarz2);
-			if (TriggerWatchdog == 1)
+			_quarz++;
+			_laufzeit = Convert.ToInt32((4/_osc)*_quarz);
+			_laufzeit2 = Convert.ToInt32((4/_osc)*_quarz2);
+			if (_triggerWatchdog == 1)
 			{
-				Quarz2++;
-				if ((GetRAM(Option) & 0b_0000_1000) == 8) {
-					int prescaletmp = GetRAM(Option) & 0b00000111;
+				_quarz2++;
+				if ((GetRam(Option) & 0b_0000_1000) == 8) {
+					int prescaletmp = GetRam(Option) & 0b00000111;
 					int prescale = Convert.ToInt32(Math.Pow(2, (prescaletmp)));
-					if (Cycle2 == 500)
+					if (_cycle2 == 500)
 					{
-						Cycle2 = prescale;
+						_cycle2 = prescale;
 					}
-					if(laufzeit2>18000){Quarz2=0;Cycle2--;}
+					if(_laufzeit2>18000){_quarz2=0;_cycle2--;}
 
-					if (Cycle2 == 0) {
-						Cycle2 = prescale;
-						if((GetRAM(Status)&0b_0000_1000)==8){
+					if (_cycle2 == 0) {
+						_cycle2 = prescale;
+						if((GetRam(Status)&0b_0000_1000)==8){
 							Reset();
 						}
 						else
 						{
-							WriteRAM(Status,(Convert.ToByte(GetRAM(Status)|0b_0000_1000)));
+							WriteRam(Status,(Convert.ToByte(GetRam(Status)|0b_0000_1000)));
 						}
 						
 					}
 
 
 				}
-				if ((GetRAM(Option) & 0b_0000_1000) == 0) {
-					if(laufzeit2>18000)
+				if ((GetRam(Option) & 0b_0000_1000) == 0) {
+					if(_laufzeit2>18000)
 					{
-						Quarz2 =0;
-						if ((GetRAM(Status) & 0b00001000) == 8)
+						_quarz2 =0;
+						if ((GetRam(Status) & 0b00001000) == 8)
 						{
 							Reset();
 						}
 						else
 						{
-							WriteRAM(Status,(Convert.ToByte(GetRAM(Status) | 0b_0000_1000)));
+							WriteRam(Status,(Convert.ToByte(GetRam(Status) | 0b_0000_1000)));
 						}
 						
 					}
@@ -107,143 +181,142 @@ namespace Try
 			}
 		}
 
-		void timersetcycle() {
-        Quarz++;
-        if (TriggerWatchdog == 1){Quarz2++;};
-        if ((GetRAM(Option) & 0b00100000) == 0)
-        {
-            if ((GetRAM(Option) & 0b00001000) == 0)
-            {        
-                int prescaletmp = GetRAM(Option) & 0b00000111;
-                int prescale = Convert.ToInt32(Math.Pow(2, (prescaletmp+1)));
-                if (Cycle == 500)
-                {
-	                Cycle = prescale;
-                }
-                Cycle--;
-                if (Cycle == 0) {
-	                Cycle = prescale;
-                    SRAM[TMR0]++;                           //SRAM wird erhöt wenn cyclecounts entsprechend dem Prescaler durchgelaufen sind
-                }
-                if (SRAM[TMR0] > 255) {
-                    SRAM[TMR0] = SRAM[TMR0] & 0b11111111; // TMR0 wird auf Überlauf kontrolliert
-                    SRAM[INTCON] = SRAM[INTCON] | 0b00000100;
-                    checkinterrupt();
-                }
+		private void SetTimerCycle() {
+			_quarz++;
+			if (_triggerWatchdog == 1){_quarz2++;};
+			if ((GetRam(Option) & 0b_0010_0000) == 0)
+			{
+				if ((GetRam(Option) & 0b_0000_1000) == 0)
+				{        
+					int prescaletmp = GetRam(Option) & 0b_0000_0111;
+					int prescale = Convert.ToInt32(Math.Pow(2, (prescaletmp+1)));
+					if (_cycle == 500)
+					{
+						_cycle = prescale;
+					}
+					_cycle--;
+					if (_cycle == 0) {
+						_cycle = prescale;
+						WriteRam(Tmr0,Convert.ToByte(GetRam(Tmr0) + 1));
+					}
+					if (GetRam(Tmr0) > 255) {
+						WriteRam(Tmr0, Convert.ToByte(GetRam(Tmr0) & 0b_1111_1111));
+                        WriteRam(Intcon, Convert.ToByte(GetRam(Intcon) | 0b_0000_0100));
+                        Interrupt();
+					}
 
+				}
+				if ((GetRam(Option) & 0b00001000) == 8) {
+					WriteRam(Tmr0, Convert.ToByte(GetRam(Tmr0) + 1));
+				}
+                if (GetRam(Tmr0) > 255) {
+					WriteRam(Tmr0, Convert.ToByte(GetRam(Tmr0) & 0b11111111));
+                    WriteRam(Intcon, Convert.ToByte(GetRam(Intcon) | 0b00000100));
+                    Interrupt();
+				}
+			}
+		}
+
+    private void CountTimerIo() {
+	    
+        if ((GetRam(Option) & 0b_0010_0000) == 32) {
+            bool t0CSstate = (GetRam(Option) & 0b_0001_0000) > 4;
+            if ((GetRam(Option) & 0b_0000_1000) == 0) {
+                bool ra4State = (GetRam(Porta) & 0b_0001_0000) > 4;
+                if (ra4State && t0CSstate == false) {
+                    _cycle++;
+                }
+                if (!ra4State && t0CSstate) {
+                    _cycle++;
+                }
+                int prescaletmp = GetRam(Option) & 0b_0000_0111;
+                int prescale = Convert.ToInt32(Math.Pow(2, (prescaletmp+1)));
+                if (_cycle >= prescale) {
+                    _cycle = 0;
+                    WriteRam(Tmr0, Convert.ToByte(GetRam(Tmr0) + 1));
+                }
+                if (GetRam(Tmr0) > 255) {
+	                WriteRam(Tmr0, Convert.ToByte(GetRam(Tmr0) & 0b_1111_1111));
+	                WriteRam(Intcon, Convert.ToByte(GetRam(Intcon) | 0b_0000_0100));
+                }
             }
-            if ((SRAM[OPTION] & 0b00001000) == 8) {         //Kein Prescaler gesetzt
-                    SRAM[TMR0]++;                           //SRAM wird erhöt wenn cyclecounts entsprechend dem Prescaler durchgelaufen sind
-            }
-                if (SRAM[TMR0] > 255) {
-                    SRAM[TMR0] = SRAM[TMR0] & 0b11111111; // TMR0 wird auf Überlauf kontrolliert
-                    SRAM[INTCON] = SRAM[INTCON] | 0b00000100;
+            if ((GetRam(Option) & 0b_0000_1000) == 8) {
+                bool ra4State = (GetRam(Porta) & 0b_0001_0000) > 4;
+                if (!ra4State && !t0CSstate) {
+	                WriteRam(Tmr0, Convert.ToByte(GetRam(Tmr0) + 1));
+                }
+                if (!ra4State && t0CSstate) {
+	                WriteRam(Tmr0, Convert.ToByte(GetRam(Tmr0) + 1));
+                }
+                if (GetRam(Tmr0) > 255) {
+	                WriteRam(Tmr0, Convert.ToByte(GetRam(Tmr0) & 0b_1111_1111));
+	                WriteRam(Intcon, Convert.ToByte(GetRam(Intcon) | 0b_0000_0100));
                     Interrupt();
                 }
 
-        }
-    }
-
-
-    void timersetIO() {                                           //Timerfunktion für das zählen der IO Flanken
-        if ((SRAM[OPTION] & 0b00100000) == 32) {                  //Transition on RA4/T0CKI pin
-            int T0CSstate = (SRAM[OPTION] & 0b00010000) > 4;
-            if ((SRAM[OPTION] & 0b00001000) == 0) {              //Prescaler to TMR0
-                int Ra4state = (SRAM[PORTA] & 0b00010000) > 4;   //if RA4 =0 : RA4state = 0 / if RA4 = 1 : Ra4State = 1
-                if (Ra4state == 1 && T0CSstate == 0) {
-                    cyclecount++;
-                }
-                if (Ra4state == 0 && T0CSstate == 1) {
-                    cyclecount++;
-                }
-                int prescaletmp = SRAM[OPTION] & 0b00000111;
-                int prescale = pow(2, (prescaletmp+1));
-                if (cyclecount >= prescale) {
-                    cyclecount = 0;
-                    SRAM[TMR0]++;                           //SRAM wird erhöt wenn cyclecounts entsprechend dem Prescaler durchgelaufen sind
-                }
-                if (SRAM[TMR0] > 255) {
-                    SRAM[TMR0] = SRAM[TMR0] & 0b11111111;// TMR0 wird auf Überlauf kontrolliert
-                    SRAM[INTCON] = SRAM[INTCON] | 0b00000100;
-                }
-            }
-            if ((SRAM[OPTION] & 0b00001000) == 8) {              //Kein Prescaler
-                int Ra4state = (SRAM[PORTA] & 0b00010000) > 4;   //if RA4 =0 : RA4state = 0/ if RA4 = 1 : Ra4State = 1
-                if (Ra4state == 1 && T0CSstate == 0) {
-                    SRAM[TMR0]++;
-                }
-                if (Ra4state == 0 && T0CSstate == 1) {
-                    SRAM[TMR0]++;
-                }
-                if (SRAM[TMR0] > 255) {
-                    SRAM[TMR0] = SRAM[TMR0] & 0b11111111;       // TMR0 wird auf Überlauf kontrolliert unf fängt wieder bei 0 an
-                    SRAM[INTCON] = SRAM[INTCON] | 0b00000100;   //Timerinterrupt flag be Überlauf setzen
-                    checkinterrupt();
-                }
-
             }
         }
+
     }
-		
-		private void WriteRAM(int address, byte value)
+		private void WriteRam(int address, byte value)
 		{
 			if (address == Status)
 			{
-				_ram[address] = value;
-				_ram[address + 128] = value;
+				Ram[address] = value;
+				Ram[address + 128] = value;
 			}
 			else if (address == Intcon)
 			{
-				_ram[address] = value;
-				_ram[address + 128] = value;
+				Ram[address] = value;
+				Ram[address + 128] = value;
 			}
 			else if (address == Pcl)
 			{
-				_ram[address] = value;
-				_ram[address + 128] = value;
+				Ram[address] = value;
+				Ram[address + 128] = value;
 			}
             
 			else
 			{
-				if ((GetRAM(Status) | Rp0) == 0)
+				if ((GetRam(Status) | Rp0) == 0)
 				{
 					if (address < 255)
 					{
-						_ram[address] = value;
+						Ram[address] = value;
 					}
 					else if (address > 255)
 					{
-						_ram[address - 128] = value;
+						Ram[address - 128] = value;
 					}
 
 				}
-				else if ((GetRAM(Status) | Rp0) == 32)
+				else if ((GetRam(Status) | Rp0) == 32)
 				{
 					if (address < 255)
 					{
-						_ram[address + 128] = value;
+						Ram[address + 128] = value;
 					}
 					else if (address > 255)
 					{
-						_ram[address] = value;
+						Ram[address] = value;
 					}
 				}
 
-			}if((address == 0x88) && ((GetRAM(Status) & 0b_0010_0000)== 32)&&((GetRAM(Eecon1) | 0b_0001_0000) == 2)){
-				if ((GetRAM(Eecon1) & 0b00000110) == 6)
+			}if((address == 0x88) && ((GetRam(Status) & 0b_0010_0000)== 32)&&((GetRam(Eecon1) | 0b_0001_0000) == 2)){
+				if ((GetRam(Eecon1) & 0b00000110) == 6)
 				{
-					int eeaddr = GetRAM(Eeadr);
-					int eedat = GetRAM(Eedata);
+					int eeaddr = GetRam(Eeadr);
+					int eedat = GetRam(Eedata);
 					_eeprom[eeaddr]= Convert.ToByte(eedat);
-					WriteRAM(Eecon1, GetRAM(Eecon1 | 0b_0001_0000));
+					WriteRam(Eecon1, GetRam(Eecon1 | 0b_0001_0000));
 				}
 			}
 			
 		}
 
-		private byte GetRAM(ushort address)
+		private byte GetRam(ushort address)
 		{
-			return _ram[address];
+			return Ram[address];
 		}
 
 		private void CheckZ(byte value)
@@ -270,28 +343,28 @@ namespace Try
 			}
 		}
 
-		private void CheckDC(byte value)
+		private void CheckDc(byte value)
 		{
 			if (value > 15)
 			{
-				SetDC(true);
+				SetDc(true);
 			}
 			else if (value < 0)
 
 			{
-				SetDC(false);
+				SetDc(false);
 			}
 		}
 
-		private void SetDC(bool value)
+		private void SetDc(bool value)
 		{
 			if (value == true)
 			{
-				WriteRAM(Status, GetRAM(Status | Dc));
+				WriteRam(Status, GetRam(Status | Dc));
 			}
 			else if (value == false)
 			{
-				WriteRAM(Status, GetRAM(Status & Dc));
+				WriteRam(Status, GetRam(Status & Dc));
 			}
 		}
 
@@ -299,11 +372,11 @@ namespace Try
 		{
 			if (value == true)
 			{
-				WriteRAM(Status, GetRAM(Status | C));
+				WriteRam(Status, GetRam(Status | C));
 			}
 			else if (value == false)
 			{
-				WriteRAM(Status, GetRAM(Status & C));
+				WriteRam(Status, GetRam(Status & C));
 			}
 		}
 
@@ -311,11 +384,11 @@ namespace Try
 		{
 			if (value == true)
 			{
-				WriteRAM(Status, GetRAM(Status | Z));
+				WriteRam(Status, GetRam(Status | Z));
 			}
 			else if (value == false)
 			{
-				WriteRAM(Status, GetRAM(Status & Z));
+				WriteRam(Status, GetRam(Status & Z));
 			}
 		}
 
@@ -323,7 +396,7 @@ namespace Try
 		{
 			if (dbit)
 			{
-				WriteRAM(address, result);
+				WriteRam(address, result);
 			}
 			else if (!dbit)
 
@@ -334,15 +407,15 @@ namespace Try
 
 		private string DecodeOperation()
 		{
-			string[] ByteWiseOpcodes = Opcodes.GetOpcodesByteOriented();
-			string[] BitWiseOpcodes = Opcodes.GetOpcodesBitOriented();
-			string[] OpcodesLiteral = Opcodes.GetOpcodesLiteral();
-			string[] OpcodesControl = Opcodes.GetOpCodesControl();
+			string[] byteWiseOpcodes = Opcodes.GetOpcodesByteOriented();
+			string[] bitWiseOpcodes = Opcodes.GetOpcodesBitOriented();
+			string[] opcodesLiteral = Opcodes.GetOpcodesLiteral();
+			string[] opcodesControl = Opcodes.GetOpCodesControl();
 
 			int prog = _instructionRegister;
 			string temp = Convert.ToString(prog,2);
 
-			foreach (string s in ByteWiseOpcodes)
+			foreach (string s in byteWiseOpcodes)
 			{
 				if (s == temp.Substring(0, 7))
 				{
@@ -350,7 +423,7 @@ namespace Try
 				}
 			}
 
-			foreach (string s in BitWiseOpcodes)
+			foreach (string s in bitWiseOpcodes)
 			{
 				if (s == temp.Substring(0, 4))
 				{
@@ -358,7 +431,7 @@ namespace Try
 				}
 			}
 
-			foreach (string s in OpcodesLiteral)
+			foreach (string s in opcodesLiteral)
 			{
 				if (s == temp.Substring(0, 6))
 				{
@@ -366,7 +439,7 @@ namespace Try
 				}
 			}
 
-			foreach (string s in OpcodesControl)
+			foreach (string s in opcodesControl)
 			{
 				if (s == temp)
 				{
@@ -383,143 +456,143 @@ namespace Try
 			{
 				//ADDWF
 				case "000111":
-					addwf();
+					Addwf();
 					break;
 				//ANDWF
 				case "000101":
-					andwf();
+					Andwf();
 					break;
 				//CLRF
 				case "0000011":
-					clrf();
+					Clrf();
 					break;
 				//CLRW
 				case "0000010":
-					clrw();
+					Clrw();
 					break;
 				//COMF
 				case "0010010":
-					comf();
+					Comf();
 					break;
 				//DECF
 				case "0000110":
-					decf();
+					Decf();
 					break;
 				//DECFSZ
 				case "0010110":
-					decfsz();
+					Decfsz();
 					break;
 				//INCF
 				case "0010100":
-					incf();
+					Incf();
 					break;
 				//INCFSZ
 				case "0011110":
-					incfsz();
+					Incfsz();
 					break;
 				//IORWF
 				case "0001000":
-					iorwf();
+					Iorwf();
 					break;
 				//MOVF
 				case "0010000":
-					movf();
+					Movf();
 					break;
 				//MOVWF
 				case "0000001":
-					movwf();
+					Movwf();
 					break;
 				//NOP
 				case "0000000":
-					nop();
+					Nop();
 					break;
 				//RLF
 				case "0011010":
-					rlf();
+					Rlf();
 					break;
 				//RRF
 				case "0011000":
-					rrf();
+					Rrf();
 					break;
 				//SUBWF
 				case "0000100":
-					subwf();
+					Subwf();
 					break;
 				//SWAPF
 				case "0011100":
-					swapf();
+					Swapf();
 					break;
 				//XORWF
 				case "0001100":
-					xorwf();
+					Xorwf();
 					break;
 				//BCF
 				case "0100":
-					bcf();
+					Bcf();
 					break;
 				//BSF
 				case "0101":
-					bsf();
+					Bsf();
 					break;
 				//BTFSC
 				case "0110":
-					btfsc();
+					Btfsc();
 					break;
 				//BTFSS
 				case "0111":
-					btfss();
+					Btfss();
 					break;
 				//ADDLW
 				case "111110":
-					andlw();
+					Andlw();
 					break;
 				//ANDLW
 				case "111001":
-					addlw();
+					Addlw();
 					break;
 				//CALL
 				case "100000":
-					call();
+					Call();
 					break;
 				//CLRWDT
 				case "00000001100100":
-					clrwdt();
+					Clrwdt();
 					break;
 				//GOTO
 				case "101000":
-					gOTO();
+					GOto();
 					break;
 				//IORLW
 				case "111000":
-					iorwl();
+					Iorwl();
 					break;
 				//MOVLW
 				case "110000":
-					movlw();
+					Movlw();
 					break;
 				//RETFIE
 				case "00000000001001":
-					retfie();
+					Retfie();
 					break;
 				//RETLW
 				case "110100":
-					retlw();
+					Retlw();
 					break;
 				//RETURN
 				case "00000000001000":
-					rETURN();
+					REturn();
 					break;
 				//SLEEP
 				case "00000001000011":
-					sleep();
+					Sleep();
 					break;
 				//SUBLW
 				case "111100":
-					sublw();
+					Sublw();
 					break;
 				//XORLW
 				case "111010":
-					xorlw();
+					Xorlw();
 					break;
 			}
 		}
@@ -584,29 +657,29 @@ namespace Try
 
 		private void CheckInterrupts()
 		{
-			if ((GetRAM(Intcon) & 0b_1000_0000) == 128)
+			if ((GetRam(Intcon) & 0b_1000_0000) == 128)
 			{
-				if ((GetRAM(Intcon & 0b_0010_0000) == 32) && (GetRAM(Intcon) & 0b_0000_0100) == 4)
+				if ((GetRam(Intcon & 0b_0010_0000) == 32) && (GetRam(Intcon) & 0b_0000_0100) == 4)
 				{
 					Interrupt();
 				}
 			}
 
-			if ((GetRAM(Intcon) & 0b_1000_0000) == 128)
+			if ((GetRam(Intcon) & 0b_1000_0000) == 128)
 			{
-				if (((GetRAM(Intcon) & 0b_0001_0000) == 16) & ((GetRAM(Intcon) & 0b_0000_0010) == 2))
+				if (((GetRam(Intcon) & 0b_0001_0000) == 16) & ((GetRam(Intcon) & 0b_0000_0010) == 2))
 				{
-					if ((((GetRAM(Intcon) & 0b_0000_0001) == 0) & ((GetRAM(Intcon) & 0b_0100_0000) == 64)) ||
-					    (((GetRAM(Intcon) & 0b_0000_0001) == 1) && ((GetRAM(Intcon) & 0b_0100_0000) == 0)))
+					if ((((GetRam(Intcon) & 0b_0000_0001) == 0) & ((GetRam(Intcon) & 0b_0100_0000) == 64)) ||
+					    (((GetRam(Intcon) & 0b_0000_0001) == 1) && ((GetRam(Intcon) & 0b_0100_0000) == 0)))
 					{
 						Interrupt();
 					}
 				}
 			}
 
-			if ((GetRAM(Intcon) & 0b_1000_0000) == 128)
+			if ((GetRam(Intcon) & 0b_1000_0000) == 128)
 			{
-				if (((GetRAM(Intcon) & 0b_0000_1000) == 8) & ((GetRAM(Intcon) & 0b_0000_0001) == 1))
+				if (((GetRam(Intcon) & 0b_0000_1000) == 8) & ((GetRam(Intcon) & 0b_0000_0001) == 1))
 				{
 					Interrupt();
 				}
@@ -615,28 +688,29 @@ namespace Try
 
 		void Interrupt()
 		{
-			WriteRAM(Intcon, Intcon & 0b_0111_1111);
-			_stack.Push(_programCounter);
-			_stackpointer++;
+			WriteRam(Intcon, Intcon & 0b_0111_1111);
+			Stack.Push(_programCounter);
+			Stackpointer++;
 
 		}
-		//TODO: FIXME
+
 		private void RefreshProgram()
 		{/*
 			byte pcl = Convert.ToByte(_programCounter | 0b_0000_0000_1111_1111);
 			byte pclath = Convert.ToByte(_programCounter | 0b_0001_1111_0000_0000);
 
-			WriteRAM(Pcl, pcl);
-			WriteRAM(Pclath, pclath);
+			WriteRam(Pcl, pcl);
+			WriteRam(Pclath, pclath);
 
-			_programCounter = pclath | pcl;
+			_programCounter = pclath << 8 | pcl;
 			*/
+			
 		}
 
 		private void RefreshIndirectAddress()
 		{
-			byte pointer = GetRAM(Fsr);
-			WriteRAM(Indaddr, GetRAM(pointer));
+			byte pointer = GetRam(Fsr);
+			WriteRam(Indaddr, GetRam(pointer));
 		}
 
 		private void Execute()

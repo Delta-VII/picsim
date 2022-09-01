@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kai\\source\\repos\\PicSIM\\picsim\\picsim.csproj",
+      "projectUniqueName": "C:\\Users\\kai\\source\\repos\\picsimddddd\\picsim.csproj",
       "projectName": "picsim",
-      "projectPath": "C:\\Users\\kai\\source\\repos\\PicSIM\\picsim\\picsim.csproj",
+      "projectPath": "C:\\Users\\kai\\source\\repos\\picsimddddd\\picsim.csproj",
       "packagesPath": "C:\\Users\\kai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kai\\source\\repos\\PicSIM\\picsim\\obj\\",
+      "outputPath": "C:\\Users\\kai\\source\\repos\\picsimddddd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kai\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,6 +28,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://www.nuget.org/api/v2": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -63,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }
