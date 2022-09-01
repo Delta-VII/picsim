@@ -189,7 +189,7 @@ namespace Try
                             _codePointer = i - 1;
                         }
                     }
-                    loadProgram();
+                    LoadProgram();
                     codeGrid.ClearSelection();
                     codeGrid.Rows[_codePointer].Selected = true;
                 }
@@ -271,17 +271,12 @@ namespace Try
             }
         }
         
-        public void loadProgram()
+        public void LoadProgram()
         {
-            foreach (String item in this._filelines)
+            foreach (var line in this._filelines.Where(x => x.StartsWith('0') | x.StartsWith('1')))
             {
-                if (item[0] == '0')
-                {
-                    Program.Add(item.Substring(5,5));
-                }
-                
+                    Program.Add(line.Substring(5,5));                
             }
         }
-
     }
 }
