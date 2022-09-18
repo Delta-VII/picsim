@@ -1,6 +1,6 @@
-﻿namespace Try;
+﻿namespace picsim;
 
-public partial class Pic
+internal partial class Pic
 {
     //constants
     private const byte Indaddr = 0;
@@ -21,14 +21,14 @@ public partial class Pic
     private const byte Intcon = 0X0B;
 
     //constants statusreg
-    private const byte Irp = 0b_1000_0000;
-    private const byte Rp1 = 0b_0100_0000;
-    private const byte Rp0 = 0b_0010_0000;
-    private const byte To = 0b_0001_0000;
-    private const byte Pd = 0b_0000_1000;
-    private const byte Z = 0b_0000_0100;
-    private const byte Dc = 0b_0000_0010;
-    private const byte C = 0b_0000_0001;
+    private const byte Irp = 7;
+    private const byte Rp1 = 6;
+    private const byte Rp0 = 5;
+    private const byte To = 4;
+    private const byte Pd = 3;
+    private const byte Z = 2;
+    private const byte Dc = 1;
+    private const byte C = 0;
 
     //constants portA
     private const byte Ra4 = 0b_0001_0000;

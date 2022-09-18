@@ -5,8 +5,5 @@
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RJControls\RJToggleButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

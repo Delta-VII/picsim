@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kai\\source\\repos\\picsimddddd\\picsim.csproj",
+      "projectUniqueName": "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\picsim.csproj",
       "projectName": "picsim",
-      "projectPath": "C:\\Users\\kai\\source\\repos\\picsimddddd\\picsim.csproj",
+      "projectPath": "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\picsim.csproj",
       "packagesPath": "C:\\Users\\kai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kai\\source\\repos\\picsimddddd\\obj\\",
+      "outputPath": "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kai\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

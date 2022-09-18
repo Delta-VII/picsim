@@ -1,4 +1,4 @@
-﻿namespace Try
+﻿namespace picsim
 {
     partial class MainForm
     {
@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.dataGrid1 = new System.Windows.Forms.DataGridView();
+            this.DgRamBank0 = new System.Windows.Forms.DataGridView();
             this.CNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C00 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +40,6 @@
             this.C7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reset = new System.Windows.Forms.Button();
             this.Step = new System.Windows.Forms.Button();
-            this.Go = new System.Windows.Forms.Button();
             this.File = new System.Windows.Forms.Button();
             this.Start = new System.Windows.Forms.Button();
             this.Stop = new System.Windows.Forms.Button();
@@ -50,30 +47,7 @@
             this.pageSetupDialog2 = new System.Windows.Forms.PageSetupDialog();
             this.pageSetupDialog3 = new System.Windows.Forms.PageSetupDialog();
             this.pageSetupDialog4 = new System.Windows.Forms.PageSetupDialog();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timerValueLabel = new System.Windows.Forms.Label();
-            this.timerLabel = new System.Windows.Forms.Label();
-            this.codeGrid = new System.Windows.Forms.DataGridView();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ra1Label = new System.Windows.Forms.Label();
-            this.ra0Label = new System.Windows.Forms.Label();
-            this.rb0Label = new System.Windows.Forms.Label();
-            this.rb1Label = new System.Windows.Forms.Label();
-            this.ra0Tgl = new System.Windows.Forms.Label();
-            this.ra1Tgl = new System.Windows.Forms.Label();
-            this.ra2Tgl = new System.Windows.Forms.Label();
-            this.ra3Tgl = new System.Windows.Forms.Label();
-            this.ra4Tgl = new System.Windows.Forms.Label();
-            this.ra5Tgl = new System.Windows.Forms.Label();
-            this.ra6Tgl = new System.Windows.Forms.Label();
-            this.ra7Tgl = new System.Windows.Forms.Label();
-            this.rb0Tgl = new System.Windows.Forms.Label();
-            this.rb1Tgl = new System.Windows.Forms.Label();
-            this.rb2Tgl = new System.Windows.Forms.Label();
-            this.rb3Tgl = new System.Windows.Forms.Label();
-            this.rb4Tgl = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.RAGrid = new System.Windows.Forms.DataGridView();
+            this.DgRa = new System.Windows.Forms.DataGridView();
             this.rara = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ra7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ra6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,7 +57,7 @@
             this.ra2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ra1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ra0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RBGrid = new System.Windows.Forms.DataGridView();
+            this.DgRb = new System.Windows.Forms.DataGridView();
             this.rbrb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rb7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rb6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,20 +67,7 @@
             this.rb2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rb1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rb0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rb4Toggle = new Try.RJControls.RjTogglebutton();
-            this.rb3Toggle = new Try.RJControls.RjTogglebutton();
-            this.rb2Toggle = new Try.RJControls.RjTogglebutton();
-            this.rb1Toggle = new Try.RJControls.RjTogglebutton();
-            this.rb0Toggle = new Try.RJControls.RjTogglebutton();
-            this.ra7Toggle = new Try.RJControls.RjTogglebutton();
-            this.ra6Toggle = new Try.RJControls.RjTogglebutton();
-            this.ra5Toggle = new Try.RJControls.RjTogglebutton();
-            this.ra4Toggle = new Try.RJControls.RjTogglebutton();
-            this.ra3Toggle = new Try.RJControls.RjTogglebutton();
-            this.ra2Toggle = new Try.RJControls.RjTogglebutton();
-            this.ra1Toggle = new Try.RJControls.RjTogglebutton();
-            this.ra0Toggle = new Try.RJControls.RjTogglebutton();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DgStatusRegister = new System.Windows.Forms.DataGridView();
             this.IRP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RP0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -115,7 +76,7 @@
             this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.DgIntCon = new System.Windows.Forms.DataGridView();
             this.GIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T0IE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,7 +85,7 @@
             this.T0IF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.INTF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RBIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.DgOptReg = new System.Windows.Forms.DataGridView();
             this.RBP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IntEdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T0CS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,34 +94,7 @@
             this.PS2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PS0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.optionLabel = new System.Windows.Forms.Label();
-            this.intconLabel = new System.Windows.Forms.Label();
-            this.ffLabel = new System.Windows.Forms.Label();
-            this.nullLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.specialFuncLabel = new System.Windows.Forms.Label();
-            this.wRegLabel = new System.Windows.Forms.Label();
-            this.wRegValueLabel = new System.Windows.Forms.Label();
-            this.fsrLabel = new System.Windows.Forms.Label();
-            this.fsrValueLabel = new System.Windows.Forms.Label();
-            this.pclLabel = new System.Windows.Forms.Label();
-            this.pclValueLabel = new System.Windows.Forms.Label();
-            this.pclathLabel = new System.Windows.Forms.Label();
-            this.pclathValueLabel = new System.Windows.Forms.Label();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.statusValueLabel = new System.Windows.Forms.Label();
-            this.sichtbarLabel = new System.Windows.Forms.Label();
-            this.versteckLabel = new System.Windows.Forms.Label();
-            this.pcLabel = new System.Windows.Forms.Label();
-            this.pcValueLabel = new System.Windows.Forms.Label();
-            this.stackpointerLabel = new System.Windows.Forms.Label();
-            this.vtLabel = new System.Windows.Forms.Label();
-            this.wdtLabel = new System.Windows.Forms.Label();
-            this.stackPoitnerValueLabel = new System.Windows.Forms.Label();
-            this.ff_Label = new System.Windows.Forms.Label();
-            this.freqLabel = new System.Windows.Forms.Label();
-            this.wdtActiveCheckBox = new System.Windows.Forms.CheckBox();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.DgTrisA = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -170,7 +104,7 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.DgTrisB = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -180,24 +114,101 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RAGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RBGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            this.DgEepromRegister = new System.Windows.Forms.DataGridView();
+            this.ScMain = new System.Windows.Forms.SplitContainer();
+            this.ScCode = new System.Windows.Forms.SplitContainer();
+            this.TbProgram = new System.Windows.Forms.TextBox();
+            this.ScRam = new System.Windows.Forms.SplitContainer();
+            this.ScRamBanks = new System.Windows.Forms.SplitContainer();
+            this.DgRamBank1 = new System.Windows.Forms.DataGridView();
+            this.ScRegisters = new System.Windows.Forms.SplitContainer();
+            this.ScPorts = new System.Windows.Forms.SplitContainer();
+            this.ScPortA = new System.Windows.Forms.SplitContainer();
+            this.ScPortB = new System.Windows.Forms.SplitContainer();
+            this.ScControlRegister = new System.Windows.Forms.SplitContainer();
+            this.ScRegister = new System.Windows.Forms.SplitContainer();
+            this.ScStatusOption = new System.Windows.Forms.SplitContainer();
+            this.ScIntconEeprom = new System.Windows.Forms.SplitContainer();
+            this.ScSfr = new System.Windows.Forms.SplitContainer();
+            this.PaSfrVis = new System.Windows.Forms.Panel();
+            this.ScSfrStack = new System.Windows.Forms.SplitContainer();
+            this.PaSfrHid = new System.Windows.Forms.Panel();
+            this.DgStack = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DgRamBank0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgRa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgRb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgStatusRegister)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgIntCon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgOptReg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgTrisA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgTrisB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgEepromRegister)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScMain)).BeginInit();
+            this.ScMain.Panel1.SuspendLayout();
+            this.ScMain.Panel2.SuspendLayout();
+            this.ScMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScCode)).BeginInit();
+            this.ScCode.Panel1.SuspendLayout();
+            this.ScCode.Panel2.SuspendLayout();
+            this.ScCode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScRam)).BeginInit();
+            this.ScRam.Panel1.SuspendLayout();
+            this.ScRam.Panel2.SuspendLayout();
+            this.ScRam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScRamBanks)).BeginInit();
+            this.ScRamBanks.Panel1.SuspendLayout();
+            this.ScRamBanks.Panel2.SuspendLayout();
+            this.ScRamBanks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgRamBank1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScRegisters)).BeginInit();
+            this.ScRegisters.Panel1.SuspendLayout();
+            this.ScRegisters.Panel2.SuspendLayout();
+            this.ScRegisters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScPorts)).BeginInit();
+            this.ScPorts.Panel1.SuspendLayout();
+            this.ScPorts.Panel2.SuspendLayout();
+            this.ScPorts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScPortA)).BeginInit();
+            this.ScPortA.Panel1.SuspendLayout();
+            this.ScPortA.Panel2.SuspendLayout();
+            this.ScPortA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScPortB)).BeginInit();
+            this.ScPortB.Panel1.SuspendLayout();
+            this.ScPortB.Panel2.SuspendLayout();
+            this.ScPortB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScControlRegister)).BeginInit();
+            this.ScControlRegister.Panel1.SuspendLayout();
+            this.ScControlRegister.Panel2.SuspendLayout();
+            this.ScControlRegister.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScRegister)).BeginInit();
+            this.ScRegister.Panel1.SuspendLayout();
+            this.ScRegister.Panel2.SuspendLayout();
+            this.ScRegister.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScStatusOption)).BeginInit();
+            this.ScStatusOption.Panel1.SuspendLayout();
+            this.ScStatusOption.Panel2.SuspendLayout();
+            this.ScStatusOption.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScIntconEeprom)).BeginInit();
+            this.ScIntconEeprom.Panel1.SuspendLayout();
+            this.ScIntconEeprom.Panel2.SuspendLayout();
+            this.ScIntconEeprom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScSfr)).BeginInit();
+            this.ScSfr.Panel1.SuspendLayout();
+            this.ScSfr.Panel2.SuspendLayout();
+            this.ScSfr.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScSfrStack)).BeginInit();
+            this.ScSfrStack.Panel1.SuspendLayout();
+            this.ScSfrStack.Panel2.SuspendLayout();
+            this.ScSfrStack.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgStack)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGrid1
+            // DgRamBank0
             // 
-            this.dataGrid1.AllowUserToAddRows = false;
-            this.dataGrid1.AllowUserToDeleteRows = false;
-            this.dataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgRamBank0.AllowUserToAddRows = false;
+            this.DgRamBank0.AllowUserToDeleteRows = false;
+            this.DgRamBank0.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgRamBank0.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CNames,
             this.C00,
             this.C01,
@@ -207,12 +218,13 @@
             this.C5,
             this.C6,
             this.C7});
-            this.dataGrid1.Location = new System.Drawing.Point(-24, -135);
-            this.dataGrid1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGrid1.Name = "dataGrid1";
-            this.dataGrid1.ReadOnly = true;
-            this.dataGrid1.Size = new System.Drawing.Size(313, 842);
-            this.dataGrid1.TabIndex = 1;
+            this.DgRamBank0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgRamBank0.Location = new System.Drawing.Point(0, 0);
+            this.DgRamBank0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DgRamBank0.Name = "DgRamBank0";
+            this.DgRamBank0.ReadOnly = true;
+            this.DgRamBank0.Size = new System.Drawing.Size(279, 877);
+            this.DgRamBank0.TabIndex = 1;
             // 
             // CNames
             // 
@@ -288,7 +300,7 @@
             // 
             // Reset
             // 
-            this.Reset.Location = new System.Drawing.Point(327, 754);
+            this.Reset.Location = new System.Drawing.Point(388, 3);
             this.Reset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Reset.Name = "Reset";
             this.Reset.Size = new System.Drawing.Size(88, 27);
@@ -299,29 +311,17 @@
             // 
             // Step
             // 
-            this.Step.Location = new System.Drawing.Point(423, 754);
+            this.Step.Location = new System.Drawing.Point(196, 3);
             this.Step.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Step.Name = "Step";
             this.Step.Size = new System.Drawing.Size(88, 27);
             this.Step.TabIndex = 4;
             this.Step.Text = "Step";
             this.Step.UseVisualStyleBackColor = true;
-            this.Step.Click += new System.EventHandler(this.Step_Click_1);
-            // 
-            // Go
-            // 
-            this.Go.Location = new System.Drawing.Point(519, 754);
-            this.Go.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Go.Name = "Go";
-            this.Go.Size = new System.Drawing.Size(88, 27);
-            this.Go.TabIndex = 7;
-            this.Go.Text = "Go";
-            this.Go.UseVisualStyleBackColor = true;
-            this.Go.Click += new System.EventHandler(this.Go_Click);
             // 
             // File
             // 
-            this.File.Location = new System.Drawing.Point(39, 754);
+            this.File.Location = new System.Drawing.Point(4, 3);
             this.File.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.File.Name = "File";
             this.File.Size = new System.Drawing.Size(88, 27);
@@ -332,7 +332,7 @@
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(135, 754);
+            this.Start.Location = new System.Drawing.Point(100, 3);
             this.Start.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(88, 27);
@@ -343,7 +343,7 @@
             // 
             // Stop
             // 
-            this.Stop.Location = new System.Drawing.Point(231, 754);
+            this.Stop.Location = new System.Drawing.Point(292, 3);
             this.Stop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Stop.Name = "Stop";
             this.Stop.Size = new System.Drawing.Size(88, 27);
@@ -352,246 +352,10 @@
             this.Stop.UseVisualStyleBackColor = true;
             this.Stop.Click += new System.EventHandler(this.Stop_Click);
             // 
-            // timer1
+            // DgRa
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timerValueLabel
-            // 
-            this.timerValueLabel.AutoSize = true;
-            this.timerValueLabel.Location = new System.Drawing.Point(369, 729);
-            this.timerValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.timerValueLabel.Name = "timerValueLabel";
-            this.timerValueLabel.Size = new System.Drawing.Size(49, 15);
-            this.timerValueLabel.TabIndex = 19;
-            this.timerValueLabel.Text = "00:00:00";
-            // 
-            // timerLabel
-            // 
-            this.timerLabel.AutoSize = true;
-            this.timerLabel.Location = new System.Drawing.Point(320, 729);
-            this.timerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Size = new System.Drawing.Size(37, 15);
-            this.timerLabel.TabIndex = 20;
-            this.timerLabel.Text = "Timer";
-            // 
-            // codeGrid
-            // 
-            this.codeGrid.AllowUserToAddRows = false;
-            this.codeGrid.AllowUserToDeleteRows = false;
-            this.codeGrid.AllowUserToResizeColumns = false;
-            this.codeGrid.AllowUserToResizeRows = false;
-            this.codeGrid.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.codeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.codeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column14});
-            this.codeGrid.Enabled = false;
-            this.codeGrid.Location = new System.Drawing.Point(771, 333);
-            this.codeGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.codeGrid.Name = "codeGrid";
-            this.codeGrid.ReadOnly = true;
-            this.codeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.codeGrid.ShowCellErrors = false;
-            this.codeGrid.ShowCellToolTips = false;
-            this.codeGrid.ShowEditingIcon = false;
-            this.codeGrid.ShowRowErrors = false;
-            this.codeGrid.Size = new System.Drawing.Size(638, 448);
-            this.codeGrid.TabIndex = 21;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Column14";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 600;
-            // 
-            // ra1Label
-            // 
-            this.ra1Label.AutoSize = true;
-            this.ra1Label.Location = new System.Drawing.Point(1211, 14);
-            this.ra1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra1Label.Name = "ra1Label";
-            this.ra1Label.Size = new System.Drawing.Size(13, 15);
-            this.ra1Label.TabIndex = 22;
-            this.ra1Label.Text = "1";
-            // 
-            // ra0Label
-            // 
-            this.ra0Label.AutoSize = true;
-            this.ra0Label.Location = new System.Drawing.Point(1153, 14);
-            this.ra0Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra0Label.Name = "ra0Label";
-            this.ra0Label.Size = new System.Drawing.Size(13, 15);
-            this.ra0Label.TabIndex = 23;
-            this.ra0Label.Text = "0";
-            // 
-            // rb0Label
-            // 
-            this.rb0Label.AutoSize = true;
-            this.rb0Label.Location = new System.Drawing.Point(1338, 14);
-            this.rb0Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.rb0Label.Name = "rb0Label";
-            this.rb0Label.Size = new System.Drawing.Size(13, 15);
-            this.rb0Label.TabIndex = 38;
-            this.rb0Label.Text = "0";
-            // 
-            // rb1Label
-            // 
-            this.rb1Label.AutoSize = true;
-            this.rb1Label.Location = new System.Drawing.Point(1396, 14);
-            this.rb1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.rb1Label.Name = "rb1Label";
-            this.rb1Label.Size = new System.Drawing.Size(13, 15);
-            this.rb1Label.TabIndex = 39;
-            this.rb1Label.Text = "1";
-            // 
-            // ra0Tgl
-            // 
-            this.ra0Tgl.AutoSize = true;
-            this.ra0Tgl.Location = new System.Drawing.Point(1108, 32);
-            this.ra0Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra0Tgl.Name = "ra0Tgl";
-            this.ra0Tgl.Size = new System.Drawing.Size(28, 15);
-            this.ra0Tgl.TabIndex = 40;
-            this.ra0Tgl.Text = "RA0";
-            // 
-            // ra1Tgl
-            // 
-            this.ra1Tgl.AutoSize = true;
-            this.ra1Tgl.Location = new System.Drawing.Point(1108, 59);
-            this.ra1Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra1Tgl.Name = "ra1Tgl";
-            this.ra1Tgl.Size = new System.Drawing.Size(28, 15);
-            this.ra1Tgl.TabIndex = 41;
-            this.ra1Tgl.Text = "RA1";
-            // 
-            // ra2Tgl
-            // 
-            this.ra2Tgl.AutoSize = true;
-            this.ra2Tgl.Location = new System.Drawing.Point(1108, 87);
-            this.ra2Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra2Tgl.Name = "ra2Tgl";
-            this.ra2Tgl.Size = new System.Drawing.Size(28, 15);
-            this.ra2Tgl.TabIndex = 42;
-            this.ra2Tgl.Text = "RA2";
-            // 
-            // ra3Tgl
-            // 
-            this.ra3Tgl.AutoSize = true;
-            this.ra3Tgl.Location = new System.Drawing.Point(1108, 117);
-            this.ra3Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra3Tgl.Name = "ra3Tgl";
-            this.ra3Tgl.Size = new System.Drawing.Size(28, 15);
-            this.ra3Tgl.TabIndex = 43;
-            this.ra3Tgl.Text = "RA3";
-            // 
-            // ra4Tgl
-            // 
-            this.ra4Tgl.AutoSize = true;
-            this.ra4Tgl.Location = new System.Drawing.Point(1108, 143);
-            this.ra4Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra4Tgl.Name = "ra4Tgl";
-            this.ra4Tgl.Size = new System.Drawing.Size(28, 15);
-            this.ra4Tgl.TabIndex = 44;
-            this.ra4Tgl.Text = "RA4";
-            // 
-            // ra5Tgl
-            // 
-            this.ra5Tgl.AutoSize = true;
-            this.ra5Tgl.Location = new System.Drawing.Point(1108, 170);
-            this.ra5Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra5Tgl.Name = "ra5Tgl";
-            this.ra5Tgl.Size = new System.Drawing.Size(28, 15);
-            this.ra5Tgl.TabIndex = 45;
-            this.ra5Tgl.Text = "RA5";
-            // 
-            // ra6Tgl
-            // 
-            this.ra6Tgl.AutoSize = true;
-            this.ra6Tgl.Location = new System.Drawing.Point(1108, 196);
-            this.ra6Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra6Tgl.Name = "ra6Tgl";
-            this.ra6Tgl.Size = new System.Drawing.Size(28, 15);
-            this.ra6Tgl.TabIndex = 46;
-            this.ra6Tgl.Text = "RA6";
-            // 
-            // ra7Tgl
-            // 
-            this.ra7Tgl.AutoSize = true;
-            this.ra7Tgl.Location = new System.Drawing.Point(1108, 223);
-            this.ra7Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ra7Tgl.Name = "ra7Tgl";
-            this.ra7Tgl.Size = new System.Drawing.Size(28, 15);
-            this.ra7Tgl.TabIndex = 47;
-            this.ra7Tgl.Text = "RA7";
-            // 
-            // rb0Tgl
-            // 
-            this.rb0Tgl.AutoSize = true;
-            this.rb0Tgl.Location = new System.Drawing.Point(1302, 37);
-            this.rb0Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.rb0Tgl.Name = "rb0Tgl";
-            this.rb0Tgl.Size = new System.Drawing.Size(27, 15);
-            this.rb0Tgl.TabIndex = 48;
-            this.rb0Tgl.Text = "RB0";
-            // 
-            // rb1Tgl
-            // 
-            this.rb1Tgl.AutoSize = true;
-            this.rb1Tgl.Location = new System.Drawing.Point(1302, 63);
-            this.rb1Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.rb1Tgl.Name = "rb1Tgl";
-            this.rb1Tgl.Size = new System.Drawing.Size(27, 15);
-            this.rb1Tgl.TabIndex = 49;
-            this.rb1Tgl.Text = "RB1";
-            // 
-            // rb2Tgl
-            // 
-            this.rb2Tgl.AutoSize = true;
-            this.rb2Tgl.Location = new System.Drawing.Point(1302, 90);
-            this.rb2Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.rb2Tgl.Name = "rb2Tgl";
-            this.rb2Tgl.Size = new System.Drawing.Size(27, 15);
-            this.rb2Tgl.TabIndex = 50;
-            this.rb2Tgl.Text = "RB2";
-            // 
-            // rb3Tgl
-            // 
-            this.rb3Tgl.AutoSize = true;
-            this.rb3Tgl.Location = new System.Drawing.Point(1302, 117);
-            this.rb3Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.rb3Tgl.Name = "rb3Tgl";
-            this.rb3Tgl.Size = new System.Drawing.Size(27, 15);
-            this.rb3Tgl.TabIndex = 51;
-            this.rb3Tgl.Text = "RB3";
-            // 
-            // rb4Tgl
-            // 
-            this.rb4Tgl.AutoSize = true;
-            this.rb4Tgl.Location = new System.Drawing.Point(1302, 143);
-            this.rb4Tgl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.rb4Tgl.Name = "rb4Tgl";
-            this.rb4Tgl.Size = new System.Drawing.Size(27, 15);
-            this.rb4Tgl.TabIndex = 52;
-            this.rb4Tgl.Text = "RB4";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1415, 793);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // RAGrid
-            // 
-            this.RAGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RAGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgRa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgRa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rara,
             this.ra7,
             this.ra6,
@@ -601,12 +365,12 @@
             this.ra2,
             this.ra1,
             this.ra0});
-            this.RAGrid.Location = new System.Drawing.Point(320, 12);
-            this.RAGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.RAGrid.Name = "RAGrid";
-            this.RAGrid.Size = new System.Drawing.Size(315, 93);
-            this.RAGrid.TabIndex = 64;
-            this.RAGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RAGrid_CellContentClick);
+            this.DgRa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgRa.Location = new System.Drawing.Point(0, 0);
+            this.DgRa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DgRa.Name = "DgRa";
+            this.DgRa.Size = new System.Drawing.Size(311, 110);
+            this.DgRa.TabIndex = 64;
             // 
             // rara
             // 
@@ -679,10 +443,10 @@
             this.ra0.Name = "ra0";
             this.ra0.Width = 25;
             // 
-            // RBGrid
+            // DgRb
             // 
-            this.RBGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RBGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgRb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgRb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rbrb,
             this.rb7,
             this.rb6,
@@ -692,12 +456,12 @@
             this.rb2,
             this.rb1,
             this.rb0});
-            this.RBGrid.Location = new System.Drawing.Point(320, 112);
-            this.RBGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.RBGrid.Name = "RBGrid";
-            this.RBGrid.Size = new System.Drawing.Size(315, 93);
-            this.RBGrid.TabIndex = 65;
-            this.RBGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RBGrid_CellContentClick);
+            this.DgRb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgRb.Location = new System.Drawing.Point(0, 0);
+            this.DgRb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DgRb.Name = "DgRb";
+            this.DgRb.Size = new System.Drawing.Size(340, 102);
+            this.DgRb.TabIndex = 65;
             // 
             // rbrb
             // 
@@ -770,179 +534,10 @@
             this.rb0.Name = "rb0";
             this.rb0.Width = 25;
             // 
-            // rb4Toggle
+            // DgStatusRegister
             // 
-            this.rb4Toggle.AutoSize = true;
-            this.rb4Toggle.Location = new System.Drawing.Point(1342, 138);
-            this.rb4Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rb4Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.rb4Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.rb4Toggle.Name = "rb4Toggle";
-            this.rb4Toggle.Size = new System.Drawing.Size(70, 19);
-            this.rb4Toggle.TabIndex = 63;
-            this.rb4Toggle.Text = "rjTogglebutton13";
-            this.rb4Toggle.UseVisualStyleBackColor = true;
-            // 
-            // rb3Toggle
-            // 
-            this.rb3Toggle.AutoSize = true;
-            this.rb3Toggle.Location = new System.Drawing.Point(1342, 112);
-            this.rb3Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rb3Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.rb3Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.rb3Toggle.Name = "rb3Toggle";
-            this.rb3Toggle.Size = new System.Drawing.Size(70, 19);
-            this.rb3Toggle.TabIndex = 62;
-            this.rb3Toggle.Text = "rjTogglebutton12";
-            this.rb3Toggle.UseVisualStyleBackColor = true;
-            // 
-            // rb2Toggle
-            // 
-            this.rb2Toggle.AutoSize = true;
-            this.rb2Toggle.Location = new System.Drawing.Point(1342, 85);
-            this.rb2Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rb2Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.rb2Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.rb2Toggle.Name = "rb2Toggle";
-            this.rb2Toggle.Size = new System.Drawing.Size(70, 19);
-            this.rb2Toggle.TabIndex = 61;
-            this.rb2Toggle.Text = "rjTogglebutton11";
-            this.rb2Toggle.UseVisualStyleBackColor = true;
-            // 
-            // rb1Toggle
-            // 
-            this.rb1Toggle.AutoSize = true;
-            this.rb1Toggle.Location = new System.Drawing.Point(1342, 59);
-            this.rb1Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rb1Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.rb1Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.rb1Toggle.Name = "rb1Toggle";
-            this.rb1Toggle.Size = new System.Drawing.Size(70, 19);
-            this.rb1Toggle.TabIndex = 60;
-            this.rb1Toggle.Text = "rjTogglebutton10";
-            this.rb1Toggle.UseVisualStyleBackColor = true;
-            // 
-            // rb0Toggle
-            // 
-            this.rb0Toggle.AutoSize = true;
-            this.rb0Toggle.Location = new System.Drawing.Point(1342, 32);
-            this.rb0Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rb0Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.rb0Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.rb0Toggle.Name = "rb0Toggle";
-            this.rb0Toggle.Size = new System.Drawing.Size(70, 19);
-            this.rb0Toggle.TabIndex = 59;
-            this.rb0Toggle.Text = "rjTogglebutton9";
-            this.rb0Toggle.UseVisualStyleBackColor = true;
-            // 
-            // ra7Toggle
-            // 
-            this.ra7Toggle.AutoSize = true;
-            this.ra7Toggle.Location = new System.Drawing.Point(1156, 218);
-            this.ra7Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ra7Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.ra7Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.ra7Toggle.Name = "ra7Toggle";
-            this.ra7Toggle.Size = new System.Drawing.Size(70, 19);
-            this.ra7Toggle.TabIndex = 58;
-            this.ra7Toggle.Text = "rjTogglebutton8";
-            this.ra7Toggle.UseVisualStyleBackColor = true;
-            // 
-            // ra6Toggle
-            // 
-            this.ra6Toggle.AutoSize = true;
-            this.ra6Toggle.Location = new System.Drawing.Point(1156, 192);
-            this.ra6Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ra6Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.ra6Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.ra6Toggle.Name = "ra6Toggle";
-            this.ra6Toggle.Size = new System.Drawing.Size(70, 19);
-            this.ra6Toggle.TabIndex = 57;
-            this.ra6Toggle.Text = "rjTogglebutton7";
-            this.ra6Toggle.UseVisualStyleBackColor = true;
-            // 
-            // ra5Toggle
-            // 
-            this.ra5Toggle.AutoSize = true;
-            this.ra5Toggle.Location = new System.Drawing.Point(1156, 165);
-            this.ra5Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ra5Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.ra5Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.ra5Toggle.Name = "ra5Toggle";
-            this.ra5Toggle.Size = new System.Drawing.Size(70, 19);
-            this.ra5Toggle.TabIndex = 56;
-            this.ra5Toggle.Text = "rjTogglebutton6";
-            this.ra5Toggle.UseVisualStyleBackColor = true;
-            // 
-            // ra4Toggle
-            // 
-            this.ra4Toggle.AutoSize = true;
-            this.ra4Toggle.Location = new System.Drawing.Point(1156, 138);
-            this.ra4Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ra4Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.ra4Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.ra4Toggle.Name = "ra4Toggle";
-            this.ra4Toggle.Size = new System.Drawing.Size(70, 19);
-            this.ra4Toggle.TabIndex = 55;
-            this.ra4Toggle.Text = "rjTogglebutton5";
-            this.ra4Toggle.UseVisualStyleBackColor = true;
-            // 
-            // ra3Toggle
-            // 
-            this.ra3Toggle.AutoSize = true;
-            this.ra3Toggle.Location = new System.Drawing.Point(1156, 112);
-            this.ra3Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ra3Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.ra3Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.ra3Toggle.Name = "ra3Toggle";
-            this.ra3Toggle.Size = new System.Drawing.Size(70, 19);
-            this.ra3Toggle.TabIndex = 54;
-            this.ra3Toggle.Text = "rjTogglebutton4";
-            this.ra3Toggle.UseVisualStyleBackColor = true;
-            // 
-            // ra2Toggle
-            // 
-            this.ra2Toggle.AutoSize = true;
-            this.ra2Toggle.Location = new System.Drawing.Point(1156, 85);
-            this.ra2Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ra2Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.ra2Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.ra2Toggle.Name = "ra2Toggle";
-            this.ra2Toggle.Size = new System.Drawing.Size(70, 19);
-            this.ra2Toggle.TabIndex = 53;
-            this.ra2Toggle.Text = "rjTogglebutton3";
-            this.ra2Toggle.UseVisualStyleBackColor = true;
-            // 
-            // ra1Toggle
-            // 
-            this.ra1Toggle.AutoSize = true;
-            this.ra1Toggle.Location = new System.Drawing.Point(1156, 59);
-            this.ra1Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ra1Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.ra1Toggle.MinimumSize = new System.Drawing.Size(12, 13);
-            this.ra1Toggle.Name = "ra1Toggle";
-            this.ra1Toggle.Size = new System.Drawing.Size(70, 19);
-            this.ra1Toggle.TabIndex = 24;
-            this.ra1Toggle.Text = "rjTogglebutton2";
-            this.ra1Toggle.UseVisualStyleBackColor = true;
-            // 
-            // ra0Toggle
-            // 
-            this.ra0Toggle.AutoSize = true;
-            this.ra0Toggle.Location = new System.Drawing.Point(1156, 32);
-            this.ra0Toggle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ra0Toggle.MaximumSize = new System.Drawing.Size(70, 0);
-            this.ra0Toggle.MinimumSize = new System.Drawing.Size(12, 9);
-            this.ra0Toggle.Name = "ra0Toggle";
-            this.ra0Toggle.Size = new System.Drawing.Size(70, 19);
-            this.ra0Toggle.TabIndex = 13;
-            this.ra0Toggle.Text = "rjTogglebutton1";
-            this.ra0Toggle.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgStatusRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgStatusRegister.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IRP,
             this.RP1,
             this.RP0,
@@ -951,12 +546,12 @@
             this.Z,
             this.DC,
             this.C});
-            this.dataGridView2.Location = new System.Drawing.Point(320, 489);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(425, 48);
-            this.dataGridView2.TabIndex = 66;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.DgStatusRegister.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgStatusRegister.Location = new System.Drawing.Point(0, 0);
+            this.DgStatusRegister.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DgStatusRegister.Name = "DgStatusRegister";
+            this.DgStatusRegister.Size = new System.Drawing.Size(310, 138);
+            this.DgStatusRegister.TabIndex = 66;
             // 
             // IRP
             // 
@@ -1014,10 +609,10 @@
             this.C.Name = "C";
             this.C.Width = 40;
             // 
-            // dataGridView3
+            // DgIntCon
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgIntCon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgIntCon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GIE,
             this.PIE,
             this.T0IE,
@@ -1026,12 +621,12 @@
             this.T0IF,
             this.INTF,
             this.RBIF});
-            this.dataGridView3.Location = new System.Drawing.Point(320, 644);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(425, 48);
-            this.dataGridView3.TabIndex = 67;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.DgIntCon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgIntCon.Location = new System.Drawing.Point(0, 0);
+            this.DgIntCon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DgIntCon.Name = "DgIntCon";
+            this.DgIntCon.Size = new System.Drawing.Size(310, 156);
+            this.DgIntCon.TabIndex = 67;
             // 
             // GIE
             // 
@@ -1089,10 +684,10 @@
             this.RBIF.Name = "RBIF";
             this.RBIF.Width = 40;
             // 
-            // dataGridView4
+            // DgOptReg
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgOptReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgOptReg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RBP,
             this.IntEdg,
             this.T0CS,
@@ -1101,11 +696,12 @@
             this.PS2,
             this.PS1,
             this.PS0});
-            this.dataGridView4.Location = new System.Drawing.Point(320, 563);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(425, 48);
-            this.dataGridView4.TabIndex = 68;
+            this.DgOptReg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgOptReg.Location = new System.Drawing.Point(0, 0);
+            this.DgOptReg.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DgOptReg.Name = "DgOptReg";
+            this.DgOptReg.Size = new System.Drawing.Size(310, 172);
+            this.DgOptReg.TabIndex = 68;
             // 
             // RBP
             // 
@@ -1163,283 +759,11 @@
             this.PS0.Name = "PS0";
             this.PS0.Width = 40;
             // 
-            // optionLabel
+            // DgTrisA
             // 
-            this.optionLabel.AutoSize = true;
-            this.optionLabel.Location = new System.Drawing.Point(369, 545);
-            this.optionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.optionLabel.Name = "optionLabel";
-            this.optionLabel.Size = new System.Drawing.Size(44, 15);
-            this.optionLabel.TabIndex = 69;
-            this.optionLabel.Text = "Option";
-            // 
-            // intconLabel
-            // 
-            this.intconLabel.AutoSize = true;
-            this.intconLabel.Location = new System.Drawing.Point(369, 625);
-            this.intconLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.intconLabel.Name = "intconLabel";
-            this.intconLabel.Size = new System.Drawing.Size(50, 15);
-            this.intconLabel.TabIndex = 70;
-            this.intconLabel.Text = "INTCON";
-            // 
-            // ffLabel
-            // 
-            this.ffLabel.AutoSize = true;
-            this.ffLabel.Location = new System.Drawing.Point(461, 545);
-            this.ffLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ffLabel.Name = "ffLabel";
-            this.ffLabel.Size = new System.Drawing.Size(19, 15);
-            this.ffLabel.TabIndex = 71;
-            this.ffLabel.Text = "FF";
-            // 
-            // nullLabel
-            // 
-            this.nullLabel.AutoSize = true;
-            this.nullLabel.Location = new System.Drawing.Point(461, 625);
-            this.nullLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.nullLabel.Name = "nullLabel";
-            this.nullLabel.Size = new System.Drawing.Size(19, 15);
-            this.nullLabel.TabIndex = 72;
-            this.nullLabel.Text = "00";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1447, 1027);
-            this.label1.TabIndex = 73;
-            // 
-            // specialFuncLabel
-            // 
-            this.specialFuncLabel.AutoSize = true;
-            this.specialFuncLabel.Location = new System.Drawing.Point(334, 280);
-            this.specialFuncLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.specialFuncLabel.Name = "specialFuncLabel";
-            this.specialFuncLabel.Size = new System.Drawing.Size(132, 15);
-            this.specialFuncLabel.TabIndex = 74;
-            this.specialFuncLabel.Text = "Spezialfunktionsregister";
-            this.specialFuncLabel.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // wRegLabel
-            // 
-            this.wRegLabel.AutoSize = true;
-            this.wRegLabel.Location = new System.Drawing.Point(337, 333);
-            this.wRegLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.wRegLabel.Name = "wRegLabel";
-            this.wRegLabel.Size = new System.Drawing.Size(43, 15);
-            this.wRegLabel.TabIndex = 75;
-            this.wRegLabel.Text = "W-Reg";
-            // 
-            // wRegValueLabel
-            // 
-            this.wRegValueLabel.AutoSize = true;
-            this.wRegValueLabel.Location = new System.Drawing.Point(399, 333);
-            this.wRegValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.wRegValueLabel.Name = "wRegValueLabel";
-            this.wRegValueLabel.Size = new System.Drawing.Size(64, 15);
-            this.wRegValueLabel.TabIndex = 76;
-            this.wRegValueLabel.Text = "wRegValue";
-            // 
-            // fsrLabel
-            // 
-            this.fsrLabel.AutoSize = true;
-            this.fsrLabel.Location = new System.Drawing.Point(337, 353);
-            this.fsrLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.fsrLabel.Name = "fsrLabel";
-            this.fsrLabel.Size = new System.Drawing.Size(26, 15);
-            this.fsrLabel.TabIndex = 77;
-            this.fsrLabel.Text = "FSR";
-            // 
-            // fsrValueLabel
-            // 
-            this.fsrValueLabel.AutoSize = true;
-            this.fsrValueLabel.Location = new System.Drawing.Point(399, 353);
-            this.fsrValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.fsrValueLabel.Name = "fsrValueLabel";
-            this.fsrValueLabel.Size = new System.Drawing.Size(48, 15);
-            this.fsrValueLabel.TabIndex = 78;
-            this.fsrValueLabel.Text = "fsrValue";
-            // 
-            // pclLabel
-            // 
-            this.pclLabel.AutoSize = true;
-            this.pclLabel.Location = new System.Drawing.Point(337, 373);
-            this.pclLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pclLabel.Name = "pclLabel";
-            this.pclLabel.Size = new System.Drawing.Size(51, 15);
-            this.pclLabel.TabIndex = 79;
-            this.pclLabel.Text = "pclLabel";
-            // 
-            // pclValueLabel
-            // 
-            this.pclValueLabel.AutoSize = true;
-            this.pclValueLabel.Location = new System.Drawing.Point(400, 373);
-            this.pclValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pclValueLabel.Name = "pclValueLabel";
-            this.pclValueLabel.Size = new System.Drawing.Size(51, 15);
-            this.pclValueLabel.TabIndex = 80;
-            this.pclValueLabel.Text = "pclValue";
-            // 
-            // pclathLabel
-            // 
-            this.pclathLabel.AutoSize = true;
-            this.pclathLabel.Location = new System.Drawing.Point(337, 392);
-            this.pclathLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pclathLabel.Name = "pclathLabel";
-            this.pclathLabel.Size = new System.Drawing.Size(50, 15);
-            this.pclathLabel.TabIndex = 81;
-            this.pclathLabel.Text = "PCLATH";
-            // 
-            // pclathValueLabel
-            // 
-            this.pclathValueLabel.AutoSize = true;
-            this.pclathValueLabel.Location = new System.Drawing.Point(402, 392);
-            this.pclathValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pclathValueLabel.Name = "pclathValueLabel";
-            this.pclathValueLabel.Size = new System.Drawing.Size(68, 15);
-            this.pclathValueLabel.TabIndex = 82;
-            this.pclathValueLabel.Text = "pclathValue";
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(337, 412);
-            this.statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(39, 15);
-            this.statusLabel.TabIndex = 83;
-            this.statusLabel.Text = "Status";
-            // 
-            // statusValueLabel
-            // 
-            this.statusValueLabel.AutoSize = true;
-            this.statusValueLabel.Location = new System.Drawing.Point(404, 412);
-            this.statusValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.statusValueLabel.Name = "statusValueLabel";
-            this.statusValueLabel.Size = new System.Drawing.Size(66, 15);
-            this.statusValueLabel.TabIndex = 84;
-            this.statusValueLabel.Text = "statusValue";
-            // 
-            // sichtbarLabel
-            // 
-            this.sichtbarLabel.AutoSize = true;
-            this.sichtbarLabel.Location = new System.Drawing.Point(334, 306);
-            this.sichtbarLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.sichtbarLabel.Name = "sichtbarLabel";
-            this.sichtbarLabel.Size = new System.Drawing.Size(49, 15);
-            this.sichtbarLabel.TabIndex = 85;
-            this.sichtbarLabel.Text = "sichtbar";
-            // 
-            // versteckLabel
-            // 
-            this.versteckLabel.AutoSize = true;
-            this.versteckLabel.Location = new System.Drawing.Point(542, 305);
-            this.versteckLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.versteckLabel.Name = "versteckLabel";
-            this.versteckLabel.Size = new System.Drawing.Size(54, 15);
-            this.versteckLabel.TabIndex = 86;
-            this.versteckLabel.Text = "versteckt";
-            // 
-            // pcLabel
-            // 
-            this.pcLabel.AutoSize = true;
-            this.pcLabel.Location = new System.Drawing.Point(546, 333);
-            this.pcLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pcLabel.Name = "pcLabel";
-            this.pcLabel.Size = new System.Drawing.Size(22, 15);
-            this.pcLabel.TabIndex = 87;
-            this.pcLabel.Text = "PC";
-            // 
-            // pcValueLabel
-            // 
-            this.pcValueLabel.AutoSize = true;
-            this.pcValueLabel.Location = new System.Drawing.Point(654, 333);
-            this.pcValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pcValueLabel.Name = "pcValueLabel";
-            this.pcValueLabel.Size = new System.Drawing.Size(48, 15);
-            this.pcValueLabel.TabIndex = 88;
-            this.pcValueLabel.Text = "pcValue";
-            // 
-            // stackpointerLabel
-            // 
-            this.stackpointerLabel.AutoSize = true;
-            this.stackpointerLabel.Location = new System.Drawing.Point(546, 353);
-            this.stackpointerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.stackpointerLabel.Name = "stackpointerLabel";
-            this.stackpointerLabel.Size = new System.Drawing.Size(73, 15);
-            this.stackpointerLabel.TabIndex = 89;
-            this.stackpointerLabel.Text = "Stackpointer";
-            // 
-            // vtLabel
-            // 
-            this.vtLabel.AutoSize = true;
-            this.vtLabel.Location = new System.Drawing.Point(546, 372);
-            this.vtLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.vtLabel.Name = "vtLabel";
-            this.vtLabel.Size = new System.Drawing.Size(20, 15);
-            this.vtLabel.TabIndex = 90;
-            this.vtLabel.Text = "VT";
-            // 
-            // wdtLabel
-            // 
-            this.wdtLabel.AutoSize = true;
-            this.wdtLabel.Location = new System.Drawing.Point(546, 412);
-            this.wdtLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.wdtLabel.Name = "wdtLabel";
-            this.wdtLabel.Size = new System.Drawing.Size(31, 15);
-            this.wdtLabel.TabIndex = 92;
-            this.wdtLabel.Text = "WDT";
-            // 
-            // stackPoitnerValueLabel
-            // 
-            this.stackPoitnerValueLabel.AutoSize = true;
-            this.stackPoitnerValueLabel.Location = new System.Drawing.Point(654, 353);
-            this.stackPoitnerValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.stackPoitnerValueLabel.Name = "stackPoitnerValueLabel";
-            this.stackPoitnerValueLabel.Size = new System.Drawing.Size(100, 15);
-            this.stackPoitnerValueLabel.TabIndex = 93;
-            this.stackPoitnerValueLabel.Text = "stackpointerValue";
-            // 
-            // ff_Label
-            // 
-            this.ff_Label.AutoSize = true;
-            this.ff_Label.Location = new System.Drawing.Point(606, 373);
-            this.ff_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ff_Label.Name = "ff_Label";
-            this.ff_Label.Size = new System.Drawing.Size(19, 15);
-            this.ff_Label.TabIndex = 94;
-            this.ff_Label.Text = "FF";
-            // 
-            // freqLabel
-            // 
-            this.freqLabel.AutoSize = true;
-            this.freqLabel.Location = new System.Drawing.Point(606, 412);
-            this.freqLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.freqLabel.Name = "freqLabel";
-            this.freqLabel.Size = new System.Drawing.Size(37, 15);
-            this.freqLabel.TabIndex = 96;
-            this.freqLabel.Text = "0.0 us";
-            // 
-            // wdtActiveCheckBox
-            // 
-            this.wdtActiveCheckBox.AutoSize = true;
-            this.wdtActiveCheckBox.Location = new System.Drawing.Point(546, 389);
-            this.wdtActiveCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.wdtActiveCheckBox.Name = "wdtActiveCheckBox";
-            this.wdtActiveCheckBox.Size = new System.Drawing.Size(78, 19);
-            this.wdtActiveCheckBox.TabIndex = 97;
-            this.wdtActiveCheckBox.Text = "WDT aktiv";
-            this.wdtActiveCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView5
-            // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgTrisA.AllowUserToResizeColumns = false;
+            this.DgTrisA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.DgTrisA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -1449,12 +773,12 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
-            this.dataGridView5.Location = new System.Drawing.Point(654, 12);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(315, 93);
-            this.dataGridView5.TabIndex = 98;
-            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
+            this.DgTrisA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgTrisA.Location = new System.Drawing.Point(0, 0);
+            this.DgTrisA.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DgTrisA.Name = "DgTrisA";
+            this.DgTrisA.Size = new System.Drawing.Size(311, 102);
+            this.DgTrisA.TabIndex = 98;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1462,7 +786,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "TRISA";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 25;
+            this.dataGridViewTextBoxColumn1.Width = 62;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -1470,7 +794,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "7";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 25;
+            this.dataGridViewTextBoxColumn2.Width = 38;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1478,7 +802,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "6";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 25;
+            this.dataGridViewTextBoxColumn3.Width = 38;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1486,7 +810,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "5";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 25;
+            this.dataGridViewTextBoxColumn4.Width = 38;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1494,7 +818,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "4";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 25;
+            this.dataGridViewTextBoxColumn5.Width = 38;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1502,7 +826,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "3";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 25;
+            this.dataGridViewTextBoxColumn6.Width = 38;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1510,7 +834,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "2";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 25;
+            this.dataGridViewTextBoxColumn7.Width = 38;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -1518,19 +842,19 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "1";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 25;
+            this.dataGridViewTextBoxColumn8.Width = 38;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.FillWeight = 25F;
             this.dataGridViewTextBoxColumn9.HeaderText = "0";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 25;
+            this.dataGridViewTextBoxColumn9.Width = 38;
             // 
-            // dataGridView6
+            // DgTrisB
             // 
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgTrisB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgTrisB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
@@ -1540,12 +864,12 @@
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17,
             this.dataGridViewTextBoxColumn18});
-            this.dataGridView6.Location = new System.Drawing.Point(654, 111);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(315, 93);
-            this.dataGridView6.TabIndex = 99;
-            this.dataGridView6.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView6_CellContentClick);
+            this.DgTrisB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgTrisB.Location = new System.Drawing.Point(0, 0);
+            this.DgTrisB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DgTrisB.Name = "DgTrisB";
+            this.DgTrisB.Size = new System.Drawing.Size(340, 110);
+            this.DgTrisB.TabIndex = 99;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -1618,109 +942,399 @@
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.Width = 25;
             // 
+            // DgEepromRegister
+            // 
+            this.DgEepromRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgEepromRegister.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgEepromRegister.Location = new System.Drawing.Point(0, 0);
+            this.DgEepromRegister.Name = "DgEepromRegister";
+            this.DgEepromRegister.RowTemplate.Height = 25;
+            this.DgEepromRegister.Size = new System.Drawing.Size(310, 179);
+            this.DgEepromRegister.TabIndex = 102;
+            // 
+            // ScMain
+            // 
+            this.ScMain.Location = new System.Drawing.Point(12, 12);
+            this.ScMain.Name = "ScMain";
+            this.ScMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScMain.Panel1
+            // 
+            this.ScMain.Panel1.Controls.Add(this.File);
+            this.ScMain.Panel1.Controls.Add(this.Start);
+            this.ScMain.Panel1.Controls.Add(this.Step);
+            this.ScMain.Panel1.Controls.Add(this.Stop);
+            this.ScMain.Panel1.Controls.Add(this.Reset);
+            // 
+            // ScMain.Panel2
+            // 
+            this.ScMain.Panel2.Controls.Add(this.ScCode);
+            this.ScMain.Size = new System.Drawing.Size(1827, 913);
+            this.ScMain.SplitterDistance = 32;
+            this.ScMain.TabIndex = 103;
+            // 
+            // ScCode
+            // 
+            this.ScCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScCode.Location = new System.Drawing.Point(0, 0);
+            this.ScCode.Name = "ScCode";
+            // 
+            // ScCode.Panel1
+            // 
+            this.ScCode.Panel1.Controls.Add(this.TbProgram);
+            // 
+            // ScCode.Panel2
+            // 
+            this.ScCode.Panel2.Controls.Add(this.ScRam);
+            this.ScCode.Size = new System.Drawing.Size(1827, 877);
+            this.ScCode.SplitterDistance = 614;
+            this.ScCode.TabIndex = 104;
+            // 
+            // TbProgram
+            // 
+            this.TbProgram.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.TbProgram.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TbProgram.ForeColor = System.Drawing.SystemColors.Window;
+            this.TbProgram.Location = new System.Drawing.Point(0, 0);
+            this.TbProgram.Multiline = true;
+            this.TbProgram.Name = "TbProgram";
+            this.TbProgram.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TbProgram.Size = new System.Drawing.Size(614, 877);
+            this.TbProgram.TabIndex = 0;
+            // 
+            // ScRam
+            // 
+            this.ScRam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScRam.Location = new System.Drawing.Point(0, 0);
+            this.ScRam.Name = "ScRam";
+            // 
+            // ScRam.Panel1
+            // 
+            this.ScRam.Panel1.Controls.Add(this.ScRamBanks);
+            // 
+            // ScRam.Panel2
+            // 
+            this.ScRam.Panel2.Controls.Add(this.ScRegisters);
+            this.ScRam.Size = new System.Drawing.Size(1209, 877);
+            this.ScRam.SplitterDistance = 550;
+            this.ScRam.TabIndex = 0;
+            // 
+            // ScRamBanks
+            // 
+            this.ScRamBanks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScRamBanks.Location = new System.Drawing.Point(0, 0);
+            this.ScRamBanks.Name = "ScRamBanks";
+            // 
+            // ScRamBanks.Panel1
+            // 
+            this.ScRamBanks.Panel1.Controls.Add(this.DgRamBank0);
+            // 
+            // ScRamBanks.Panel2
+            // 
+            this.ScRamBanks.Panel2.Controls.Add(this.DgRamBank1);
+            this.ScRamBanks.Size = new System.Drawing.Size(550, 877);
+            this.ScRamBanks.SplitterDistance = 279;
+            this.ScRamBanks.TabIndex = 0;
+            // 
+            // DgRamBank1
+            // 
+            this.DgRamBank1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgRamBank1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgRamBank1.Location = new System.Drawing.Point(0, 0);
+            this.DgRamBank1.Name = "DgRamBank1";
+            this.DgRamBank1.RowTemplate.Height = 25;
+            this.DgRamBank1.Size = new System.Drawing.Size(267, 877);
+            this.DgRamBank1.TabIndex = 0;
+            // 
+            // ScRegisters
+            // 
+            this.ScRegisters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScRegisters.Location = new System.Drawing.Point(0, 0);
+            this.ScRegisters.Name = "ScRegisters";
+            this.ScRegisters.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScRegisters.Panel1
+            // 
+            this.ScRegisters.Panel1.Controls.Add(this.ScPorts);
+            // 
+            // ScRegisters.Panel2
+            // 
+            this.ScRegisters.Panel2.Controls.Add(this.ScControlRegister);
+            this.ScRegisters.Size = new System.Drawing.Size(655, 877);
+            this.ScRegisters.SplitterDistance = 216;
+            this.ScRegisters.TabIndex = 0;
+            // 
+            // ScPorts
+            // 
+            this.ScPorts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScPorts.Location = new System.Drawing.Point(0, 0);
+            this.ScPorts.Name = "ScPorts";
+            // 
+            // ScPorts.Panel1
+            // 
+            this.ScPorts.Panel1.Controls.Add(this.ScPortA);
+            // 
+            // ScPorts.Panel2
+            // 
+            this.ScPorts.Panel2.Controls.Add(this.ScPortB);
+            this.ScPorts.Size = new System.Drawing.Size(655, 216);
+            this.ScPorts.SplitterDistance = 311;
+            this.ScPorts.TabIndex = 104;
+            // 
+            // ScPortA
+            // 
+            this.ScPortA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScPortA.Location = new System.Drawing.Point(0, 0);
+            this.ScPortA.Name = "ScPortA";
+            this.ScPortA.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScPortA.Panel1
+            // 
+            this.ScPortA.Panel1.Controls.Add(this.DgTrisA);
+            // 
+            // ScPortA.Panel2
+            // 
+            this.ScPortA.Panel2.Controls.Add(this.DgRa);
+            this.ScPortA.Size = new System.Drawing.Size(311, 216);
+            this.ScPortA.SplitterDistance = 102;
+            this.ScPortA.TabIndex = 0;
+            // 
+            // ScPortB
+            // 
+            this.ScPortB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScPortB.Location = new System.Drawing.Point(0, 0);
+            this.ScPortB.Name = "ScPortB";
+            this.ScPortB.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScPortB.Panel1
+            // 
+            this.ScPortB.Panel1.Controls.Add(this.DgTrisB);
+            // 
+            // ScPortB.Panel2
+            // 
+            this.ScPortB.Panel2.Controls.Add(this.DgRb);
+            this.ScPortB.Size = new System.Drawing.Size(340, 216);
+            this.ScPortB.SplitterDistance = 110;
+            this.ScPortB.TabIndex = 0;
+            // 
+            // ScControlRegister
+            // 
+            this.ScControlRegister.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScControlRegister.Location = new System.Drawing.Point(0, 0);
+            this.ScControlRegister.Name = "ScControlRegister";
+            // 
+            // ScControlRegister.Panel1
+            // 
+            this.ScControlRegister.Panel1.Controls.Add(this.ScRegister);
+            // 
+            // ScControlRegister.Panel2
+            // 
+            this.ScControlRegister.Panel2.Controls.Add(this.ScSfr);
+            this.ScControlRegister.Size = new System.Drawing.Size(655, 657);
+            this.ScControlRegister.SplitterDistance = 310;
+            this.ScControlRegister.TabIndex = 0;
+            // 
+            // ScRegister
+            // 
+            this.ScRegister.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScRegister.Location = new System.Drawing.Point(0, 0);
+            this.ScRegister.Name = "ScRegister";
+            this.ScRegister.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScRegister.Panel1
+            // 
+            this.ScRegister.Panel1.Controls.Add(this.ScStatusOption);
+            // 
+            // ScRegister.Panel2
+            // 
+            this.ScRegister.Panel2.Controls.Add(this.ScIntconEeprom);
+            this.ScRegister.Size = new System.Drawing.Size(310, 657);
+            this.ScRegister.SplitterDistance = 314;
+            this.ScRegister.TabIndex = 0;
+            // 
+            // ScStatusOption
+            // 
+            this.ScStatusOption.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScStatusOption.Location = new System.Drawing.Point(0, 0);
+            this.ScStatusOption.Name = "ScStatusOption";
+            this.ScStatusOption.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScStatusOption.Panel1
+            // 
+            this.ScStatusOption.Panel1.Controls.Add(this.DgStatusRegister);
+            // 
+            // ScStatusOption.Panel2
+            // 
+            this.ScStatusOption.Panel2.Controls.Add(this.DgOptReg);
+            this.ScStatusOption.Size = new System.Drawing.Size(310, 314);
+            this.ScStatusOption.SplitterDistance = 138;
+            this.ScStatusOption.TabIndex = 0;
+            // 
+            // ScIntconEeprom
+            // 
+            this.ScIntconEeprom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScIntconEeprom.Location = new System.Drawing.Point(0, 0);
+            this.ScIntconEeprom.Name = "ScIntconEeprom";
+            this.ScIntconEeprom.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScIntconEeprom.Panel1
+            // 
+            this.ScIntconEeprom.Panel1.Controls.Add(this.DgIntCon);
+            // 
+            // ScIntconEeprom.Panel2
+            // 
+            this.ScIntconEeprom.Panel2.Controls.Add(this.DgEepromRegister);
+            this.ScIntconEeprom.Size = new System.Drawing.Size(310, 339);
+            this.ScIntconEeprom.SplitterDistance = 156;
+            this.ScIntconEeprom.TabIndex = 0;
+            // 
+            // ScSfr
+            // 
+            this.ScSfr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScSfr.Location = new System.Drawing.Point(0, 0);
+            this.ScSfr.Name = "ScSfr";
+            this.ScSfr.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScSfr.Panel1
+            // 
+            this.ScSfr.Panel1.Controls.Add(this.PaSfrVis);
+            // 
+            // ScSfr.Panel2
+            // 
+            this.ScSfr.Panel2.Controls.Add(this.ScSfrStack);
+            this.ScSfr.Size = new System.Drawing.Size(341, 657);
+            this.ScSfr.SplitterDistance = 213;
+            this.ScSfr.TabIndex = 0;
+            // 
+            // PaSfrVis
+            // 
+            this.PaSfrVis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PaSfrVis.Location = new System.Drawing.Point(0, 0);
+            this.PaSfrVis.Name = "PaSfrVis";
+            this.PaSfrVis.Size = new System.Drawing.Size(341, 213);
+            this.PaSfrVis.TabIndex = 0;
+            // 
+            // ScSfrStack
+            // 
+            this.ScSfrStack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScSfrStack.Location = new System.Drawing.Point(0, 0);
+            this.ScSfrStack.Name = "ScSfrStack";
+            this.ScSfrStack.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // ScSfrStack.Panel1
+            // 
+            this.ScSfrStack.Panel1.Controls.Add(this.PaSfrHid);
+            // 
+            // ScSfrStack.Panel2
+            // 
+            this.ScSfrStack.Panel2.Controls.Add(this.DgStack);
+            this.ScSfrStack.Size = new System.Drawing.Size(341, 440);
+            this.ScSfrStack.SplitterDistance = 242;
+            this.ScSfrStack.TabIndex = 0;
+            // 
+            // PaSfrHid
+            // 
+            this.PaSfrHid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PaSfrHid.Location = new System.Drawing.Point(0, 0);
+            this.PaSfrHid.Name = "PaSfrHid";
+            this.PaSfrHid.Size = new System.Drawing.Size(341, 242);
+            this.PaSfrHid.TabIndex = 0;
+            // 
+            // DgStack
+            // 
+            this.DgStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgStack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgStack.Location = new System.Drawing.Point(0, 0);
+            this.DgStack.Name = "DgStack";
+            this.DgStack.RowTemplate.Height = 25;
+            this.DgStack.Size = new System.Drawing.Size(341, 194);
+            this.DgStack.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1415, 793);
-            this.Controls.Add(this.dataGridView6);
-            this.Controls.Add(this.dataGridView5);
-            this.Controls.Add(this.wdtActiveCheckBox);
-            this.Controls.Add(this.freqLabel);
-            this.Controls.Add(this.ff_Label);
-            this.Controls.Add(this.stackPoitnerValueLabel);
-            this.Controls.Add(this.wdtLabel);
-            this.Controls.Add(this.vtLabel);
-            this.Controls.Add(this.stackpointerLabel);
-            this.Controls.Add(this.pcValueLabel);
-            this.Controls.Add(this.pcLabel);
-            this.Controls.Add(this.versteckLabel);
-            this.Controls.Add(this.sichtbarLabel);
-            this.Controls.Add(this.statusValueLabel);
-            this.Controls.Add(this.statusLabel);
-            this.Controls.Add(this.pclathValueLabel);
-            this.Controls.Add(this.pclathLabel);
-            this.Controls.Add(this.pclValueLabel);
-            this.Controls.Add(this.pclLabel);
-            this.Controls.Add(this.fsrValueLabel);
-            this.Controls.Add(this.fsrLabel);
-            this.Controls.Add(this.wRegValueLabel);
-            this.Controls.Add(this.wRegLabel);
-            this.Controls.Add(this.specialFuncLabel);
-            this.Controls.Add(this.nullLabel);
-            this.Controls.Add(this.ffLabel);
-            this.Controls.Add(this.intconLabel);
-            this.Controls.Add(this.optionLabel);
-            this.Controls.Add(this.dataGridView4);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.RBGrid);
-            this.Controls.Add(this.RAGrid);
-            this.Controls.Add(this.rb4Toggle);
-            this.Controls.Add(this.rb3Toggle);
-            this.Controls.Add(this.rb2Toggle);
-            this.Controls.Add(this.rb1Toggle);
-            this.Controls.Add(this.rb0Toggle);
-            this.Controls.Add(this.ra7Toggle);
-            this.Controls.Add(this.ra6Toggle);
-            this.Controls.Add(this.ra5Toggle);
-            this.Controls.Add(this.ra4Toggle);
-            this.Controls.Add(this.ra3Toggle);
-            this.Controls.Add(this.ra2Toggle);
-            this.Controls.Add(this.rb4Tgl);
-            this.Controls.Add(this.rb3Tgl);
-            this.Controls.Add(this.rb2Tgl);
-            this.Controls.Add(this.rb1Tgl);
-            this.Controls.Add(this.rb0Tgl);
-            this.Controls.Add(this.ra7Tgl);
-            this.Controls.Add(this.ra6Tgl);
-            this.Controls.Add(this.ra5Tgl);
-            this.Controls.Add(this.ra4Tgl);
-            this.Controls.Add(this.ra3Tgl);
-            this.Controls.Add(this.ra2Tgl);
-            this.Controls.Add(this.ra1Tgl);
-            this.Controls.Add(this.ra0Tgl);
-            this.Controls.Add(this.rb1Label);
-            this.Controls.Add(this.rb0Label);
-            this.Controls.Add(this.ra1Toggle);
-            this.Controls.Add(this.ra0Label);
-            this.Controls.Add(this.ra1Label);
-            this.Controls.Add(this.codeGrid);
-            this.Controls.Add(this.timerLabel);
-            this.Controls.Add(this.timerValueLabel);
-            this.Controls.Add(this.ra0Toggle);
-            this.Controls.Add(this.Stop);
-            this.Controls.Add(this.Start);
-            this.Controls.Add(this.File);
-            this.Controls.Add(this.Go);
-            this.Controls.Add(this.Step);
-            this.Controls.Add(this.Reset);
-            this.Controls.Add(this.dataGrid1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1851, 937);
+            this.Controls.Add(this.ScMain);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RAGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RBGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgRamBank0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgRa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgRb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgStatusRegister)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgIntCon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgOptReg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgTrisA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgTrisB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgEepromRegister)).EndInit();
+            this.ScMain.Panel1.ResumeLayout(false);
+            this.ScMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScMain)).EndInit();
+            this.ScMain.ResumeLayout(false);
+            this.ScCode.Panel1.ResumeLayout(false);
+            this.ScCode.Panel1.PerformLayout();
+            this.ScCode.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScCode)).EndInit();
+            this.ScCode.ResumeLayout(false);
+            this.ScRam.Panel1.ResumeLayout(false);
+            this.ScRam.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScRam)).EndInit();
+            this.ScRam.ResumeLayout(false);
+            this.ScRamBanks.Panel1.ResumeLayout(false);
+            this.ScRamBanks.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScRamBanks)).EndInit();
+            this.ScRamBanks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgRamBank1)).EndInit();
+            this.ScRegisters.Panel1.ResumeLayout(false);
+            this.ScRegisters.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScRegisters)).EndInit();
+            this.ScRegisters.ResumeLayout(false);
+            this.ScPorts.Panel1.ResumeLayout(false);
+            this.ScPorts.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScPorts)).EndInit();
+            this.ScPorts.ResumeLayout(false);
+            this.ScPortA.Panel1.ResumeLayout(false);
+            this.ScPortA.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScPortA)).EndInit();
+            this.ScPortA.ResumeLayout(false);
+            this.ScPortB.Panel1.ResumeLayout(false);
+            this.ScPortB.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScPortB)).EndInit();
+            this.ScPortB.ResumeLayout(false);
+            this.ScControlRegister.Panel1.ResumeLayout(false);
+            this.ScControlRegister.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScControlRegister)).EndInit();
+            this.ScControlRegister.ResumeLayout(false);
+            this.ScRegister.Panel1.ResumeLayout(false);
+            this.ScRegister.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScRegister)).EndInit();
+            this.ScRegister.ResumeLayout(false);
+            this.ScStatusOption.Panel1.ResumeLayout(false);
+            this.ScStatusOption.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScStatusOption)).EndInit();
+            this.ScStatusOption.ResumeLayout(false);
+            this.ScIntconEeprom.Panel1.ResumeLayout(false);
+            this.ScIntconEeprom.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScIntconEeprom)).EndInit();
+            this.ScIntconEeprom.ResumeLayout(false);
+            this.ScSfr.Panel1.ResumeLayout(false);
+            this.ScSfr.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScSfr)).EndInit();
+            this.ScSfr.ResumeLayout(false);
+            this.ScSfrStack.Panel1.ResumeLayout(false);
+            this.ScSfrStack.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScSfrStack)).EndInit();
+            this.ScSfrStack.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgStack)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGrid1;
+        private System.Windows.Forms.DataGridView DgRamBank0;
         private System.Windows.Forms.Button Reset;
         private System.Windows.Forms.Button Step;
-        private System.Windows.Forms.Button Go;
         private System.Windows.Forms.Button File;
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button Stop;
@@ -1728,42 +1342,6 @@
         private System.Windows.Forms.PageSetupDialog pageSetupDialog2;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog3;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog4;
-        private RJControls.RjTogglebutton ra0Toggle;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label timerValueLabel;
-        private System.Windows.Forms.Label timerLabel;
-        private System.Windows.Forms.DataGridView codeGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.Label ra1Label;
-        private System.Windows.Forms.Label ra0Label;
-        private RJControls.RjTogglebutton ra1Toggle;
-        private System.Windows.Forms.Label rb0Label;
-        private System.Windows.Forms.Label rb1Label;
-        private System.Windows.Forms.Label ra0Tgl;
-        private System.Windows.Forms.Label ra1Tgl;
-        private System.Windows.Forms.Label ra2Tgl;
-        private System.Windows.Forms.Label ra3Tgl;
-        private System.Windows.Forms.Label ra4Tgl;
-        private System.Windows.Forms.Label ra5Tgl;
-        private System.Windows.Forms.Label ra6Tgl;
-        private System.Windows.Forms.Label ra7Tgl;
-        private System.Windows.Forms.Label rb0Tgl;
-        private System.Windows.Forms.Label rb1Tgl;
-        private System.Windows.Forms.Label rb2Tgl;
-        private System.Windows.Forms.Label rb3Tgl;
-        private System.Windows.Forms.Label rb4Tgl;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private RJControls.RjTogglebutton ra2Toggle;
-        private RJControls.RjTogglebutton ra3Toggle;
-        private RJControls.RjTogglebutton ra4Toggle;
-        private RJControls.RjTogglebutton ra5Toggle;
-        private RJControls.RjTogglebutton ra6Toggle;
-        private RJControls.RjTogglebutton ra7Toggle;
-        private RJControls.RjTogglebutton rb0Toggle;
-        private RJControls.RjTogglebutton rb1Toggle;
-        private RJControls.RjTogglebutton rb2Toggle;
-        private RJControls.RjTogglebutton rb3Toggle;
-        private RJControls.RjTogglebutton rb4Toggle;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNames;
         private System.Windows.Forms.DataGridViewTextBoxColumn C00;
         private System.Windows.Forms.DataGridViewTextBoxColumn C01;
@@ -1773,7 +1351,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn C5;
         private System.Windows.Forms.DataGridViewTextBoxColumn C6;
         private System.Windows.Forms.DataGridViewTextBoxColumn C7;
-        private System.Windows.Forms.DataGridView RAGrid;
+        private System.Windows.Forms.DataGridView DgRa;
         private System.Windows.Forms.DataGridViewTextBoxColumn rara;
         private System.Windows.Forms.DataGridViewTextBoxColumn ra7;
         private System.Windows.Forms.DataGridViewTextBoxColumn ra6;
@@ -1783,7 +1361,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ra2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ra1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ra0;
-        private System.Windows.Forms.DataGridView RBGrid;
+        private System.Windows.Forms.DataGridView DgRb;
         private System.Windows.Forms.DataGridViewTextBoxColumn rbrb;
         private System.Windows.Forms.DataGridViewTextBoxColumn rb7;
         private System.Windows.Forms.DataGridViewTextBoxColumn rb6;
@@ -1793,9 +1371,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rb2;
         private System.Windows.Forms.DataGridViewTextBoxColumn rb1;
         private System.Windows.Forms.DataGridViewTextBoxColumn rb0;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView DgStatusRegister;
+        private System.Windows.Forms.DataGridView DgIntCon;
+        private System.Windows.Forms.DataGridView DgOptReg;
         private System.Windows.Forms.DataGridViewTextBoxColumn IRP;
         private System.Windows.Forms.DataGridViewTextBoxColumn RP1;
         private System.Windows.Forms.DataGridViewTextBoxColumn RP0;
@@ -1820,34 +1398,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PS2;
         private System.Windows.Forms.DataGridViewTextBoxColumn PS1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PS0;
-        private System.Windows.Forms.Label optionLabel;
-        private System.Windows.Forms.Label intconLabel;
-        private System.Windows.Forms.Label ffLabel;
-        private System.Windows.Forms.Label nullLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label specialFuncLabel;
-        private System.Windows.Forms.Label wRegLabel;
-        private System.Windows.Forms.Label wRegValueLabel;
-        private System.Windows.Forms.Label fsrLabel;
-        private System.Windows.Forms.Label fsrValueLabel;
-        private System.Windows.Forms.Label pclLabel;
-        private System.Windows.Forms.Label pclValueLabel;
-        private System.Windows.Forms.Label pclathLabel;
-        private System.Windows.Forms.Label pclathValueLabel;
-        private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Label statusValueLabel;
-        private System.Windows.Forms.Label sichtbarLabel;
-        private System.Windows.Forms.Label versteckLabel;
-        private System.Windows.Forms.Label pcLabel;
-        private System.Windows.Forms.Label pcValueLabel;
-        private System.Windows.Forms.Label stackpointerLabel;
-        private System.Windows.Forms.Label vtLabel;
-        private System.Windows.Forms.Label wdtLabel;
-        private System.Windows.Forms.Label stackPoitnerValueLabel;
-        private System.Windows.Forms.Label ff_Label;
-        private System.Windows.Forms.Label freqLabel;
-        private System.Windows.Forms.CheckBox wdtActiveCheckBox;
-        private DataGridView dataGridView5;
+        private DataGridView DgTrisA;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1857,7 +1408,7 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridView dataGridView6;
+        private DataGridView DgTrisB;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
@@ -1867,6 +1418,26 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridView DgEepromRegister;
+        private SplitContainer ScMain;
+        private SplitContainer ScCode;
+        private SplitContainer ScRam;
+        private SplitContainer ScRamBanks;
+        private DataGridView DgRamBank1;
+        private SplitContainer ScRegisters;
+        private SplitContainer ScPorts;
+        private SplitContainer ScPortA;
+        private SplitContainer ScPortB;
+        private SplitContainer ScControlRegister;
+        private SplitContainer ScRegister;
+        private SplitContainer ScStatusOption;
+        private SplitContainer ScIntconEeprom;
+        private SplitContainer ScSfr;
+        private SplitContainer ScSfrStack;
+        private Panel PaSfrVis;
+        private Panel PaSfrHid;
+        private DataGridView DgStack;
+        private TextBox TbProgram;
     }
 }
 

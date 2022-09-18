@@ -1,6 +1,7 @@
-﻿namespace Try;
+﻿/*
+namespace picsim;
 
-public partial class Pic
+internal partial class Pic
 {
     
     private void Addwf()
@@ -463,3 +464,4 @@ public partial class Pic
     }
     
 }
+*/

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Try
+namespace picsim
 {
     internal static class Program
     {
