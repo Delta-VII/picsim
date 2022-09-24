@@ -129,23 +129,23 @@ namespace picsim
                         break;
 
                     case "BCF":
-                        program.Add(new Bcf(item, pic));
+                        program.Add(new bcf(item, pic));
                         break;
 
                     case "BSF":
-                        program.Add(new Bcf(item, pic));
+                        program.Add(new bsf(item, pic));
                         break;
 
                     case "BTFSC":
-                        program.Add(new Bcf(item, pic));
+                        program.Add(new btfsc(item, pic));
                         break;
 
                     case "BTFSS":
-                        program.Add(new Bcf(item, pic));
+                        program.Add(new btfss(item, pic));
                         break;
 
                     case "ADDLW":
-                        program.Add(new Bcf(item, pic));
+                        program.Add(new addlw(item, pic));
                         break;
 
                     case "ANDLW":

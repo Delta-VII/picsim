@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
+
 
 namespace picsim
 {
@@ -13,6 +9,12 @@ namespace picsim
         private int[] _ramBank1 = new int[128];
         private int[] _programMemory = new int[1024];
         private int _wreg;
+
+        public int Wreg
+        {
+            get => _wreg;
+            set => _wreg = value;
+        }
         private int _programCounter;
         private int _instructionRegister;
         private Stack _stack = new Stack();
@@ -202,5 +204,17 @@ namespace picsim
             }
             return returnValue;
         }
+
+        public void IncProgCounter(bool twoCycle)
+        {
+            if (twoCycle == true)
+            {
+                this._programCounter += 2;
+            }else if (twoCycle == false)
+            {
+                _programCounter++;
+            }
+        }
+        
     }
 }
