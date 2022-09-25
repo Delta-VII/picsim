@@ -215,6 +215,30 @@ namespace picsim
                 _programCounter++;
             }
         }
+
+        public void WriteResult(int dbit, int fbit, int result)
+        {
+            if (dbit == 0)
+            {
+                Wreg = result;
+            }
+            else if (dbit != 0)
+            {
+                WriteByte(fbit, result);
+            }
+        }
+
+        public void ZFlag(int result)
+        {
+            if (result == 0)
+            {
+                SetZFlag(true);
+            }
+            else if (result != 0)
+            {
+                SetZFlag(false);
+            }
+        }
         
     }
 }
