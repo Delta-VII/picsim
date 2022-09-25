@@ -11,7 +11,7 @@ namespace picsim.Instructions.BitOrientedInstructions
         public btfsc(int instruction, Pic uc)
         {
             this._instruction = instruction;
-            this._uc = uc;
+            this._pic = uc;
         }
 
         public override void Decode()
@@ -23,12 +23,12 @@ namespace picsim.Instructions.BitOrientedInstructions
         public override void Execute()
         {
             Decode();
-            if (_uc.ReadBit(_f, _b) == true)
+            if (_pic.ReadBit(_f, _b) == true)
             {
-                _uc.IncProgCounter(false);
-            } else if (_uc.ReadBit(_f, _b) == false)
+                _pic.IncProgCounter(false);
+            } else if (_pic.ReadBit(_f, _b) == false)
             {
-                _uc.IncProgCounter(true);
+                _pic.IncProgCounter(true);
             }
             
         }

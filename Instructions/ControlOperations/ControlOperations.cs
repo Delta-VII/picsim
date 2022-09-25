@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace picsim.Instructions.ControlOperations
 {
-    internal class ControlOperations
+    internal class ControlOperations// : Instruction
     {
     }
 }

@@ -10,8 +10,8 @@ namespace picsim.Instructions.BitOrientedInstructions
     {
         public bsf(int instruction, Pic uc)
         {
-            this._instruction = instruction;
-            this._uc = uc;
+            _instruction = instruction;
+            _pic = uc;
         }
 
         public override void Decode()
@@ -23,8 +23,8 @@ namespace picsim.Instructions.BitOrientedInstructions
         public override void Execute()
         {
             Decode();
-            this._uc.WriteBit(true, _b, _f);
-            _uc.IncProgCounter(false);
+            _pic.WriteBit(true, _b, _f);
+            _pic.IncProgCounter(false);
         }
     }
 }

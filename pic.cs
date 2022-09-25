@@ -209,7 +209,7 @@ namespace picsim
         {
             if (twoCycle == true)
             {
-                this._programCounter += 2;
+                _programCounter += 2;
             }else if (twoCycle == false)
             {
                 _programCounter++;

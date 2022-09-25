@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.DgRamBank0 = new System.Windows.Forms.DataGridView();
             this.CNames = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C00 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,7 +118,7 @@
             this.DgEepromRegister = new System.Windows.Forms.DataGridView();
             this.ScMain = new System.Windows.Forms.SplitContainer();
             this.ScCode = new System.Windows.Forms.SplitContainer();
-            this.TbProgram = new System.Windows.Forms.TextBox();
+            this.DgProgram = new System.Windows.Forms.DataGridView();
             this.ScRam = new System.Windows.Forms.SplitContainer();
             this.ScRamBanks = new System.Windows.Forms.SplitContainer();
             this.DgRamBank1 = new System.Windows.Forms.DataGridView();
@@ -134,6 +135,8 @@
             this.ScSfrStack = new System.Windows.Forms.SplitContainer();
             this.PaSfrHid = new System.Windows.Forms.Panel();
             this.DgStack = new System.Windows.Forms.DataGridView();
+            this.codeLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgRamBank0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgRa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgRb)).BeginInit();
@@ -151,6 +154,7 @@
             this.ScCode.Panel1.SuspendLayout();
             this.ScCode.Panel2.SuspendLayout();
             this.ScCode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgProgram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScRam)).BeginInit();
             this.ScRam.Panel1.SuspendLayout();
             this.ScRam.Panel2.SuspendLayout();
@@ -201,6 +205,7 @@
             this.ScSfrStack.Panel2.SuspendLayout();
             this.ScSfrStack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgStack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeLineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // DgRamBank0
@@ -220,10 +225,9 @@
             this.C7});
             this.DgRamBank0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRamBank0.Location = new System.Drawing.Point(0, 0);
-            this.DgRamBank0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DgRamBank0.Name = "DgRamBank0";
             this.DgRamBank0.ReadOnly = true;
-            this.DgRamBank0.Size = new System.Drawing.Size(279, 877);
+            this.DgRamBank0.Size = new System.Drawing.Size(238, 761);
             this.DgRamBank0.TabIndex = 1;
             // 
             // CNames
@@ -300,10 +304,9 @@
             // 
             // Reset
             // 
-            this.Reset.Location = new System.Drawing.Point(388, 3);
-            this.Reset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Reset.Location = new System.Drawing.Point(333, 3);
             this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(88, 27);
+            this.Reset.Size = new System.Drawing.Size(75, 23);
             this.Reset.TabIndex = 2;
             this.Reset.Text = "Reset";
             this.Reset.UseVisualStyleBackColor = true;
@@ -311,20 +314,18 @@
             // 
             // Step
             // 
-            this.Step.Location = new System.Drawing.Point(196, 3);
-            this.Step.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Step.Location = new System.Drawing.Point(168, 3);
             this.Step.Name = "Step";
-            this.Step.Size = new System.Drawing.Size(88, 27);
+            this.Step.Size = new System.Drawing.Size(75, 23);
             this.Step.TabIndex = 4;
             this.Step.Text = "Step";
             this.Step.UseVisualStyleBackColor = true;
             // 
             // File
             // 
-            this.File.Location = new System.Drawing.Point(4, 3);
-            this.File.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.File.Location = new System.Drawing.Point(3, 3);
             this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(88, 27);
+            this.File.Size = new System.Drawing.Size(75, 23);
             this.File.TabIndex = 9;
             this.File.Text = "File";
             this.File.UseVisualStyleBackColor = true;
@@ -332,10 +333,9 @@
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(100, 3);
-            this.Start.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Start.Location = new System.Drawing.Point(86, 3);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(88, 27);
+            this.Start.Size = new System.Drawing.Size(75, 23);
             this.Start.TabIndex = 11;
             this.Start.Text = "Start";
             this.Start.UseVisualStyleBackColor = true;
@@ -343,10 +343,9 @@
             // 
             // Stop
             // 
-            this.Stop.Location = new System.Drawing.Point(292, 3);
-            this.Stop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Stop.Location = new System.Drawing.Point(250, 3);
             this.Stop.Name = "Stop";
-            this.Stop.Size = new System.Drawing.Size(88, 27);
+            this.Stop.Size = new System.Drawing.Size(75, 23);
             this.Stop.TabIndex = 12;
             this.Stop.Text = "Stop";
             this.Stop.UseVisualStyleBackColor = true;
@@ -367,9 +366,8 @@
             this.ra0});
             this.DgRa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRa.Location = new System.Drawing.Point(0, 0);
-            this.DgRa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DgRa.Name = "DgRa";
-            this.DgRa.Size = new System.Drawing.Size(311, 110);
+            this.DgRa.Size = new System.Drawing.Size(267, 96);
             this.DgRa.TabIndex = 64;
             // 
             // rara
@@ -458,9 +456,8 @@
             this.rb0});
             this.DgRb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRb.Location = new System.Drawing.Point(0, 0);
-            this.DgRb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DgRb.Name = "DgRb";
-            this.DgRb.Size = new System.Drawing.Size(340, 102);
+            this.DgRb.Size = new System.Drawing.Size(293, 89);
             this.DgRb.TabIndex = 65;
             // 
             // rbrb
@@ -548,9 +545,8 @@
             this.C});
             this.DgStatusRegister.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgStatusRegister.Location = new System.Drawing.Point(0, 0);
-            this.DgStatusRegister.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DgStatusRegister.Name = "DgStatusRegister";
-            this.DgStatusRegister.Size = new System.Drawing.Size(310, 138);
+            this.DgStatusRegister.Size = new System.Drawing.Size(266, 119);
             this.DgStatusRegister.TabIndex = 66;
             // 
             // IRP
@@ -623,9 +619,8 @@
             this.RBIF});
             this.DgIntCon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgIntCon.Location = new System.Drawing.Point(0, 0);
-            this.DgIntCon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DgIntCon.Name = "DgIntCon";
-            this.DgIntCon.Size = new System.Drawing.Size(310, 156);
+            this.DgIntCon.Size = new System.Drawing.Size(266, 136);
             this.DgIntCon.TabIndex = 67;
             // 
             // GIE
@@ -698,9 +693,8 @@
             this.PS0});
             this.DgOptReg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgOptReg.Location = new System.Drawing.Point(0, 0);
-            this.DgOptReg.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DgOptReg.Name = "DgOptReg";
-            this.DgOptReg.Size = new System.Drawing.Size(310, 172);
+            this.DgOptReg.Size = new System.Drawing.Size(266, 150);
             this.DgOptReg.TabIndex = 68;
             // 
             // RBP
@@ -775,9 +769,8 @@
             this.dataGridViewTextBoxColumn9});
             this.DgTrisA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgTrisA.Location = new System.Drawing.Point(0, 0);
-            this.DgTrisA.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DgTrisA.Name = "DgTrisA";
-            this.DgTrisA.Size = new System.Drawing.Size(311, 102);
+            this.DgTrisA.Size = new System.Drawing.Size(267, 88);
             this.DgTrisA.TabIndex = 98;
             // 
             // dataGridViewTextBoxColumn1
@@ -786,7 +779,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "TRISA";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 62;
+            this.dataGridViewTextBoxColumn1.Width = 64;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -866,9 +859,8 @@
             this.dataGridViewTextBoxColumn18});
             this.DgTrisB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgTrisB.Location = new System.Drawing.Point(0, 0);
-            this.DgTrisB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DgTrisB.Name = "DgTrisB";
-            this.DgTrisB.Size = new System.Drawing.Size(340, 110);
+            this.DgTrisB.Size = new System.Drawing.Size(293, 95);
             this.DgTrisB.TabIndex = 99;
             // 
             // dataGridViewTextBoxColumn10
@@ -949,12 +941,12 @@
             this.DgEepromRegister.Location = new System.Drawing.Point(0, 0);
             this.DgEepromRegister.Name = "DgEepromRegister";
             this.DgEepromRegister.RowTemplate.Height = 25;
-            this.DgEepromRegister.Size = new System.Drawing.Size(310, 179);
+            this.DgEepromRegister.Size = new System.Drawing.Size(266, 157);
             this.DgEepromRegister.TabIndex = 102;
             // 
             // ScMain
             // 
-            this.ScMain.Location = new System.Drawing.Point(12, 12);
+            this.ScMain.Location = new System.Drawing.Point(10, 10);
             this.ScMain.Name = "ScMain";
             this.ScMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -969,8 +961,9 @@
             // ScMain.Panel2
             // 
             this.ScMain.Panel2.Controls.Add(this.ScCode);
-            this.ScMain.Size = new System.Drawing.Size(1827, 913);
-            this.ScMain.SplitterDistance = 32;
+            this.ScMain.Size = new System.Drawing.Size(1566, 791);
+            this.ScMain.SplitterDistance = 27;
+            this.ScMain.SplitterWidth = 3;
             this.ScMain.TabIndex = 103;
             // 
             // ScCode
@@ -981,26 +974,32 @@
             // 
             // ScCode.Panel1
             // 
-            this.ScCode.Panel1.Controls.Add(this.TbProgram);
+            this.ScCode.Panel1.Controls.Add(this.DgProgram);
             // 
             // ScCode.Panel2
             // 
             this.ScCode.Panel2.Controls.Add(this.ScRam);
-            this.ScCode.Size = new System.Drawing.Size(1827, 877);
-            this.ScCode.SplitterDistance = 614;
+            this.ScCode.Size = new System.Drawing.Size(1566, 761);
+            this.ScCode.SplitterDistance = 526;
+            this.ScCode.SplitterWidth = 3;
             this.ScCode.TabIndex = 104;
             // 
-            // TbProgram
+            // DgProgram
             // 
-            this.TbProgram.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.TbProgram.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TbProgram.ForeColor = System.Drawing.SystemColors.Window;
-            this.TbProgram.Location = new System.Drawing.Point(0, 0);
-            this.TbProgram.Multiline = true;
-            this.TbProgram.Name = "TbProgram";
-            this.TbProgram.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TbProgram.Size = new System.Drawing.Size(614, 877);
-            this.TbProgram.TabIndex = 0;
+            this.DgProgram.AllowUserToDeleteRows = false;
+            this.DgProgram.AutoGenerateColumns = false;
+            this.DgProgram.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgProgram.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codeDataGridViewTextBoxColumn});
+            this.DgProgram.DataSource = this.codeLineBindingSource;
+            this.DgProgram.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgProgram.Location = new System.Drawing.Point(0, 0);
+            this.DgProgram.Name = "DgProgram";
+            this.DgProgram.ReadOnly = true;
+            this.DgProgram.RowTemplate.Height = 25;
+            this.DgProgram.Size = new System.Drawing.Size(526, 761);
+            this.DgProgram.TabIndex = 0;
+            this.DgProgram.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgProgram_CellContentClick);
             // 
             // ScRam
             // 
@@ -1015,8 +1014,9 @@
             // ScRam.Panel2
             // 
             this.ScRam.Panel2.Controls.Add(this.ScRegisters);
-            this.ScRam.Size = new System.Drawing.Size(1209, 877);
-            this.ScRam.SplitterDistance = 550;
+            this.ScRam.Size = new System.Drawing.Size(1037, 761);
+            this.ScRam.SplitterDistance = 471;
+            this.ScRam.SplitterWidth = 3;
             this.ScRam.TabIndex = 0;
             // 
             // ScRamBanks
@@ -1032,8 +1032,9 @@
             // ScRamBanks.Panel2
             // 
             this.ScRamBanks.Panel2.Controls.Add(this.DgRamBank1);
-            this.ScRamBanks.Size = new System.Drawing.Size(550, 877);
-            this.ScRamBanks.SplitterDistance = 279;
+            this.ScRamBanks.Size = new System.Drawing.Size(471, 761);
+            this.ScRamBanks.SplitterDistance = 238;
+            this.ScRamBanks.SplitterWidth = 3;
             this.ScRamBanks.TabIndex = 0;
             // 
             // DgRamBank1
@@ -1043,7 +1044,7 @@
             this.DgRamBank1.Location = new System.Drawing.Point(0, 0);
             this.DgRamBank1.Name = "DgRamBank1";
             this.DgRamBank1.RowTemplate.Height = 25;
-            this.DgRamBank1.Size = new System.Drawing.Size(267, 877);
+            this.DgRamBank1.Size = new System.Drawing.Size(230, 761);
             this.DgRamBank1.TabIndex = 0;
             // 
             // ScRegisters
@@ -1060,8 +1061,9 @@
             // ScRegisters.Panel2
             // 
             this.ScRegisters.Panel2.Controls.Add(this.ScControlRegister);
-            this.ScRegisters.Size = new System.Drawing.Size(655, 877);
-            this.ScRegisters.SplitterDistance = 216;
+            this.ScRegisters.Size = new System.Drawing.Size(563, 761);
+            this.ScRegisters.SplitterDistance = 187;
+            this.ScRegisters.SplitterWidth = 3;
             this.ScRegisters.TabIndex = 0;
             // 
             // ScPorts
@@ -1077,8 +1079,9 @@
             // ScPorts.Panel2
             // 
             this.ScPorts.Panel2.Controls.Add(this.ScPortB);
-            this.ScPorts.Size = new System.Drawing.Size(655, 216);
-            this.ScPorts.SplitterDistance = 311;
+            this.ScPorts.Size = new System.Drawing.Size(563, 187);
+            this.ScPorts.SplitterDistance = 267;
+            this.ScPorts.SplitterWidth = 3;
             this.ScPorts.TabIndex = 104;
             // 
             // ScPortA
@@ -1095,8 +1098,9 @@
             // ScPortA.Panel2
             // 
             this.ScPortA.Panel2.Controls.Add(this.DgRa);
-            this.ScPortA.Size = new System.Drawing.Size(311, 216);
-            this.ScPortA.SplitterDistance = 102;
+            this.ScPortA.Size = new System.Drawing.Size(267, 187);
+            this.ScPortA.SplitterDistance = 88;
+            this.ScPortA.SplitterWidth = 3;
             this.ScPortA.TabIndex = 0;
             // 
             // ScPortB
@@ -1113,8 +1117,9 @@
             // ScPortB.Panel2
             // 
             this.ScPortB.Panel2.Controls.Add(this.DgRb);
-            this.ScPortB.Size = new System.Drawing.Size(340, 216);
-            this.ScPortB.SplitterDistance = 110;
+            this.ScPortB.Size = new System.Drawing.Size(293, 187);
+            this.ScPortB.SplitterDistance = 95;
+            this.ScPortB.SplitterWidth = 3;
             this.ScPortB.TabIndex = 0;
             // 
             // ScControlRegister
@@ -1130,8 +1135,9 @@
             // ScControlRegister.Panel2
             // 
             this.ScControlRegister.Panel2.Controls.Add(this.ScSfr);
-            this.ScControlRegister.Size = new System.Drawing.Size(655, 657);
-            this.ScControlRegister.SplitterDistance = 310;
+            this.ScControlRegister.Size = new System.Drawing.Size(563, 571);
+            this.ScControlRegister.SplitterDistance = 266;
+            this.ScControlRegister.SplitterWidth = 3;
             this.ScControlRegister.TabIndex = 0;
             // 
             // ScRegister
@@ -1148,8 +1154,9 @@
             // ScRegister.Panel2
             // 
             this.ScRegister.Panel2.Controls.Add(this.ScIntconEeprom);
-            this.ScRegister.Size = new System.Drawing.Size(310, 657);
-            this.ScRegister.SplitterDistance = 314;
+            this.ScRegister.Size = new System.Drawing.Size(266, 571);
+            this.ScRegister.SplitterDistance = 272;
+            this.ScRegister.SplitterWidth = 3;
             this.ScRegister.TabIndex = 0;
             // 
             // ScStatusOption
@@ -1166,8 +1173,9 @@
             // ScStatusOption.Panel2
             // 
             this.ScStatusOption.Panel2.Controls.Add(this.DgOptReg);
-            this.ScStatusOption.Size = new System.Drawing.Size(310, 314);
-            this.ScStatusOption.SplitterDistance = 138;
+            this.ScStatusOption.Size = new System.Drawing.Size(266, 272);
+            this.ScStatusOption.SplitterDistance = 119;
+            this.ScStatusOption.SplitterWidth = 3;
             this.ScStatusOption.TabIndex = 0;
             // 
             // ScIntconEeprom
@@ -1184,8 +1192,9 @@
             // ScIntconEeprom.Panel2
             // 
             this.ScIntconEeprom.Panel2.Controls.Add(this.DgEepromRegister);
-            this.ScIntconEeprom.Size = new System.Drawing.Size(310, 339);
-            this.ScIntconEeprom.SplitterDistance = 156;
+            this.ScIntconEeprom.Size = new System.Drawing.Size(266, 296);
+            this.ScIntconEeprom.SplitterDistance = 136;
+            this.ScIntconEeprom.SplitterWidth = 3;
             this.ScIntconEeprom.TabIndex = 0;
             // 
             // ScSfr
@@ -1202,8 +1211,9 @@
             // ScSfr.Panel2
             // 
             this.ScSfr.Panel2.Controls.Add(this.ScSfrStack);
-            this.ScSfr.Size = new System.Drawing.Size(341, 657);
-            this.ScSfr.SplitterDistance = 213;
+            this.ScSfr.Size = new System.Drawing.Size(294, 571);
+            this.ScSfr.SplitterDistance = 185;
+            this.ScSfr.SplitterWidth = 3;
             this.ScSfr.TabIndex = 0;
             // 
             // PaSfrVis
@@ -1211,7 +1221,7 @@
             this.PaSfrVis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PaSfrVis.Location = new System.Drawing.Point(0, 0);
             this.PaSfrVis.Name = "PaSfrVis";
-            this.PaSfrVis.Size = new System.Drawing.Size(341, 213);
+            this.PaSfrVis.Size = new System.Drawing.Size(294, 185);
             this.PaSfrVis.TabIndex = 0;
             // 
             // ScSfrStack
@@ -1228,8 +1238,9 @@
             // ScSfrStack.Panel2
             // 
             this.ScSfrStack.Panel2.Controls.Add(this.DgStack);
-            this.ScSfrStack.Size = new System.Drawing.Size(341, 440);
-            this.ScSfrStack.SplitterDistance = 242;
+            this.ScSfrStack.Size = new System.Drawing.Size(294, 383);
+            this.ScSfrStack.SplitterDistance = 210;
+            this.ScSfrStack.SplitterWidth = 3;
             this.ScSfrStack.TabIndex = 0;
             // 
             // PaSfrHid
@@ -1237,7 +1248,7 @@
             this.PaSfrHid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PaSfrHid.Location = new System.Drawing.Point(0, 0);
             this.PaSfrHid.Name = "PaSfrHid";
-            this.PaSfrHid.Size = new System.Drawing.Size(341, 242);
+            this.PaSfrHid.Size = new System.Drawing.Size(294, 210);
             this.PaSfrHid.TabIndex = 0;
             // 
             // DgStack
@@ -1247,16 +1258,26 @@
             this.DgStack.Location = new System.Drawing.Point(0, 0);
             this.DgStack.Name = "DgStack";
             this.DgStack.RowTemplate.Height = 25;
-            this.DgStack.Size = new System.Drawing.Size(341, 194);
+            this.DgStack.Size = new System.Drawing.Size(294, 170);
             this.DgStack.TabIndex = 0;
+            // 
+            // codeLineBindingSource
+            // 
+            this.codeLineBindingSource.DataSource = typeof(picsim.CodeLine);
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1851, 937);
+            this.ClientSize = new System.Drawing.Size(1587, 812);
             this.Controls.Add(this.ScMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.DgRamBank0)).EndInit();
@@ -1273,10 +1294,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ScMain)).EndInit();
             this.ScMain.ResumeLayout(false);
             this.ScCode.Panel1.ResumeLayout(false);
-            this.ScCode.Panel1.PerformLayout();
             this.ScCode.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ScCode)).EndInit();
             this.ScCode.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgProgram)).EndInit();
             this.ScRam.Panel1.ResumeLayout(false);
             this.ScRam.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ScRam)).EndInit();
@@ -1327,6 +1348,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ScSfrStack)).EndInit();
             this.ScSfrStack.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgStack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeLineBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1437,7 +1459,9 @@
         private Panel PaSfrVis;
         private Panel PaSfrHid;
         private DataGridView DgStack;
-        private TextBox TbProgram;
+        private DataGridView DgProgram;
+        private BindingSource codeLineBindingSource;
+        private DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
     }
 }
 

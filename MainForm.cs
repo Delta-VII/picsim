@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using picsim.Instructions;
+using picsim.Instructions.ByteOrientedInstructions;
 
 namespace picsim
 {
     public partial class MainForm : Form
     {
         private PicUtil _pU;
+        public BindingList<CodeLine> ProgramLines = new BindingList<CodeLine>();
+        
 
         public MainForm()
 
@@ -62,25 +66,37 @@ namespace picsim
                 {
                     //Get the path of specified file
                     filePath = openFileDialog.FileName;
-                    var fileLines = System.IO.File.ReadAllText(filePath);
-                    LoadProgram(fileLines);
-                    TbProgram.Text = fileLines;
+                    var fileLines = System.IO.File.ReadLines(filePath);
+                    InitProgram(fileLines);
+                    
                 }
             }
         }
 
-        public void LoadProgram(string fileLines)
+        private void InitProgram(IEnumerable<String> CodeLines)
         {
-            var lines = fileLines.Split(Environment.NewLine);
-            var instructionsCodes = new List<int>();
-            
-            foreach (var line in lines.Where(x => x.StartsWith('0') | x.StartsWith('1')))
+            foreach (var line in CodeLines)
             {
-                    instructionsCodes.Add(int.Parse(line.Substring(5,5), System.Globalization.NumberStyles.HexNumber));                
+                ProgramLines.Add(new CodeLine(line));
+                if (line.StartsWith("0") || line.StartsWith("1"))
+                {
+                    //_pU.DecodeInstructions(int.Parse(line.Substring(5, 5), System.Globalization.NumberStyles.HexNumber));
+                }
+                
             }
-            _pU.DecodeInstructions(instructionsCodes);
-            
+            DgProgram.DataSource = null;
+            DgProgram.DataSource = ProgramLines;
+            DgProgram.Refresh();
         }
 
+        private void DgProgram_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

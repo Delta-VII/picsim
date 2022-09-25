@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\picsim.csproj": {}
+    "C:\\Users\\kai\\source\\repos\\picsim\\picsim.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\picsim.csproj": {
+    "C:\\Users\\kai\\source\\repos\\picsim\\picsim.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\picsim.csproj",
+        "projectUniqueName": "C:\\Users\\kai\\source\\repos\\picsim\\picsim.csproj",
         "projectName": "picsim",
-        "projectPath": "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\picsim.csproj",
+        "projectPath": "C:\\Users\\kai\\source\\repos\\picsim\\picsim.csproj",
         "packagesPath": "C:\\Users\\kai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\obj\\",
+        "outputPath": "C:\\Users\\kai\\source\\repos\\picsim\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net48"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -26,8 +26,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
+          "net48": {
+            "targetAlias": "net48",
             "projectReferences": {}
           }
         },
@@ -38,27 +38,14 @@
         }
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App": {
-              "privateAssets": "none"
-            }
-          },
+        "net48": {
+          "targetAlias": "net48",
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
         }
       }
     }

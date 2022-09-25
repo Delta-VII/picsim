@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pcV0dsmCTH9FBvY4D4NokW0Gbda5OWQB+LGxuCX+5MA4SZ8V7kIHUemgdE9BmQuWmD1XgpTzU+1zNOFPh7V4Ew==",
+  "dgSpecHash": "DNu7OnxJE92tzS1Wcc6etvZj9EXKwnVVmfb6mXgZ9bBGsGOQh38I7+2gCQ06nIrBKnVTwj3npmTD4E+cncauNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kai\\source\\repos\\picsimDoneRight\\picsim.csproj",
+  "projectFilePath": "C:\\Users\\kai\\source\\repos\\picsim\\picsim.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

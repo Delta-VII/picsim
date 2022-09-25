@@ -12,9 +12,9 @@ namespace picsim
 {
     class PicUtil
     {
-        public List<object> program;
+        public List<Instruction> program;
         private Pic pic;
-        private System.Collections.Generic.Dictionary<int, string> opcodes = new Dictionary<int, string>()
+        private Dictionary<int, string> opcodes = new Dictionary<int, string>()
         {
             {0b_00_0111_0000_0000, "ADDWF"},
             {0b_00_0101_0000_0000, "ANDWF"},
@@ -52,12 +52,11 @@ namespace picsim
             {0b_11_1100_0000_0000, "SUBLW"},
             {0b_11_1010_0000_0000, "XORLW"}
         };
-
-        public void DecodeInstructions(List<int> instructionsCodes)
+/*
+        public void DecodeInstructions(int instructionsCode)
         {
-            foreach (var item in instructionsCodes)
-            {
-                string inst = DecodeOpcode(item);
+            
+                string inst = DecodeOpcode(instructionsCode);
                 switch (inst)
                 {
                     case "ADDWF":
@@ -200,9 +199,9 @@ namespace picsim
                         break;
 
                 }
-            }
+            
         }
-
+*/
         private string DecodeOpcode(int inst)
         {
             string opcode = "";

@@ -8,11 +8,11 @@ namespace picsim.Instructions.LiteralOperations
 {
     internal class addlw : LiteralOperations
     {
-        private int _wreg = _uc.Wreg;
+        
         public addlw(int instruction, Pic uc)
         {
             _instruction = instruction;
-            _uc = uc;
+            _pic = uc;
         }
         public override void Decode()
         {
@@ -22,7 +22,7 @@ namespace picsim.Instructions.LiteralOperations
         public override void Execute()
         {
             Decode();
-            var result = _wreg + _k;
+            var result = _pic.Wreg + _k;
             if (result == 0)
             {
                 

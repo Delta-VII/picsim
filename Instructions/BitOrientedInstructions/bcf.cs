@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace picsim.Instructions.BitOrientedInstructions
 {
-    internal class bcf : BitOrientedInstructions
+    internal class bcf : BitOrientedInstructions 
     {
-        public bcf(int instruction, Pic uc)
+        public bcf(int instruction, Pic pic)
         {
             _instruction = instruction;
-            _uc = uc;
+            _pic = pic;
         }
 
         public override void Decode()
@@ -23,8 +23,8 @@ namespace picsim.Instructions.BitOrientedInstructions
         public override void Execute()
         {
             Decode();
-            this._uc.WriteBit(false, _b, _f);
-            _uc.IncProgCounter(false);
+            _pic.WriteBit(false, _b, _f);
+            _pic.IncProgCounter(false);
         }
 
     }
