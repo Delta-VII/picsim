@@ -8,8 +8,10 @@ namespace picsim.Instructions.ByteOrientedInstructions
 {
     internal class movwf : ByteOrientedInstructions
     {
-        public movwf()
+        public movwf(int instruction, Pic uc)
         {
+            _instruction = instruction;
+            _pic = uc;
         }
 
         public override void Decode()
