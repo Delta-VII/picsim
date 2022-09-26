@@ -234,9 +234,33 @@ namespace picsim
             {
                 SetZFlag(true);
             }
-            else if (result != 0)
+            else
             {
                 SetZFlag(false);
+            }
+        }
+
+        public void DcFlag(int result)
+        {
+            if (result > 15)
+            {
+                SetDCFlag(true);
+            }
+            else
+            {
+                SetDCFlag(false);
+            }
+        }
+
+        public void CFlag(int result)
+        {
+            if (result > 255)
+            {
+                SetCFlag(true);
+            }
+            else
+            {
+                SetCFlag(false);
             }
         }
         
