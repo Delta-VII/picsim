@@ -1,0 +1,13 @@
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.csproj.AssemblyReference.cache
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.csproj.SuggestedBindingRedirects.cache
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.csproj.ResolveComReference.cache
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.MainForm.resources
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.Properties.Resources.resources
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.csproj.GenerateResource.cache
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.csproj.CoreCompileInputs.cache
+C:\Users\kai\source\repos\PicSIM\bin\Debug\net48\picsim.exe.config
+C:\Users\kai\source\repos\PicSIM\bin\Debug\net48\picsim.exe
+C:\Users\kai\source\repos\PicSIM\bin\Debug\net48\picsim.pdb
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.exe
+C:\Users\kai\source\repos\PicSIM\obj\Debug\net48\picsim.pdb
