@@ -22,6 +22,7 @@ namespace picsim.Instructions.ByteOrientedInstructions
 
         public override void Execute()
         {
+            Decode();
             var result = Convert.ToUInt32(_pic.GetByte(_f));
         }
     }

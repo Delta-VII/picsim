@@ -22,7 +22,11 @@ namespace picsim.Instructions.ByteOrientedInstructions
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            Decode();
+            var register = _pic.GetByte(_f);
+            var result = register & _pic.Wreg;
+            _pic.WriteResult(_d,_f,result);
+            _pic.ZFlag(result);
         }
     }
 }

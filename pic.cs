@@ -15,6 +15,12 @@ namespace picsim
             get => _wreg;
             set => _wreg = value;
         }
+
+        public int ProgCntr
+        {
+            get => _programCounter;
+            
+        }
         private int _programCounter;
         private int _instructionRegister;
         private Stack _stack = new Stack();

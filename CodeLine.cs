@@ -16,9 +16,6 @@ namespace picsim
         public CodeLine(string line)
         {
             Code = line;
-            LineNumber = 1;
-            IsActiveLine = false;
-            IsBreakPoint = false;
         }
     }
 }
