@@ -27,8 +27,8 @@ namespace picsim.Instructions.ByteOrientedInstructions
             var wreg = _pic.Wreg;
             var w_2comp = (~wreg + 1) & 0xff;
             var result = register + w_2comp;
-            _pic.WriteResult(_d,_f,result);
-            _pic.IncProgCounter(false);
+            _pic.WriteResult(_d, _f, result);
+            _pic.IncRuntime(false);
             _pic.ZFlag(result);
             _pic.CFlag(result);
             _pic.DcFlag(result);

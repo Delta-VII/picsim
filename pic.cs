@@ -5,9 +5,9 @@ namespace picsim
 {
     internal partial class Pic
     {
-        private int[] _ramBank0 = new int[128];
-        private int[] _ramBank1 = new int[128];
-        private int[] _programMemory = new int[1024];
+        private List<ramCell> _ramBank0 = new List<ramCell>();
+        private List<ramCell> _ramBank1 = new List<ramCell>();
+        private List<StackItem> _stackDgv = new List<StackItem>();
         private int _wreg;
 
         public int Wreg
@@ -19,137 +19,162 @@ namespace picsim
         public int ProgCntr
         {
             get => _programCounter;
-            
+            set => _programCounter = value;
         }
+
+        public int Runtime
+        {
+            get => _runtime;
+        }
+
+        public List<StackItem> StackDGV
+        {
+            get => _stackDgv;
+            set => _stackDgv = value;
+        }
+
+        public List<ramCell> RamBank0
+        {
+            get => _ramBank0;
+            set => _ramBank0 = value;
+        }
+
+        public List<ramCell> RamBank1
+        {
+            get => _ramBank1;
+            set => _ramBank1 = value;
+        }
+
         private int _programCounter;
+        private int _runtime;
         private int _instructionRegister;
-        private Stack _stack = new Stack();
+        private Stack<int> _stack = new Stack<int>();
         private int _stackpointer;
         private int[] _eeprom = new int[64];
+
+        public void push(int address)
+        {
+            _stack.Push(address);
+            _stackDgv.Add(new StackItem());
+            _stackDgv[0].Value = address;
+        }
+
+        public int pop()
+        {
+            return 0;
+        }
 
         public void SetIRPFlag(bool value)
         {
             if (value == false)
             {
-                _ramBank0[Status] &= ~(1 << Irp);
+                _ramBank0[Status].Value &= ~(1 << Irp);
             }
-            else if (value == true)
+            else
             {
-                _ramBank0[Status] |= 1 << Irp;
+                _ramBank0[Status].Value |= 1 << Irp;
             }
-
-            _ramBank1[0x83] = _ramBank0[Status];
         }
 
         public void SetToFlag(bool value)
         {
             if (value == false)
             {
-                _ramBank0[Status] &= ~(1 << To);
+                _ramBank0[Status].Value &= ~(1 << To);
             }
             else if (value == true)
             {
-                _ramBank0[Status] |= 1 << To;
+                _ramBank0[Status].Value |= 1 << To;
             }
-
-            _ramBank1[0x83] = _ramBank0[Status];
         }
 
         public void SetPdFlag(bool value)
         {
             if (value == false)
             {
-                _ramBank0[Status] &= ~(1 << Pd);
+                _ramBank0[Status].Value &= ~(1 << Pd);
             }
             else if (value == true)
             {
-                _ramBank0[Status] |= 1 << Pd;
+                _ramBank0[Status].Value |= 1 << Pd;
             }
-
-            _ramBank1[0x83] = _ramBank0[Status];
         }
 
         public void SetZFlag(bool value)
         {
             if (value == false)
             {
-                _ramBank0[Status] &= ~(1 << Z);
+                _ramBank0[Status].Value &= ~(1 << Z);
             }
             else if (value == true)
             {
-                _ramBank0[Status] |= 1 << Z;
+                _ramBank0[Status].Value |= 1 << Z;
             }
-
-            _ramBank1[0x83] = _ramBank0[Status];
         }
 
         public void SetDCFlag(bool value)
         {
             if (value == false)
             {
-                _ramBank0[Status] &= ~(1 << Dc);
+                _ramBank0[Status].Value &= ~(1 << Dc);
             }
             else if (value == true)
             {
-                _ramBank0[Status] |= 1 << Dc;
+                _ramBank0[Status].Value |= 1 << Dc;
             }
-
-            _ramBank1[0x83] = _ramBank0[Status];
         }
 
         public void SetCFlag(bool value)
         {
             if (value == false)
             {
-                _ramBank0[Status] &= ~(1 << C);
+                _ramBank0[Status].Value &= ~(1 << C);
             }
             else if (value == true)
             {
-                _ramBank0[Status] |= 1 << C;
+                _ramBank0[Status].Value |= 1 << C;
             }
-
-            _ramBank1[0x83] = _ramBank0[Status];
         }
 
         public bool GetIrpFlag()
         {
-            BitArray b = new BitArray(new int[] { _ramBank0[Status] });
+            BitArray b = new BitArray(new int[] { _ramBank0[Status].Value });
             return b[Irp];
         }
 
         public bool GetToFlag()
         {
-            BitArray b = new BitArray(new int[] { _ramBank0[Status] });
+            BitArray b = new BitArray(new int[] { _ramBank0[Status].Value });
             return b[To];
         }
 
         public bool GetPdFlag()
         {
-            BitArray b = new BitArray(new int[] { _ramBank0[Status] });
+            BitArray b = new BitArray(new int[] { _ramBank0[Status].Value });
             return b[Pd];
         }
 
         public bool GetZFlag()
         {
-            BitArray b = new BitArray(new int[] { _ramBank0[Status] });
+            BitArray b = new BitArray(new int[] { _ramBank0[Status].Value });
             return b[Z];
         }
 
         public bool GetDCFlag()
         {
-            BitArray b = new BitArray(new int[] { _ramBank0[Status] });
+            BitArray b = new BitArray(new int[] { _ramBank0[Status].Value });
             return b[Dc];
         }
 
         public bool GetCFlag()
         {
-            BitArray b = new BitArray(new int[] { _ramBank0[Status] });
+            BitArray b = new BitArray(new int[] { _ramBank0[Status].Value });
             return b[C];
         }
 
         public bool GetRp0()
         {
-            BitArray b = new BitArray(new int[] { _ramBank0[Status] });
+            BitArray b = new BitArray(new int[] { _ramBank0[Status].Value });
             return b[Rp0];
         }
 
@@ -159,29 +184,29 @@ namespace picsim
             {
                 if (value == false)
                 {
-                    _ramBank0[address] &= ~(1 << bitNumber);
+                    _ramBank0[Status].Value &= ~(1 << bitNumber);
                 }
                 else if (value == true)
                 {
-                    _ramBank0[address] |= 1 << bitNumber;
+                    _ramBank0[Status].Value |= 1 << bitNumber;
                 }
             }
             else if ((GetRp0() == true) && (address >= 128))
             {
                 if (value == false)
                 {
-                    _ramBank1[address] &= ~(1 << bitNumber);
+                    _ramBank1[Status].Value &= ~(1 << bitNumber);
                 }
                 else if (value == true)
                 {
-                    _ramBank1[address] |= 1 << bitNumber;
+                    _ramBank1[Status].Value |= 1 << bitNumber;
                 }
             }
         }
 
         public bool ReadBit(int address, int bit)
         {
-            BitArray b = new BitArray(new int[] { _ramBank0[address] });
+            BitArray b = new BitArray(new int[] { _ramBank0[address].Value });
             return b[bit];
         }
 
@@ -189,11 +214,11 @@ namespace picsim
         {
             if ((GetRp0() == false) && (address <= 128))
             {
-                _ramBank0[address] = value;
+                _ramBank0[address].Value = value;
             }
-            else if ((GetRp0() == true) && (address >= 128))
+            else if ((GetRp0()) && (address >= 128))
             {
-                _ramBank1[address] = value;
+                _ramBank1[address].Value = value;
             }
         }
 
@@ -202,23 +227,25 @@ namespace picsim
             int returnValue = 0;
             if ((GetRp0() == false) && (address <= 128))
             {
-                returnValue = _ramBank0[address];
+                returnValue = _ramBank0[Status].Value;
             }
             else if ((GetRp0() == true) && (address >= 128))
             {
-                returnValue = _ramBank1[address];
+                returnValue = _ramBank0[Status].Value;
             }
+
             return returnValue;
         }
 
-        public void IncProgCounter(bool twoCycle)
+        public void IncRuntime(bool twoCycle)
         {
-            if (twoCycle == true)
+            if (twoCycle)
             {
-                _programCounter += 2;
-            }else if (twoCycle == false)
+                //_programCounter += 2;
+            }
+            else if (twoCycle == false)
             {
-                _programCounter++;
+                //_programCounter++;
             }
         }
 
@@ -269,6 +296,5 @@ namespace picsim
                 SetCFlag(false);
             }
         }
-        
     }
 }

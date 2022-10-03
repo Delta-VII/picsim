@@ -3,47 +3,47 @@
 internal partial class Pic
 {
     //constants
-    private const byte Indaddr = 0;
-    private const byte Tmr0 = 0x01;
-    private const byte Option = 0x81;
-    private const byte Pcl = 0x02;
-    private const byte Status = 0x03;
-    private const byte Fsr = 0x04;
-    private const byte Porta = 0x05;
-    private const byte Trisa = 0x85;
-    private const byte Portb = 0x06;
-    private const byte Trisb = 0x86;
-    private const byte Eedata = 0x08;
-    private const byte Eecon1 = 0x88;
-    private const byte Eeadr = 0x09;
-    private const byte Eecon2 = 0x89;
-    private const byte Pclath = 0x0A;
-    private const byte Intcon = 0X0B;
+    public const int Indaddr = 0;
+    public const int Tmr0 = 0x01;
+    public const int Option = 0x81;
+    public const int Pcl = 0x02;
+    public const int Status = 0x03;
+    public const int Fsr = 0x04;
+    public const int Porta = 0x05;
+    public const int Trisa = 0x85;
+    public const int Portb = 0x06;
+    public const int Trisb = 0x86;
+    public const int Eedata = 0x08;
+    public const int Eecon1 = 0x88;
+    public const int Eeadr = 0x09;
+    public const int Eecon2 = 0x89;
+    public const int Pclath = 0x0A;
+    public const int Intcon = 0X0B;
 
     //constants statusreg
-    private const byte Irp = 7;
-    private const byte Rp1 = 6;
-    private const byte Rp0 = 5;
-    private const byte To = 4;
-    private const byte Pd = 3;
-    private const byte Z = 2;
-    private const byte Dc = 1;
-    private const byte C = 0;
+    public const int Irp = 7;
+    public const int Rp1 = 6;
+    public const int Rp0 = 5;
+    public const int To = 4;
+    public const int Pd = 3;
+    public const int Z = 2;
+    public const int Dc = 1;
+    public const int C = 0;
 
     //constants portA
-    private const byte Ra4 = 0b_0001_0000;
-    private const byte Ra3 = 0b_0000_1000;
-    private const byte Ra2 = 0b_0000_0100;
-    private const byte Ra1 = 0b_0000_0010;
-    private const byte Ra0 = 0b_0000_0001;
+    public const int Ra4 = 0b_0001_0000;
+    public const int Ra3 = 0b_0000_1000;
+    public const int Ra2 = 0b_0000_0100;
+    public const int Ra1 = 0b_0000_0010;
+    public const int Ra0 = 0b_0000_0001;
 
     //constants portB
-    private const byte Rb7 = 0b_1000_0000;
-    private const byte Rb6 = 0b_0100_0000;
-    private const byte Rb5 = 0b_0010_0000;
-    private const byte Rb4 = 0b_0001_0000;
-    private const byte Rb3 = 0b_0000_1000;
-    private const byte Rb2 = 0b_0000_0100;
-    private const byte Rb1 = 0b_0000_0010;
-    private const byte Rb0 = 0b_0000_0001;
+    public const int Rb7 = 0b_1000_0000;
+    public const int Rb6 = 0b_0100_0000;
+    public const int Rb5 = 0b_0010_0000;
+    public const int Rb4 = 0b_0001_0000;
+    public const int Rb3 = 0b_0000_1000;
+    public const int Rb2 = 0b_0000_0100;
+    public const int Rb1 = 0b_0000_0010;
+    public const int Rb0 = 0b_0000_0001;
 }

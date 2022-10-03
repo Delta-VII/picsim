@@ -13,6 +13,7 @@ namespace picsim.Instructions.ByteOrientedInstructions
             _instruction = instruction;
             _pic = uc;
         }
+
         public override void Decode()
         {
             _f = _instruction & _fBitmask;
@@ -24,7 +25,7 @@ namespace picsim.Instructions.ByteOrientedInstructions
             Decode();
             _pic.Wreg = 0;
             _pic.SetZFlag(true);
-            _pic.IncProgCounter(false);
+            _pic.IncRuntime(false);
         }
     }
 }

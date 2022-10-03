@@ -22,10 +22,11 @@ namespace picsim.Instructions.ByteOrientedInstructions
 
         public override void Execute()
         {
+            Decode();
             var result = _pic.GetByte(_f);
-            _pic.WriteResult(_d,_f,result);
-            _pic.IncProgCounter(false);
-            _pic.ZFlag(result); 
+            _pic.WriteResult(_d, _f, result);
+            _pic.IncRuntime(false);
+            _pic.ZFlag(result);
         }
     }
 }

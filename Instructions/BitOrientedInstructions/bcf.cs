@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace picsim.Instructions.BitOrientedInstructions
 {
-    internal class bcf : BitOrientedInstructions 
+    internal class bcf : BitOrientedInstructions
     {
         public bcf(int instruction, Pic pic)
         {
@@ -24,8 +24,7 @@ namespace picsim.Instructions.BitOrientedInstructions
         {
             Decode();
             _pic.WriteBit(false, _b, _f);
-            _pic.IncProgCounter(false);
+            _pic.IncRuntime(false);
         }
-
     }
 }

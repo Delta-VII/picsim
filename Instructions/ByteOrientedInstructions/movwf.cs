@@ -22,8 +22,8 @@ namespace picsim.Instructions.ByteOrientedInstructions
 
         public override void Execute()
         {
-            _pic.WriteByte(_f,_pic.Wreg);
-            _pic.IncProgCounter(false);
+            _pic.WriteByte(_f, _pic.Wreg);
+            _pic.IncRuntime(false);
         }
     }
 }

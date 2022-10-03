@@ -25,12 +25,12 @@ namespace picsim.Instructions.BitOrientedInstructions
             Decode();
             if (_pic.ReadBit(_f, _b) == true)
             {
-                _pic.IncProgCounter(false);
-            } else if (_pic.ReadBit(_f, _b) == false)
-            {
-                _pic.IncProgCounter(true);
+                _pic.IncRuntime(false);
             }
-            
+            else if (_pic.ReadBit(_f, _b) == false)
+            {
+                _pic.IncRuntime(true);
+            }
         }
     }
 }

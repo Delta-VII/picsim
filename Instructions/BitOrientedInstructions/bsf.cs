@@ -24,7 +24,7 @@ namespace picsim.Instructions.BitOrientedInstructions
         {
             Decode();
             _pic.WriteBit(true, _b, _f);
-            _pic.IncProgCounter(false);
+            _pic.IncRuntime(false);
         }
     }
 }

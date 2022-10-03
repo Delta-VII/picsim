@@ -11,6 +11,5 @@ namespace picsim.Instructions.LiteralOperations
     {
         protected int _kBitmask = 0b_00_0000_1111_1111;
         protected int _k;
-       
     }
 }

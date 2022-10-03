@@ -24,9 +24,9 @@ namespace picsim.Instructions.ByteOrientedInstructions
         {
             Decode();
             var register = _pic.GetByte(_f);
-            var result = (register & 0x0F) << 4 | (register & 0xF0) >> 4);
-            _pic.WriteResult(_d,_f,result);
-            _pic.IncProgCounter(false);
+            var result = ((register & 0x0F) << 4 | (register & 0xF0) >> 4);
+            _pic.WriteResult(_d, _f, result);
+            _pic.IncRuntime(false);
         }
     }
 }

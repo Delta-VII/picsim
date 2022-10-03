@@ -26,8 +26,8 @@ namespace picsim.Instructions.ByteOrientedInstructions
             var register = _pic.GetByte(_f);
             var result = ~register;
             result &= 0b_0000_0000_0000_0000_0000_0000_0111_1111;
-            _pic.WriteResult(_d,_f,result);
-            _pic.IncProgCounter(false);
+            _pic.WriteResult(_d, _f, result);
+            _pic.IncRuntime(false);
             _pic.ZFlag(result);
         }
     }
