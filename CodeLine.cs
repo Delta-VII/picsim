@@ -8,14 +8,47 @@ namespace picsim
 {
     public class CodeLine
     {
-        public int LineNumber { get; set; }
-        public string Code { get; set; }
-        public bool IsBreakPoint { get; set; }
-        public bool IsActiveLine { get; set; }
+        private string _code;
+        private bool _breakPoint;
+        private bool _containsCode;
+        private int _lineNumber;
+        private bool _wasActive;
 
-        public CodeLine(string line)
+        public bool WasActive
+        {
+            get => _wasActive;
+            set => _wasActive = value;
+        }
+
+        public string Code
+        {
+            get => _code;
+            set => _code = value;
+        }
+
+        public bool BreakPoint
+        {
+            get => _breakPoint;
+            set => _breakPoint = value;
+        }
+
+        public bool ContainsCode
+        {
+            get => _containsCode;
+            set => _containsCode = value;
+        }
+
+        public int LineNumber
+        {
+            get => _lineNumber;
+            set => _lineNumber = value;
+        }
+
+        public CodeLine(string line, bool code, int lineNumber)
         {
             Code = line;
+            ContainsCode = code;
+            LineNumber = _lineNumber;
         }
     }
 }

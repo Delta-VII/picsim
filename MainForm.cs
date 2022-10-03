@@ -18,7 +18,7 @@ namespace picsim
     {
         private PicUtil _pU;
         public BindingList<CodeLine> ProgramLines = new BindingList<CodeLine>();
-        private int CodeOffset;
+        private int _programIndex;
 
         public MainForm()
         {
@@ -79,31 +79,35 @@ namespace picsim
 
         private void InitProgram(IEnumerable<String> CodeLines)
         {
-            foreach (var line in CodeLines)
-            {
-                ProgramLines.Add(new CodeLine(line));
-                if (line.StartsWith("0") || line.StartsWith("1"))
-                {
-                    _pU.DecodeInstructions(int.Parse(line.Substring(5, 5),
-                        System.Globalization.NumberStyles.HexNumber));
-                }
-            }
-
             var index = 0;
             foreach (var line in CodeLines)
             {
-                index++;
-                if (line.StartsWith("0"))
+                
+                if (line.StartsWith("0") || line.StartsWith("1"))
                 {
-                    CodeOffset = index;
+                    ProgramLines.Add(new CodeLine(line, true, index));
+                    _pU.DecodeInstructions(int.Parse(line.Substring(5, 5),
+                        System.Globalization.NumberStyles.HexNumber));
+                }
+                else
+                {
+                    ProgramLines.Add(new CodeLine(line,false, index));
+                }
 
+                index++;
+            }
+            ProgramLines.Add(new CodeLine("",false,ProgramLines.Count + 1));
+            ProgramLines.Add(new CodeLine("<EoF>",false,ProgramLines.Count + 1));
+            DgProgram.DataSource = ProgramLines;
+            DgProgram.ClearSelection();
+            foreach (var line in ProgramLines)
+            {
+                if (line.ContainsCode)
+                {
+                    DgProgram.Rows[line.LineNumber].Selected = true;
                     break;
                 }
             }
-
-            DgProgram.DataSource = ProgramLines;
-            DgProgram.ClearSelection();
-            DgProgram.Rows[CodeOffset - 1].Selected = true;
         }
 
         private void DgProgram_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -118,10 +122,36 @@ namespace picsim
         private void Run()
         {
             DgProgram.ClearSelection();
-            DgProgram.Rows[_pU.PicObject.ProgCntr + CodeOffset - 1].Selected = true;
-            labelWregister.Text = "0x" + (_pU.PicObject.Wreg & 0b_1111_1111).ToString("X");
+            DgProgram.Rows[CurrentLine()].Selected = true;
+            RefreshDisplay();
             _pU.Execute();
+            ProgramLines[_programIndex].WasActive = true;
+            RefreshDisplay();
+        }
+
+        private int CurrentLine()
+        {
+            var result = 0;
+            for (int i = _pU.PicObject.ProgCntr; i < ProgramLines.Count; i++)
+            {
+                if (ProgramLines[i].ContainsCode && ProgramLines[i].WasActive == false)
+                {
+                    result = i;
+                    
+                    break;
+                }
+            }
+
+            _programIndex = result;
+            return result;
+        }
+
+        private void RefreshDisplay()
+        {
             labelWregister.Text = "0x" + (_pU.PicObject.Wreg & 0b_1111_1111).ToString("X");
+            DgStack.Refresh();
+            DgRamBank0.Refresh();
+            DgRamBank1.Refresh();
         }
     }
 }

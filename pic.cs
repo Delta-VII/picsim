@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel;
 
 
 namespace picsim
@@ -7,7 +8,7 @@ namespace picsim
     {
         private List<ramCell> _ramBank0 = new List<ramCell>();
         private List<ramCell> _ramBank1 = new List<ramCell>();
-        private List<StackItem> _stackDgv = new List<StackItem>();
+        private BindingList<StackItem> _stackDgv = new BindingList<StackItem>();
         private int _wreg;
 
         public int Wreg
@@ -27,7 +28,7 @@ namespace picsim
             get => _runtime;
         }
 
-        public List<StackItem> StackDGV
+        public BindingList<StackItem> StackDGV
         {
             get => _stackDgv;
             set => _stackDgv = value;
@@ -55,13 +56,15 @@ namespace picsim
         public void push(int address)
         {
             _stack.Push(address);
-            _stackDgv.Add(new StackItem());
+            _stackDgv.Insert(0,new StackItem());
             _stackDgv[0].Value = address;
         }
 
         public int pop()
         {
-            return 0;
+            var address = _stack.Pop();
+            _stackDgv.RemoveAt(0);
+            return address;
         }
 
         public void SetIRPFlag(bool value)

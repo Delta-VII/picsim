@@ -222,7 +222,6 @@ namespace picsim
             }
         }
 
-
         private string DecodeOpcode(int inst)
         {
             var instString = Convert.ToString(inst, 2);
@@ -293,7 +292,6 @@ namespace picsim
             return result;
         }
 
-
         public void Execute()
         {
             RefreshRegisters();
@@ -319,11 +317,6 @@ namespace picsim
             {
                 pic.RamBank1[i].Address = i + 128;
             }
-
-
-            pic.push(1);
-            pic.push(2);
-            pic.push(4);
 
             pic.Wreg = 0;
             //INDF
