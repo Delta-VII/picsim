@@ -153,5 +153,6 @@ namespace picsim
             DgRamBank0.Refresh();
             DgRamBank1.Refresh();
         }
+
     }
 }
