@@ -20,6 +20,17 @@ namespace picsim
         public BindingList<CodeLine> ProgramLines = new BindingList<CodeLine>();
         private int _programIndex;
 
+        private List<Label> Status = new List<Label>();
+        private List<Label> Option = new List<Label>();
+        private List<Label> Intcon = new List<Label>();
+        private List<Label> TrisA = new List<Label>();
+        private List<Label> PortALabels = new List<Label>();
+        private List<Button> PortAButtons = new List<Button>();
+        private List<Label> TrisB = new List<Label>();
+        private List<Label> PortBLabels = new List<Label>();
+        private List<Button> PortBButtons = new List<Button>();
+        
+
         public MainForm()
         {
             InitializeComponent();
@@ -30,9 +41,81 @@ namespace picsim
             DgRamBank1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DgRamBank1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DgStack.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
+            
+            Status.Add(labelC);
+            Status.Add(labelDc);
+            Status.Add(labelZ);
+            Status.Add(labelPd);
+            Status.Add(labelTo);
+            Status.Add(labelRp0);
+            Status.Add(labelRp1);
+            Status.Add(labelIrp);
+            
+            Option.Add(labelPs0);
+            Option.Add(labelPs1);
+            Option.Add(labelPs2);
+            Option.Add(labelPsa);
+            Option.Add(labelT0se);
+            Option.Add(labelT0cs);
+            Option.Add(labelIntedg);
+            Option.Add(labelRbpu);
+            
+            Intcon.Add(labelRbif);
+            Intcon.Add(labelIntf);
+            Intcon.Add(labelT0if);
+            Intcon.Add(labelRbie);
+            Intcon.Add(labelInte);
+            Intcon.Add(labelT0ie);
+            Intcon.Add(labelEeie);
+            Intcon.Add(labelGie);
+            
+            TrisA.Add(labelTrisA0);
+            TrisA.Add(labelTrisA1);
+            TrisA.Add(labelTrisA2);
+            TrisA.Add(labelTrisA3);
+            TrisA.Add(labelTrisA4);
 
-        // Button handling
+            TrisB.Add(labelTrisB0);
+            TrisB.Add(labelTrisB1);
+            TrisB.Add(labelTrisB2);
+            TrisB.Add(labelTrisB3);
+            TrisB.Add(labelTrisB4);
+            TrisB.Add(labelTrisB5);
+            TrisB.Add(labelTrisB6);
+            TrisB.Add(labelTrisB7);
+            
+            PortALabels.Add(labelRa0);
+            PortALabels.Add(labelRa1);
+            PortALabels.Add(labelRa2);
+            PortALabels.Add(labelRa3);
+            PortALabels.Add(labelRa4);
+            
+            PortAButtons.Add(buttonRa0);
+            PortAButtons.Add(buttonRa1);
+            PortAButtons.Add(buttonRa2);
+            PortAButtons.Add(buttonRa3);
+            PortAButtons.Add(buttonRa4);
+            
+            PortBLabels.Add(labelRb0);
+            PortBLabels.Add(labelRb1);
+            PortBLabels.Add(labelRb2);
+            PortBLabels.Add(labelRb3);
+            PortBLabels.Add(labelRb4);
+            PortBLabels.Add(labelRb5);
+            PortBLabels.Add(labelRb6);
+            PortBLabels.Add(labelRb7);
+            
+            PortBButtons.Add(buttonRb0);
+            PortBButtons.Add(buttonRb1);
+            PortBButtons.Add(buttonRb2);
+            PortBButtons.Add(buttonRb3);
+            PortBButtons.Add(buttonRb4);
+            PortBButtons.Add(buttonRb5);
+            PortBButtons.Add(buttonRb6);
+            PortBButtons.Add(buttonRb7);
+            
+        }
+        
         private void btnStart_Click(object sender, System.EventArgs e)
         {
             Stop.Enabled = true;
@@ -96,8 +179,8 @@ namespace picsim
 
                 index++;
             }
-            ProgramLines.Add(new CodeLine("",false,ProgramLines.Count + 1));
-            ProgramLines.Add(new CodeLine("<EoF>",false,ProgramLines.Count + 1));
+            //ProgramLines.Add(new CodeLine("",false,ProgramLines.Count + 1));
+            //ProgramLines.Add(new CodeLine("<EoF>",false,ProgramLines.Count + 1));
             DgProgram.DataSource = ProgramLines;
             DgProgram.ClearSelection();
             foreach (var line in ProgramLines)
@@ -132,13 +215,22 @@ namespace picsim
         private int CurrentLine()
         {
             var result = 0;
+
             for (int i = _pU.PicObject.ProgCntr; i < ProgramLines.Count; i++)
             {
                 if (ProgramLines[i].ContainsCode && ProgramLines[i].WasActive == false)
                 {
                     result = i;
-                    
                     break;
+                }
+
+                if (i == ProgramLines.Count)
+                {
+                    foreach (var line in ProgramLines)
+                    {
+                        line.WasActive = false;
+                        i = _pU.PicObject.ProgCntr;
+                    }
                 }
             }
 

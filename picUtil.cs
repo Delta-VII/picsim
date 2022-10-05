@@ -135,7 +135,7 @@ namespace picsim
                     break;
 
                 case "0011000":
-                    //program.Add(new rrf(instructionsCode, pic));
+                    program.Add(new rrf(instructionsCode, pic));
                     break;
 
                 case "0000100":
@@ -175,11 +175,11 @@ namespace picsim
                     break;
 
                 case "100000":
-                    //program.Add(new call(instructionsCode, pic));
+                    program.Add(new call(instructionsCode, pic));
                     break;
 
                 case "00000001100100":
-                    //program.Add(new clrwdt(instructionsCode, pic));
+                    program.Add(new clrwdt(instructionsCode, pic));
                     break;
 
                 case "101000":
@@ -195,19 +195,19 @@ namespace picsim
                     break;
 
                 case "00000000001001":
-                    //program.Add(new retfie(instructionsCode, pic));
+                    program.Add(new retfie(instructionsCode, pic));
                     break;
 
                 case "110100":
-                    //program.Add(new retlw(instructionsCode, pic));
+                    program.Add(new retlw(instructionsCode, pic));
                     break;
 
                 case "00000000001000":
-                    //program.Add(new Return(instructionsCode, pic));
+                    program.Add(new Return(instructionsCode, pic));
                     break;
 
                 case "00000001000011":
-                    //program.Add(new sleep(instructionsCode, pic));
+                    program.Add(new sleep(instructionsCode, pic));
                     break;
 
                 case "111100":

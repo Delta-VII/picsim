@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace picsim.Instructions.ControlOperations
 {
-    internal class retfie
+    internal class retfie : ControlOperations
     {
+        public retfie(int instruction, Pic uc)
+        {
+            _instruction = instruction;
+            _pic = uc;
+        }
+
+        public override void Decode()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

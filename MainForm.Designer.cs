@@ -131,13 +131,47 @@
             this.valueDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stackItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxIntcon = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelIntcon = new System.Windows.Forms.TableLayoutPanel();
+            this.labelGieDesc = new System.Windows.Forms.Label();
+            this.labelEeieDesc = new System.Windows.Forms.Label();
+            this.labelT0ieDesc = new System.Windows.Forms.Label();
+            this.labelInteDesc = new System.Windows.Forms.Label();
+            this.labelRbieDesc = new System.Windows.Forms.Label();
+            this.labelT0ifDesc = new System.Windows.Forms.Label();
+            this.labelIntfDesc = new System.Windows.Forms.Label();
+            this.labelRbifDesc = new System.Windows.Forms.Label();
+            this.labelGie = new System.Windows.Forms.Label();
+            this.labelEeie = new System.Windows.Forms.Label();
+            this.labelT0ie = new System.Windows.Forms.Label();
+            this.labelInte = new System.Windows.Forms.Label();
+            this.labelRbie = new System.Windows.Forms.Label();
+            this.labelT0if = new System.Windows.Forms.Label();
+            this.labelIntf = new System.Windows.Forms.Label();
+            this.labelRbif = new System.Windows.Forms.Label();
             this.groupBoxOption = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelOption = new System.Windows.Forms.TableLayoutPanel();
+            this.labelRbpuDesc = new System.Windows.Forms.Label();
+            this.labelIntedgDesc = new System.Windows.Forms.Label();
+            this.labelT0csDesc = new System.Windows.Forms.Label();
+            this.labelT0seDesc = new System.Windows.Forms.Label();
+            this.labelPsaDesc = new System.Windows.Forms.Label();
+            this.labelPs2Desc = new System.Windows.Forms.Label();
+            this.labelPs1Desc = new System.Windows.Forms.Label();
+            this.labelPs0Desc = new System.Windows.Forms.Label();
+            this.labelRbpu = new System.Windows.Forms.Label();
+            this.labelIntedg = new System.Windows.Forms.Label();
+            this.labelT0cs = new System.Windows.Forms.Label();
+            this.labelT0se = new System.Windows.Forms.Label();
+            this.labelPsa = new System.Windows.Forms.Label();
+            this.labelPs2 = new System.Windows.Forms.Label();
+            this.labelPs1 = new System.Windows.Forms.Label();
+            this.labelPs0 = new System.Windows.Forms.Label();
             this.groupBoxSfrW = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanelSfrWRuntime = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelWregister = new System.Windows.Forms.TableLayoutPanel();
             this.labelWregDesc = new System.Windows.Forms.Label();
             this.labelWregister = new System.Windows.Forms.Label();
-            this.groupBoxSfr = new System.Windows.Forms.GroupBox();
+            this.groupBoxMisc = new System.Windows.Forms.GroupBox();
             this.tableLayoutSfr = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelRuntime = new System.Windows.Forms.Label();
@@ -156,9 +190,9 @@
             this.labelToDesc = new System.Windows.Forms.Label();
             this.labelRp0 = new System.Windows.Forms.Label();
             this.labelRp0Desc = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelRp1 = new System.Windows.Forms.Label();
             this.labelRp1Desc = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelIrp = new System.Windows.Forms.Label();
             this.labelIrpDesc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ScMain)).BeginInit();
             this.ScMain.Panel1.SuspendLayout();
@@ -194,10 +228,14 @@
             this.groupBoxStack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgStack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackItemBindingSource)).BeginInit();
+            this.groupBoxIntcon.SuspendLayout();
+            this.tableLayoutPanelIntcon.SuspendLayout();
+            this.groupBoxOption.SuspendLayout();
+            this.tableLayoutPanelOption.SuspendLayout();
             this.groupBoxSfrW.SuspendLayout();
             this.tableLayoutPanelSfrWRuntime.SuspendLayout();
             this.tableLayoutPanelWregister.SuspendLayout();
-            this.groupBoxSfr.SuspendLayout();
+            this.groupBoxMisc.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxStatus.SuspendLayout();
             this.tableLayoutPanelStatus.SuspendLayout();
@@ -388,8 +426,7 @@
             this.DgProgram.AllowUserToResizeRows = false;
             this.DgProgram.AutoGenerateColumns = false;
             this.DgProgram.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgProgram.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codeDataGridViewTextBoxColumn});
+            this.DgProgram.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.codeDataGridViewTextBoxColumn });
             this.DgProgram.DataSource = this.codeLineBindingSource;
             this.DgProgram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgProgram.Location = new System.Drawing.Point(3, 17);
@@ -429,9 +466,7 @@
             this.DgRamBank0.AllowUserToResizeRows = false;
             this.DgRamBank0.AutoGenerateColumns = false;
             this.DgRamBank0.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgRamBank0.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.addressDataGridViewTextBoxColumn,
-            this.valueDataGridViewTextBoxColumn});
+            this.DgRamBank0.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.addressDataGridViewTextBoxColumn, this.valueDataGridViewTextBoxColumn });
             this.DgRamBank0.DataSource = this.ramCellBindingSource;
             this.DgRamBank0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRamBank0.Location = new System.Drawing.Point(3, 17);
@@ -478,9 +513,7 @@
             this.DgRamBank1.AllowUserToResizeRows = false;
             this.DgRamBank1.AutoGenerateColumns = false;
             this.DgRamBank1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgRamBank1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.addressDataGridViewTextBoxColumn1,
-            this.valueDataGridViewTextBoxColumn1});
+            this.DgRamBank1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.addressDataGridViewTextBoxColumn1, this.valueDataGridViewTextBoxColumn1 });
             this.DgRamBank1.DataSource = this.ramCellBindingSource1;
             this.DgRamBank1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRamBank1.Location = new System.Drawing.Point(3, 17);
@@ -1379,8 +1412,7 @@
             this.DgStack.AllowUserToDeleteRows = false;
             this.DgStack.AutoGenerateColumns = false;
             this.DgStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgStack.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.valueDataGridViewTextBoxColumn2});
+            this.DgStack.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.valueDataGridViewTextBoxColumn2 });
             this.DgStack.DataSource = this.stackItemBindingSource;
             this.DgStack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgStack.Location = new System.Drawing.Point(3, 17);
@@ -1402,6 +1434,7 @@
             // 
             // groupBoxIntcon
             // 
+            this.groupBoxIntcon.Controls.Add(this.tableLayoutPanelIntcon);
             this.groupBoxIntcon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxIntcon.Location = new System.Drawing.Point(503, 3);
             this.groupBoxIntcon.Name = "groupBoxIntcon";
@@ -1410,8 +1443,205 @@
             this.groupBoxIntcon.TabStop = false;
             this.groupBoxIntcon.Text = "INTCON";
             // 
+            // tableLayoutPanelIntcon
+            // 
+            this.tableLayoutPanelIntcon.ColumnCount = 2;
+            this.tableLayoutPanelIntcon.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelIntcon.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelGieDesc, 0, 0);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelEeieDesc, 0, 1);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelT0ieDesc, 0, 2);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelInteDesc, 0, 3);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelRbieDesc, 0, 4);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelT0ifDesc, 0, 5);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelIntfDesc, 0, 6);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelRbifDesc, 0, 7);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelGie, 1, 0);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelEeie, 1, 1);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelT0ie, 1, 2);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelInte, 1, 3);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelRbie, 1, 4);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelT0if, 1, 5);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelIntf, 1, 6);
+            this.tableLayoutPanelIntcon.Controls.Add(this.labelRbif, 1, 7);
+            this.tableLayoutPanelIntcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelIntcon.Location = new System.Drawing.Point(3, 17);
+            this.tableLayoutPanelIntcon.Name = "tableLayoutPanelIntcon";
+            this.tableLayoutPanelIntcon.RowCount = 8;
+            this.tableLayoutPanelIntcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelIntcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelIntcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelIntcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelIntcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelIntcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelIntcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelIntcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelIntcon.Size = new System.Drawing.Size(155, 367);
+            this.tableLayoutPanelIntcon.TabIndex = 0;
+            // 
+            // labelGieDesc
+            // 
+            this.labelGieDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelGieDesc.Location = new System.Drawing.Point(3, 0);
+            this.labelGieDesc.Name = "labelGieDesc";
+            this.labelGieDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelGieDesc.TabIndex = 0;
+            this.labelGieDesc.Text = "GIE";
+            this.labelGieDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelEeieDesc
+            // 
+            this.labelEeieDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelEeieDesc.Location = new System.Drawing.Point(3, 45);
+            this.labelEeieDesc.Name = "labelEeieDesc";
+            this.labelEeieDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelEeieDesc.TabIndex = 1;
+            this.labelEeieDesc.Text = "EEIE";
+            this.labelEeieDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelT0ieDesc
+            // 
+            this.labelT0ieDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelT0ieDesc.Location = new System.Drawing.Point(3, 90);
+            this.labelT0ieDesc.Name = "labelT0ieDesc";
+            this.labelT0ieDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelT0ieDesc.TabIndex = 2;
+            this.labelT0ieDesc.Text = "T0IE";
+            this.labelT0ieDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelInteDesc
+            // 
+            this.labelInteDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelInteDesc.Location = new System.Drawing.Point(3, 135);
+            this.labelInteDesc.Name = "labelInteDesc";
+            this.labelInteDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelInteDesc.TabIndex = 3;
+            this.labelInteDesc.Text = "INTE";
+            this.labelInteDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelRbieDesc
+            // 
+            this.labelRbieDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRbieDesc.Location = new System.Drawing.Point(3, 180);
+            this.labelRbieDesc.Name = "labelRbieDesc";
+            this.labelRbieDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelRbieDesc.TabIndex = 4;
+            this.labelRbieDesc.Text = "RBIE";
+            this.labelRbieDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelT0ifDesc
+            // 
+            this.labelT0ifDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelT0ifDesc.Location = new System.Drawing.Point(3, 225);
+            this.labelT0ifDesc.Name = "labelT0ifDesc";
+            this.labelT0ifDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelT0ifDesc.TabIndex = 5;
+            this.labelT0ifDesc.Text = "T0IF";
+            this.labelT0ifDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelIntfDesc
+            // 
+            this.labelIntfDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelIntfDesc.Location = new System.Drawing.Point(3, 270);
+            this.labelIntfDesc.Name = "labelIntfDesc";
+            this.labelIntfDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelIntfDesc.TabIndex = 6;
+            this.labelIntfDesc.Text = "INTF";
+            this.labelIntfDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelRbifDesc
+            // 
+            this.labelRbifDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRbifDesc.Location = new System.Drawing.Point(3, 315);
+            this.labelRbifDesc.Name = "labelRbifDesc";
+            this.labelRbifDesc.Size = new System.Drawing.Size(71, 52);
+            this.labelRbifDesc.TabIndex = 7;
+            this.labelRbifDesc.Text = "RBIF";
+            this.labelRbifDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelGie
+            // 
+            this.labelGie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelGie.Location = new System.Drawing.Point(80, 0);
+            this.labelGie.Name = "labelGie";
+            this.labelGie.Size = new System.Drawing.Size(72, 45);
+            this.labelGie.TabIndex = 8;
+            this.labelGie.Text = "0";
+            this.labelGie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelEeie
+            // 
+            this.labelEeie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelEeie.Location = new System.Drawing.Point(80, 45);
+            this.labelEeie.Name = "labelEeie";
+            this.labelEeie.Size = new System.Drawing.Size(72, 45);
+            this.labelEeie.TabIndex = 9;
+            this.labelEeie.Text = "0";
+            this.labelEeie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelT0ie
+            // 
+            this.labelT0ie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelT0ie.Location = new System.Drawing.Point(80, 90);
+            this.labelT0ie.Name = "labelT0ie";
+            this.labelT0ie.Size = new System.Drawing.Size(72, 45);
+            this.labelT0ie.TabIndex = 10;
+            this.labelT0ie.Text = "0";
+            this.labelT0ie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelInte
+            // 
+            this.labelInte.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelInte.Location = new System.Drawing.Point(80, 135);
+            this.labelInte.Name = "labelInte";
+            this.labelInte.Size = new System.Drawing.Size(72, 45);
+            this.labelInte.TabIndex = 11;
+            this.labelInte.Text = "0";
+            this.labelInte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelRbie
+            // 
+            this.labelRbie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRbie.Location = new System.Drawing.Point(80, 180);
+            this.labelRbie.Name = "labelRbie";
+            this.labelRbie.Size = new System.Drawing.Size(72, 45);
+            this.labelRbie.TabIndex = 12;
+            this.labelRbie.Text = "0";
+            this.labelRbie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelT0if
+            // 
+            this.labelT0if.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelT0if.Location = new System.Drawing.Point(80, 225);
+            this.labelT0if.Name = "labelT0if";
+            this.labelT0if.Size = new System.Drawing.Size(72, 45);
+            this.labelT0if.TabIndex = 13;
+            this.labelT0if.Text = "0";
+            this.labelT0if.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelIntf
+            // 
+            this.labelIntf.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelIntf.Location = new System.Drawing.Point(80, 270);
+            this.labelIntf.Name = "labelIntf";
+            this.labelIntf.Size = new System.Drawing.Size(72, 45);
+            this.labelIntf.TabIndex = 14;
+            this.labelIntf.Text = "0";
+            this.labelIntf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelRbif
+            // 
+            this.labelRbif.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRbif.Location = new System.Drawing.Point(80, 315);
+            this.labelRbif.Name = "labelRbif";
+            this.labelRbif.Size = new System.Drawing.Size(72, 52);
+            this.labelRbif.TabIndex = 15;
+            this.labelRbif.Text = "0";
+            this.labelRbif.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // groupBoxOption
             // 
+            this.groupBoxOption.Controls.Add(this.tableLayoutPanelOption);
             this.groupBoxOption.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxOption.Location = new System.Drawing.Point(336, 3);
             this.groupBoxOption.Name = "groupBoxOption";
@@ -1419,6 +1649,202 @@
             this.groupBoxOption.TabIndex = 2;
             this.groupBoxOption.TabStop = false;
             this.groupBoxOption.Text = "Option";
+            // 
+            // tableLayoutPanelOption
+            // 
+            this.tableLayoutPanelOption.ColumnCount = 2;
+            this.tableLayoutPanelOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelOption.Controls.Add(this.labelRbpuDesc, 0, 0);
+            this.tableLayoutPanelOption.Controls.Add(this.labelIntedgDesc, 0, 1);
+            this.tableLayoutPanelOption.Controls.Add(this.labelT0csDesc, 0, 2);
+            this.tableLayoutPanelOption.Controls.Add(this.labelT0seDesc, 0, 3);
+            this.tableLayoutPanelOption.Controls.Add(this.labelPsaDesc, 0, 4);
+            this.tableLayoutPanelOption.Controls.Add(this.labelPs2Desc, 0, 5);
+            this.tableLayoutPanelOption.Controls.Add(this.labelPs1Desc, 0, 6);
+            this.tableLayoutPanelOption.Controls.Add(this.labelPs0Desc, 0, 7);
+            this.tableLayoutPanelOption.Controls.Add(this.labelRbpu, 1, 0);
+            this.tableLayoutPanelOption.Controls.Add(this.labelIntedg, 1, 1);
+            this.tableLayoutPanelOption.Controls.Add(this.labelT0cs, 1, 2);
+            this.tableLayoutPanelOption.Controls.Add(this.labelT0se, 1, 3);
+            this.tableLayoutPanelOption.Controls.Add(this.labelPsa, 1, 4);
+            this.tableLayoutPanelOption.Controls.Add(this.labelPs2, 1, 5);
+            this.tableLayoutPanelOption.Controls.Add(this.labelPs1, 1, 6);
+            this.tableLayoutPanelOption.Controls.Add(this.labelPs0, 1, 7);
+            this.tableLayoutPanelOption.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelOption.Location = new System.Drawing.Point(3, 17);
+            this.tableLayoutPanelOption.Name = "tableLayoutPanelOption";
+            this.tableLayoutPanelOption.RowCount = 8;
+            this.tableLayoutPanelOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanelOption.Size = new System.Drawing.Size(155, 367);
+            this.tableLayoutPanelOption.TabIndex = 0;
+            // 
+            // labelRbpuDesc
+            // 
+            this.labelRbpuDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRbpuDesc.Location = new System.Drawing.Point(3, 0);
+            this.labelRbpuDesc.Name = "labelRbpuDesc";
+            this.labelRbpuDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelRbpuDesc.TabIndex = 0;
+            this.labelRbpuDesc.Text = "RBPU";
+            this.labelRbpuDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelIntedgDesc
+            // 
+            this.labelIntedgDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelIntedgDesc.Location = new System.Drawing.Point(3, 45);
+            this.labelIntedgDesc.Name = "labelIntedgDesc";
+            this.labelIntedgDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelIntedgDesc.TabIndex = 1;
+            this.labelIntedgDesc.Text = "INTEDG";
+            this.labelIntedgDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelT0csDesc
+            // 
+            this.labelT0csDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelT0csDesc.Location = new System.Drawing.Point(3, 90);
+            this.labelT0csDesc.Name = "labelT0csDesc";
+            this.labelT0csDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelT0csDesc.TabIndex = 2;
+            this.labelT0csDesc.Text = "T0CS";
+            this.labelT0csDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelT0seDesc
+            // 
+            this.labelT0seDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelT0seDesc.Location = new System.Drawing.Point(3, 135);
+            this.labelT0seDesc.Name = "labelT0seDesc";
+            this.labelT0seDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelT0seDesc.TabIndex = 3;
+            this.labelT0seDesc.Text = "T0SE";
+            this.labelT0seDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPsaDesc
+            // 
+            this.labelPsaDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPsaDesc.Location = new System.Drawing.Point(3, 180);
+            this.labelPsaDesc.Name = "labelPsaDesc";
+            this.labelPsaDesc.Size = new System.Drawing.Size(71, 45);
+            this.labelPsaDesc.TabIndex = 4;
+            this.labelPsaDesc.Text = "PSA";
+            this.labelPsaDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPs2Desc
+            // 
+            this.labelPs2Desc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPs2Desc.Location = new System.Drawing.Point(3, 225);
+            this.labelPs2Desc.Name = "labelPs2Desc";
+            this.labelPs2Desc.Size = new System.Drawing.Size(71, 45);
+            this.labelPs2Desc.TabIndex = 5;
+            this.labelPs2Desc.Text = "PS2";
+            this.labelPs2Desc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPs1Desc
+            // 
+            this.labelPs1Desc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPs1Desc.Location = new System.Drawing.Point(3, 270);
+            this.labelPs1Desc.Name = "labelPs1Desc";
+            this.labelPs1Desc.Size = new System.Drawing.Size(71, 45);
+            this.labelPs1Desc.TabIndex = 6;
+            this.labelPs1Desc.Text = "PS1";
+            this.labelPs1Desc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPs0Desc
+            // 
+            this.labelPs0Desc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPs0Desc.Location = new System.Drawing.Point(3, 315);
+            this.labelPs0Desc.Name = "labelPs0Desc";
+            this.labelPs0Desc.Size = new System.Drawing.Size(71, 52);
+            this.labelPs0Desc.TabIndex = 7;
+            this.labelPs0Desc.Text = "PS0";
+            this.labelPs0Desc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelRbpu
+            // 
+            this.labelRbpu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRbpu.Location = new System.Drawing.Point(80, 0);
+            this.labelRbpu.Name = "labelRbpu";
+            this.labelRbpu.Size = new System.Drawing.Size(72, 45);
+            this.labelRbpu.TabIndex = 8;
+            this.labelRbpu.Text = "0";
+            this.labelRbpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelIntedg
+            // 
+            this.labelIntedg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelIntedg.Location = new System.Drawing.Point(80, 45);
+            this.labelIntedg.Name = "labelIntedg";
+            this.labelIntedg.Size = new System.Drawing.Size(72, 45);
+            this.labelIntedg.TabIndex = 9;
+            this.labelIntedg.Text = "0";
+            this.labelIntedg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelT0cs
+            // 
+            this.labelT0cs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelT0cs.Location = new System.Drawing.Point(80, 90);
+            this.labelT0cs.Name = "labelT0cs";
+            this.labelT0cs.Size = new System.Drawing.Size(72, 45);
+            this.labelT0cs.TabIndex = 10;
+            this.labelT0cs.Text = "0";
+            this.labelT0cs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelT0se
+            // 
+            this.labelT0se.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelT0se.Location = new System.Drawing.Point(80, 135);
+            this.labelT0se.Name = "labelT0se";
+            this.labelT0se.Size = new System.Drawing.Size(72, 45);
+            this.labelT0se.TabIndex = 11;
+            this.labelT0se.Text = "0";
+            this.labelT0se.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPsa
+            // 
+            this.labelPsa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPsa.Location = new System.Drawing.Point(80, 180);
+            this.labelPsa.Name = "labelPsa";
+            this.labelPsa.Size = new System.Drawing.Size(72, 45);
+            this.labelPsa.TabIndex = 12;
+            this.labelPsa.Text = "0";
+            this.labelPsa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPs2
+            // 
+            this.labelPs2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPs2.Location = new System.Drawing.Point(80, 225);
+            this.labelPs2.Name = "labelPs2";
+            this.labelPs2.Size = new System.Drawing.Size(72, 45);
+            this.labelPs2.TabIndex = 13;
+            this.labelPs2.Text = "0";
+            this.labelPs2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPs1
+            // 
+            this.labelPs1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPs1.Location = new System.Drawing.Point(80, 270);
+            this.labelPs1.Name = "labelPs1";
+            this.labelPs1.Size = new System.Drawing.Size(72, 45);
+            this.labelPs1.TabIndex = 14;
+            this.labelPs1.Text = "0";
+            this.labelPs1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPs0
+            // 
+            this.labelPs0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPs0.Location = new System.Drawing.Point(80, 315);
+            this.labelPs0.Name = "labelPs0";
+            this.labelPs0.Size = new System.Drawing.Size(72, 52);
+            this.labelPs0.TabIndex = 15;
+            this.labelPs0.Text = "0";
+            this.labelPs0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBoxSfrW
             // 
@@ -1436,7 +1862,7 @@
             this.tableLayoutPanelSfrWRuntime.ColumnCount = 1;
             this.tableLayoutPanelSfrWRuntime.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelSfrWRuntime.Controls.Add(this.tableLayoutPanelWregister, 0, 0);
-            this.tableLayoutPanelSfrWRuntime.Controls.Add(this.groupBoxSfr, 0, 2);
+            this.tableLayoutPanelSfrWRuntime.Controls.Add(this.groupBoxMisc, 0, 2);
             this.tableLayoutPanelSfrWRuntime.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanelSfrWRuntime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelSfrWRuntime.Location = new System.Drawing.Point(3, 17);
@@ -1486,16 +1912,16 @@
             this.labelWregister.Text = "0";
             this.labelWregister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBoxSfr
+            // groupBoxMisc
             // 
-            this.groupBoxSfr.Controls.Add(this.tableLayoutSfr);
-            this.groupBoxSfr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxSfr.Location = new System.Drawing.Point(3, 45);
-            this.groupBoxSfr.Name = "groupBoxSfr";
-            this.groupBoxSfr.Size = new System.Drawing.Size(152, 319);
-            this.groupBoxSfr.TabIndex = 2;
-            this.groupBoxSfr.TabStop = false;
-            this.groupBoxSfr.Text = "SFR";
+            this.groupBoxMisc.Controls.Add(this.tableLayoutSfr);
+            this.groupBoxMisc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxMisc.Location = new System.Drawing.Point(3, 45);
+            this.groupBoxMisc.Name = "groupBoxMisc";
+            this.groupBoxMisc.Size = new System.Drawing.Size(152, 319);
+            this.groupBoxMisc.TabIndex = 2;
+            this.groupBoxMisc.TabStop = false;
+            this.groupBoxMisc.Text = "Misc.";
             // 
             // tableLayoutSfr
             // 
@@ -1581,9 +2007,9 @@
             this.tableLayoutPanelStatus.Controls.Add(this.labelToDesc, 0, 3);
             this.tableLayoutPanelStatus.Controls.Add(this.labelRp0, 1, 2);
             this.tableLayoutPanelStatus.Controls.Add(this.labelRp0Desc, 0, 2);
-            this.tableLayoutPanelStatus.Controls.Add(this.label4, 1, 1);
+            this.tableLayoutPanelStatus.Controls.Add(this.labelRp1, 1, 1);
             this.tableLayoutPanelStatus.Controls.Add(this.labelRp1Desc, 0, 1);
-            this.tableLayoutPanelStatus.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanelStatus.Controls.Add(this.labelIrp, 1, 0);
             this.tableLayoutPanelStatus.Controls.Add(this.labelIrpDesc, 0, 0);
             this.tableLayoutPanelStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelStatus.Location = new System.Drawing.Point(3, 17);
@@ -1734,16 +2160,16 @@
             this.labelRp0Desc.Text = "RP0";
             this.labelRp0Desc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // labelRp1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(78, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 45);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "0";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRp1.AutoSize = true;
+            this.labelRp1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRp1.Location = new System.Drawing.Point(78, 45);
+            this.labelRp1.Name = "labelRp1";
+            this.labelRp1.Size = new System.Drawing.Size(70, 45);
+            this.labelRp1.TabIndex = 4;
+            this.labelRp1.Text = "0";
+            this.labelRp1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelRp1Desc
             // 
@@ -1756,16 +2182,16 @@
             this.labelRp1Desc.Text = "RP1";
             this.labelRp1Desc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // labelIrp
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(78, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 45);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "0";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelIrp.AutoSize = true;
+            this.labelIrp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelIrp.Location = new System.Drawing.Point(78, 0);
+            this.labelIrp.Name = "labelIrp";
+            this.labelIrp.Size = new System.Drawing.Size(70, 45);
+            this.labelIrp.TabIndex = 2;
+            this.labelIrp.Text = "0";
+            this.labelIrp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelIrpDesc
             // 
@@ -1821,18 +2247,21 @@
             this.groupBoxStack.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgStack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackItemBindingSource)).EndInit();
+            this.groupBoxIntcon.ResumeLayout(false);
+            this.tableLayoutPanelIntcon.ResumeLayout(false);
+            this.groupBoxOption.ResumeLayout(false);
+            this.tableLayoutPanelOption.ResumeLayout(false);
             this.groupBoxSfrW.ResumeLayout(false);
             this.tableLayoutPanelSfrWRuntime.ResumeLayout(false);
             this.tableLayoutPanelWregister.ResumeLayout(false);
             this.tableLayoutPanelWregister.PerformLayout();
-            this.groupBoxSfr.ResumeLayout(false);
+            this.groupBoxMisc.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBoxStatus.ResumeLayout(false);
             this.tableLayoutPanelStatus.ResumeLayout(false);
             this.tableLayoutPanelStatus.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -1889,7 +2318,7 @@
         private TableLayoutPanel tableLayoutPanelWregister;
         private Label labelWregDesc;
         private Label labelWregister;
-        private GroupBox groupBoxSfr;
+        private GroupBox groupBoxMisc;
         private TableLayoutPanel tableLayoutSfr;
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelRuntime;
@@ -1898,10 +2327,10 @@
         private Label labelToDesc;
         private Label labelRp0;
         private Label labelRp0Desc;
-        private Label label4;
+        private Label labelRp1;
         private Label labelRp1Desc;
-        private Label label2;
-        private Label labelIrpDesc;
+        private Label labelIrp;
+        private System.Windows.Forms.Label labelIrpDesc;
         private Label labelC;
         private Label labelCdesc;
         private Label labelDc;
@@ -1909,7 +2338,7 @@
         private Label labelDcDesc;
         private Label labelPdDesc;
         private Label labelZdesc;
-        private Label labelPd;
+        private System.Windows.Forms.Label labelPd;
         private Label labelTo;
         private TableLayoutPanel tableLayoutPanelPortA;
         private TableLayoutPanel tableLayoutTrisA;
@@ -1917,19 +2346,19 @@
         private Label labelRa2;
         private Label labelRa0;
         private Label labelRa1;
-        private Label labelRa4;
+        private System.Windows.Forms.Label labelRa4;
         private Label labelRa3;
         private TableLayoutPanel tableLayoutPanelTrisB;
         private Label labelTrisA0;
         private Label labelTrisA1;
         private Label labelTrisA2;
         private Label labelTrisA3;
-        private Label labelTrisA4;
+        private System.Windows.Forms.Label labelTrisA4;
         private Label labelTrisA0Desc;
         private Label labelTrisA1Desc;
         private Label labelTrisA2Desc;
         private Label labelTrisA3Desc;
-        private Label labelTrisA4Desc;
+        private System.Windows.Forms.Label labelTrisA4Desc;
         private Button buttonRa0;
         private Button buttonRa1;
         private Button buttonRa2;
@@ -1967,6 +2396,40 @@
         private Button buttonRb5;
         private Button buttonRb6;
         private Button buttonRb7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelOption;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelIntcon;
+        private Label labelRbpuDesc;
+        private Label labelIntedgDesc;
+        private Label labelT0csDesc;
+        private Label labelT0seDesc;
+        private Label labelPsaDesc;
+        private Label labelPs2Desc;
+        private Label labelPs1Desc;
+        private Label labelPs0Desc;
+        private Label labelRbpu;
+        private Label labelIntedg;
+        private Label labelT0cs;
+        private Label labelT0se;
+        private Label labelPsa;
+        private Label labelPs2;
+        private Label labelPs1;
+        private Label labelPs0;
+        private Label labelGieDesc;
+        private Label labelEeieDesc;
+        private Label labelT0ieDesc;
+        private Label labelInteDesc;
+        private Label labelRbieDesc;
+        private Label labelT0ifDesc;
+        private Label labelIntfDesc;
+        private Label labelRbifDesc;
+        private Label labelGie;
+        private Label labelEeie;
+        private Label labelT0ie;
+        private Label labelInte;
+        private Label labelRbie;
+        private Label labelT0if;
+        private Label labelIntf;
+        private Label labelRbif;
     }
 }
 
