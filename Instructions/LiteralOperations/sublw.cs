@@ -29,7 +29,7 @@ namespace picsim.Instructions.LiteralOperations
             _pic.IncRuntime(false);
             _pic.ZFlag(result);
             _pic.CFlag(result);
-            _pic.DcFlag(result);
+            _pic.DcFlag(_k,w_2comp);
         }
     }
 }

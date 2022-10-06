@@ -22,6 +22,7 @@ namespace picsim.Instructions.ByteOrientedInstructions
 
         public override void Execute()
         {
+            Decode();
             _pic.WriteByte(_f, _pic.Wreg);
             _pic.IncRuntime(false);
         }

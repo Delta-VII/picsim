@@ -18,7 +18,6 @@ namespace picsim
     {
         private PicUtil _pU;
         public BindingList<CodeLine> ProgramLines = new BindingList<CodeLine>();
-        private int _programIndex;
 
         private List<Label> Status = new List<Label>();
         private List<Label> Option = new List<Label>();
@@ -29,6 +28,9 @@ namespace picsim
         private List<Label> TrisB = new List<Label>();
         private List<Label> PortBLabels = new List<Label>();
         private List<Button> PortBButtons = new List<Button>();
+        private BitArray PortAbits = new BitArray(5);
+        private BitArray PortBbits = new BitArray(8);
+        
         
 
         public MainForm()
@@ -153,9 +155,8 @@ namespace picsim
                     _pU.InitPic();
                     DgRamBank0.DataSource = _pU.PicObject.RamBank0;
                     DgRamBank1.DataSource = _pU.PicObject.RamBank1;
-                    DgRamBank0.Refresh();
-                    DgRamBank1.Refresh();
                     DgStack.DataSource = _pU.PicObject.StackDGV;
+                    RefreshDisplay();
                 }
             }
         }
@@ -165,22 +166,14 @@ namespace picsim
             var index = 0;
             foreach (var line in CodeLines)
             {
-                
                 if (line.StartsWith("0") || line.StartsWith("1"))
                 {
-                    ProgramLines.Add(new CodeLine(line, true, index));
-                    _pU.DecodeInstructions(int.Parse(line.Substring(5, 5),
-                        System.Globalization.NumberStyles.HexNumber));
+                    ProgramLines.Add(new CodeLine(line, index));
+                    _pU.DecodeInstructions(int.Parse(line.Substring(5, 5), System.Globalization.NumberStyles.HexNumber));
+                    index++;
                 }
-                else
-                {
-                    ProgramLines.Add(new CodeLine(line,false, index));
-                }
-
-                index++;
             }
-            //ProgramLines.Add(new CodeLine("",false,ProgramLines.Count + 1));
-            //ProgramLines.Add(new CodeLine("<EoF>",false,ProgramLines.Count + 1));
+            
             DgProgram.DataSource = ProgramLines;
             DgProgram.ClearSelection();
             foreach (var line in ProgramLines)
@@ -205,45 +198,78 @@ namespace picsim
         private void Run()
         {
             DgProgram.ClearSelection();
-            DgProgram.Rows[CurrentLine()].Selected = true;
+            DgProgram.Rows[ProgramLines[_pU.PicObject.ProgCntr].LineNumber].Selected = true;
             RefreshDisplay();
             _pU.Execute();
-            ProgramLines[_programIndex].WasActive = true;
             RefreshDisplay();
-        }
-
-        private int CurrentLine()
-        {
-            var result = 0;
-
-            for (int i = _pU.PicObject.ProgCntr; i < ProgramLines.Count; i++)
-            {
-                if (ProgramLines[i].ContainsCode && ProgramLines[i].WasActive == false)
-                {
-                    result = i;
-                    break;
-                }
-
-                if (i == ProgramLines.Count)
-                {
-                    foreach (var line in ProgramLines)
-                    {
-                        line.WasActive = false;
-                        i = _pU.PicObject.ProgCntr;
-                    }
-                }
-            }
-
-            _programIndex = result;
-            return result;
         }
 
         private void RefreshDisplay()
         {
+            SetStatus();
+            SetOption();
+            SetIntcon();
+            SetTrisA();
+            SetTrisB();
             labelWregister.Text = "0x" + (_pU.PicObject.Wreg & 0b_1111_1111).ToString("X");
             DgStack.Refresh();
             DgRamBank0.Refresh();
             DgRamBank1.Refresh();
+        }
+
+        private void SetStatus()
+        {
+            var value = _pU.PicObject.RamBank0[0x03].Value;
+            BitArray temp = new BitArray(new int[] { value });
+            
+            for (int i = 0; i < 8; i++)
+            {
+                Status[i].Text = Convert.ToString(Convert.ToInt16(temp[i]));
+            }
+        }
+        
+        private void SetOption()
+        {
+            var value = _pU.PicObject.RamBank1[0x01].Value;
+            BitArray temp = new BitArray(new int[] { value });
+            
+            for (int i = 0; i < 8; i++)
+            {
+                Option[i].Text = Convert.ToString(Convert.ToInt16(temp[i]));
+            }
+        }
+        
+        private void SetIntcon()
+        {
+            var value = _pU.PicObject.RamBank0[0x0B].Value;
+            BitArray temp = new BitArray(new int[] { value });
+            
+            for (int i = 0; i < 8; i++)
+            {
+                Intcon[i].Text = Convert.ToString(Convert.ToInt16(temp[i]));
+            }
+        }
+        
+        private void SetTrisA()
+        {
+            var value = _pU.PicObject.RamBank1[0x05].Value;
+            BitArray temp = new BitArray(new int[] { value });
+            
+            for (int i = 0; i < 5; i++)
+            {
+                TrisA[i].Text = Convert.ToString(Convert.ToInt16(temp[i]));
+            }
+        }
+        
+        private void SetTrisB()
+        {
+            var value = _pU.PicObject.RamBank1[0x06].Value;
+            BitArray temp = new BitArray(new int[] { value });
+            
+            for (int i = 0; i < 8; i++)
+            {
+                TrisB[i].Text = Convert.ToString(Convert.ToInt16(temp[i]));
+            }
         }
 
     }

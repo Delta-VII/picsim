@@ -107,11 +107,11 @@ namespace picsim
         {
             if (value == false)
             {
-                _ramBank0[Status].Value &= ~(1 << Z);
+                _ramBank0[Status].Value &= ~(1 << 2);
             }
-            else if (value == true)
+            else if (value)
             {
-                _ramBank0[Status].Value |= 1 << Z;
+                _ramBank0[Status].Value |= 1 << 2;
             }
         }
 
@@ -119,11 +119,11 @@ namespace picsim
         {
             if (value == false)
             {
-                _ramBank0[Status].Value &= ~(1 << Dc);
+                _ramBank0[Status].Value &= ~(1 << 1);
             }
-            else if (value == true)
+            else if (value)
             {
-                _ramBank0[Status].Value |= 1 << Dc;
+                _ramBank0[Status].Value |= 1 << 1;
             }
         }
 
@@ -131,11 +131,11 @@ namespace picsim
         {
             if (value == false)
             {
-                _ramBank0[Status].Value &= ~(1 << C);
+                _ramBank0[Status].Value &= ~(1 << 0);
             }
-            else if (value == true)
+            else if (value)
             {
-                _ramBank0[Status].Value |= 1 << C;
+                _ramBank0[Status].Value |= 1 << 0;
             }
         }
 
@@ -276,9 +276,13 @@ namespace picsim
             }
         }
 
-        public void DcFlag(int result)
+        public void DcFlag(int _k, int wreg)
         {
-            if (result > 15)
+            var tempDC1 = _k & 0b_0000_1111;
+            var tempDC2 = wreg & 0b_0000_1111;
+            var tempDC3 = tempDC1 + tempDC2;
+            
+            if ((tempDC3 & 0b_0001_0000) == 16)
             {
                 SetDCFlag(true);
             }
@@ -299,5 +303,16 @@ namespace picsim
                 SetCFlag(false);
             }
         }
+        
+        public uint RotateLeft(uint value, int count)
+        {
+            return (value << count) | (value >> (32 - count));
+        }
+
+        public uint RotateRight(uint value, int count)
+        {
+            return (value >> count) | (value << (32 - count));
+        }
+        
     }
 }

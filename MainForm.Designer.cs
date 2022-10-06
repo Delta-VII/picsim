@@ -426,7 +426,8 @@
             this.DgProgram.AllowUserToResizeRows = false;
             this.DgProgram.AutoGenerateColumns = false;
             this.DgProgram.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgProgram.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.codeDataGridViewTextBoxColumn });
+            this.DgProgram.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codeDataGridViewTextBoxColumn});
             this.DgProgram.DataSource = this.codeLineBindingSource;
             this.DgProgram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgProgram.Location = new System.Drawing.Point(3, 17);
@@ -466,12 +467,13 @@
             this.DgRamBank0.AllowUserToResizeRows = false;
             this.DgRamBank0.AutoGenerateColumns = false;
             this.DgRamBank0.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgRamBank0.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.addressDataGridViewTextBoxColumn, this.valueDataGridViewTextBoxColumn });
+            this.DgRamBank0.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.addressDataGridViewTextBoxColumn,
+            this.valueDataGridViewTextBoxColumn});
             this.DgRamBank0.DataSource = this.ramCellBindingSource;
             this.DgRamBank0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRamBank0.Location = new System.Drawing.Point(3, 17);
             this.DgRamBank0.Name = "DgRamBank0";
-            this.DgRamBank0.ReadOnly = true;
             this.DgRamBank0.Size = new System.Drawing.Size(222, 817);
             this.DgRamBank0.TabIndex = 2;
             // 
@@ -480,14 +482,12 @@
             this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
             this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // valueDataGridViewTextBoxColumn
             // 
             this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ramCellBindingSource
             // 
@@ -513,12 +513,13 @@
             this.DgRamBank1.AllowUserToResizeRows = false;
             this.DgRamBank1.AutoGenerateColumns = false;
             this.DgRamBank1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgRamBank1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.addressDataGridViewTextBoxColumn1, this.valueDataGridViewTextBoxColumn1 });
+            this.DgRamBank1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.addressDataGridViewTextBoxColumn1,
+            this.valueDataGridViewTextBoxColumn1});
             this.DgRamBank1.DataSource = this.ramCellBindingSource1;
             this.DgRamBank1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRamBank1.Location = new System.Drawing.Point(3, 17);
             this.DgRamBank1.Name = "DgRamBank1";
-            this.DgRamBank1.ReadOnly = true;
             this.DgRamBank1.Size = new System.Drawing.Size(224, 817);
             this.DgRamBank1.TabIndex = 0;
             // 
@@ -527,14 +528,12 @@
             this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
             this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
             this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
-            this.addressDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // valueDataGridViewTextBoxColumn1
             // 
             this.valueDataGridViewTextBoxColumn1.DataPropertyName = "Value";
             this.valueDataGridViewTextBoxColumn1.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn1.Name = "valueDataGridViewTextBoxColumn1";
-            this.valueDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // ramCellBindingSource1
             // 
@@ -1412,7 +1411,8 @@
             this.DgStack.AllowUserToDeleteRows = false;
             this.DgStack.AutoGenerateColumns = false;
             this.DgStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgStack.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.valueDataGridViewTextBoxColumn2 });
+            this.DgStack.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.valueDataGridViewTextBoxColumn2});
             this.DgStack.DataSource = this.stackItemBindingSource;
             this.DgStack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgStack.Location = new System.Drawing.Point(3, 17);
@@ -2036,7 +2036,6 @@
             this.labelC.Name = "labelC";
             this.labelC.Size = new System.Drawing.Size(70, 52);
             this.labelC.TabIndex = 16;
-            this.labelC.Text = "0";
             this.labelC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelCdesc
@@ -2058,7 +2057,6 @@
             this.labelDc.Name = "labelDc";
             this.labelDc.Size = new System.Drawing.Size(70, 45);
             this.labelDc.TabIndex = 14;
-            this.labelDc.Text = "0";
             this.labelDc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelZ
@@ -2069,7 +2067,6 @@
             this.labelZ.Name = "labelZ";
             this.labelZ.Size = new System.Drawing.Size(70, 45);
             this.labelZ.TabIndex = 13;
-            this.labelZ.Text = "0";
             this.labelZ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelDcDesc
@@ -2113,7 +2110,6 @@
             this.labelPd.Name = "labelPd";
             this.labelPd.Size = new System.Drawing.Size(70, 45);
             this.labelPd.TabIndex = 9;
-            this.labelPd.Text = "0";
             this.labelPd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTo
@@ -2124,7 +2120,6 @@
             this.labelTo.Name = "labelTo";
             this.labelTo.Size = new System.Drawing.Size(70, 45);
             this.labelTo.TabIndex = 3;
-            this.labelTo.Text = "0";
             this.labelTo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelToDesc
@@ -2146,7 +2141,6 @@
             this.labelRp0.Name = "labelRp0";
             this.labelRp0.Size = new System.Drawing.Size(70, 45);
             this.labelRp0.TabIndex = 6;
-            this.labelRp0.Text = "0";
             this.labelRp0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelRp0Desc
@@ -2168,7 +2162,6 @@
             this.labelRp1.Name = "labelRp1";
             this.labelRp1.Size = new System.Drawing.Size(70, 45);
             this.labelRp1.TabIndex = 4;
-            this.labelRp1.Text = "0";
             this.labelRp1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelRp1Desc
@@ -2190,7 +2183,6 @@
             this.labelIrp.Name = "labelIrp";
             this.labelIrp.Size = new System.Drawing.Size(70, 45);
             this.labelIrp.TabIndex = 2;
-            this.labelIrp.Text = "0";
             this.labelIrp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelIrpDesc
@@ -2262,6 +2254,7 @@
             this.tableLayoutPanelStatus.ResumeLayout(false);
             this.tableLayoutPanelStatus.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -2325,21 +2318,21 @@
         private Label labelRuntimeDesc;
         private TableLayoutPanel tableLayoutPanelStatus;
         private Label labelToDesc;
-        private Label labelRp0;
+        private System.Windows.Forms.Label labelRp0;
         private Label labelRp0Desc;
-        private Label labelRp1;
+        private System.Windows.Forms.Label labelRp1;
         private Label labelRp1Desc;
-        private Label labelIrp;
+        private System.Windows.Forms.Label labelIrp;
         private System.Windows.Forms.Label labelIrpDesc;
-        private Label labelC;
+        private System.Windows.Forms.Label labelC;
         private Label labelCdesc;
-        private Label labelDc;
-        private Label labelZ;
+        private System.Windows.Forms.Label labelDc;
+        private System.Windows.Forms.Label labelZ;
         private Label labelDcDesc;
         private Label labelPdDesc;
         private Label labelZdesc;
         private System.Windows.Forms.Label labelPd;
-        private Label labelTo;
+        private System.Windows.Forms.Label labelTo;
         private TableLayoutPanel tableLayoutPanelPortA;
         private TableLayoutPanel tableLayoutTrisA;
         private TableLayoutPanel tableLayoutPanelPortB;

@@ -44,11 +44,10 @@ namespace picsim
             set => _lineNumber = value;
         }
 
-        public CodeLine(string line, bool code, int lineNumber)
+        public CodeLine(string line, int codeline)
         {
             Code = line;
-            ContainsCode = code;
-            LineNumber = _lineNumber;
+            LineNumber = codeline;
         }
     }
 }

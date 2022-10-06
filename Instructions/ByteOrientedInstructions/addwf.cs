@@ -28,7 +28,7 @@ namespace picsim.Instructions.ByteOrientedInstructions
             _pic.WriteResult(_d, _f, result);
             _pic.IncRuntime(false);
             _pic.ZFlag(result);
-            _pic.DcFlag(result);
+            _pic.DcFlag(register, _pic.Wreg);
             _pic.CFlag(result);
         }
     }

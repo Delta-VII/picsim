@@ -30,7 +30,6 @@ namespace picsim
             "000100", //IORWF
             "0010000", //MOVF
             "0000001", //MOVWF
-            "0000000", //NOP
             "0011010", //RLF
             "0011000", //RRF
             "0000100", //SUBWF
@@ -64,7 +63,8 @@ namespace picsim
             "00000001100100", //CLRWDT
             "00000000001001", //RETFIE
             "00000000001000", //RETURN
-            "00000001000011" //SLEEP
+            "00000001000011", //SLEEP
+            "000000000000000" //NOP
         };
 
         public Pic PicObject
@@ -126,7 +126,7 @@ namespace picsim
                     program.Add(new movwf(instructionsCode, pic));
                     break;
 
-                case "0000000":
+                case "00000000000000":
                     program.Add(new nop(instructionsCode, pic));
                     break;
 
@@ -202,7 +202,7 @@ namespace picsim
                     program.Add(new retlw(instructionsCode, pic));
                     break;
 
-                case "00000000001000":
+                case ("00000000001000"):
                     program.Add(new Return(instructionsCode, pic));
                     break;
 
@@ -229,7 +229,28 @@ namespace picsim
             var found = false;
             var result = "";
 
-
+            switch (instString)
+            {
+                case "0":
+                    result = "00000000000000";
+                    found = true;
+                    break;
+                case "10000":
+                    result = "0010000";
+                    found = true;
+                    break;
+                case "1001":
+                    result = "0010010";
+                    found = true;
+                    break;
+                case "1000":
+                    result = "00000000001000";
+                    found = true;
+                    break;
+                default:
+                    break;
+            }
+            
             //Byteoriented Instructions
             if (found == false)
             {
@@ -326,7 +347,7 @@ namespace picsim
             //PCL
             pic.RamBank0[0x02].Value = 0;
             //STATUS
-            pic.RamBank0[0x03].Value = 0;
+            pic.RamBank0[0x03].Value = 0b_0001_1000;
             //FSR
             pic.RamBank0[0x04].Value = 0;
             //PORTA
@@ -344,17 +365,17 @@ namespace picsim
             //INDF
             pic.RamBank1[0x00].Value = 0;
             //OPTION_REG
-            pic.RamBank1[0x01].Value = 0;
+            pic.RamBank1[0x01].Value = 0b_1111_1111;
             //PCL
             pic.RamBank1[0x02].Value = 0;
             //STATUS
-            pic.RamBank1[0x03].Value = 0;
+            pic.RamBank1[0x03].Value = 0b_0001_1000;
             //FSR
             pic.RamBank1[0x04].Value = 0;
             //TRISA
-            pic.RamBank1[0x05].Value = 0;
+            pic.RamBank1[0x05].Value = 0b_0001_1111;
             //TRISB
-            pic.RamBank1[0x06].Value = 0;
+            pic.RamBank1[0x06].Value = 0b_1111_1111;
             //EECON1
             pic.RamBank1[0x08].Value = 0;
             //EECON2
@@ -367,11 +388,23 @@ namespace picsim
 
         private void RefreshRegisters()
         {
-            pic.RamBank1[0x02].Value = pic.RamBank0[0x02].Value;
-            pic.RamBank1[0x03].Value = pic.RamBank0[0x03].Value;
-            pic.RamBank1[0x04].Value = pic.RamBank0[0x04].Value;
-            pic.RamBank1[0x0A].Value = pic.RamBank0[0x0A].Value;
-            pic.RamBank1[0x0B].Value = pic.RamBank0[0x0B].Value;
+            SetPclath();
+            pic.RamBank1[0x02].Value = pic.RamBank0[0x02].Value; //mirroring of PCL
+            pic.RamBank1[0x03].Value = pic.RamBank0[0x03].Value; //mirroring of STATUS
+            pic.RamBank1[0x04].Value = pic.RamBank0[0x04].Value; //mirroring of FSR
+            pic.RamBank1[0x0A].Value = pic.RamBank0[0x0A].Value; //mirroring of PCLATH
+            pic.RamBank1[0x0B].Value = pic.RamBank0[0x0B].Value; //mirroring of INTCON
+            pic.RamBank0[0x00].Value = pic.RamBank0[pic.RamBank0[0x04].Value].Value; // Indirect addressing
+            pic.RamBank1[0x00].Value = pic.RamBank0[0x00].Value; //mirroring of INDF
+            pic.RamBank0[0x02].Value = PicObject.ProgCntr & 0b_1111_1111; //PCL
+        }
+
+        private void SetPclath()
+        {
+            var temp = pic.RamBank0[0x02].Value;
+            var temp1 = temp & 0b_1_1111_0000_0000;
+            var result = pic.RotateRight(Convert.ToUInt16(temp1), 17);
+            pic.RamBank0[0x0A].Value = Convert.ToInt32(result);
         }
 
         public void ResetPic()
