@@ -75,149 +75,232 @@ namespace picsim
 
         public void DecodeInstructions(int instructionsCode)
         {
-            string inst = DecodeOpcode(instructionsCode);
-            switch (inst)
+            var code = instructionsCode & 0b11000000000000;
+            var ident = code >> 12;
+            var code2 = instructionsCode & 0b00111100000000;
+            var ident2 = code2 >> 8;
+            var code3 = instructionsCode & 0b00000011110000;
+            var ident3 = code3 >> 4;
+            var ident4 = instructionsCode & 0b00000000001111;
+
+            switch (ident)
             {
-                case "000111":
-                    program.Add(new addwf(instructionsCode, pic));
-                    break;
+                case 0:
+                {
+                    if ((ident2 == 0 && ident3 == 0) && (ident4 == 8))
+                    {
+                        //RETURN
+                        program.Add(new Return(instructionsCode, pic));
+                    }
 
-                case "000101":
-                    program.Add(new andwf(instructionsCode, pic));
-                    break;
+                    if ((ident2 == 0 && ident3 == 0) && (ident4 == 9))
+                    {
+                        //RETFIE
+                        program.Add(new retfie(instructionsCode, pic));
+                    }
 
-                case "0000011":
-                    program.Add(new clrf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 0 && ident3 > 7)
+                    {
+                        //MOVWF
+                        program.Add(new movwf(instructionsCode, pic));
+                    }
 
-                case "0000010":
-                    program.Add(new clrw(instructionsCode, pic));
-                    break;
+                    if (ident2 == 7)
+                    {
+                        //ADDWF
+                        program.Add(new addwf(instructionsCode, pic));
+                    }
 
-                case "001001":
-                    program.Add(new comf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 1 && ident3 > 7)
+                    {
+                        //CLRF
+                        program.Add(new clrf(instructionsCode, pic));
+                    }
 
-                case "000011":
-                    program.Add(new decf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 1 && ident3 < 8)
+                    {
+                        //CLRW
+                        program.Add(new clrw(instructionsCode, pic));
+                    }
 
-                case "001011":
-                    program.Add(new decfsz(instructionsCode, pic));
-                    break;
+                    if (ident2 == 5)
+                    {
+                        //ANDWF
+                        program.Add(new andwf(instructionsCode, pic));
+                    }
 
-                case "001010":
-                    program.Add(new incf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 9)
+                    {
+                        //COMPF
+                        program.Add(new comf(instructionsCode, pic));
+                    }
 
-                case "001111":
-                    program.Add(new incfsz(instructionsCode, pic));
-                    break;
+                    if (ident2 == 3)
+                    {
+                        //DECF
+                        program.Add(new decf(instructionsCode, pic));
+                    }
 
-                case "000100":
-                    program.Add(new iorwf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 10)
+                    {
+                        //INCF
+                        program.Add(new incf(instructionsCode, pic));
+                    }
 
-                case "0010000":
-                    program.Add(new movf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 4)
+                    {
+                        //IORWF
+                        program.Add(new iorwf(instructionsCode, pic));
+                    }
 
-                case "0000001":
-                    program.Add(new movwf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 8)
+                    {
+                        //MOVF
+                        program.Add(new movf(instructionsCode, pic));
+                    }
 
-                case "00000000000000":
-                    program.Add(new nop(instructionsCode, pic));
-                    break;
+                    if (ident2 == 6)
+                    {
+                        //XORWF
+                        program.Add(new xorwf(instructionsCode, pic));
+                    }
 
-                case "0011010":
-                    program.Add(new rlf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 14)
+                    {
+                        //SWAPF
+                        program.Add(new swapf(instructionsCode, pic));
+                    }
 
-                case "0011000":
-                    program.Add(new rrf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 2)
+                    {
+                        //SUBWF
+                        program.Add(new subwf(instructionsCode, pic));
+                    }
 
-                case "0000100":
-                    program.Add(new subwf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 11)
+                    {
+                        //DECFSZ
+                        program.Add(new decfsz(instructionsCode, pic));
+                    }
 
-                case "0011100":
-                    program.Add(new swapf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 13)
+                    {
+                        //   qInfo() << "RLF" << "\n";                                             //RLF
+                        program.Add(new rlf(instructionsCode, pic));
+                    }
 
-                case "0001100":
-                    program.Add(new xorwf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 12)
+                    {
+                        //   qInfo() << "RRF" << "\n";                                                //RRF
+                        program.Add(new rrf(instructionsCode, pic));
+                    }
 
-                case "0100":
-                    program.Add(new bcf(instructionsCode, pic));
-                    break;
+                    if (ident2 == 15)
+                    {
+                        //INCFSZ
+                        program.Add(new incfsz(instructionsCode, pic));
+                    }
 
-                case "0101":
-                    program.Add(new bsf(instructionsCode, pic));
-                    break;
+                    if ((ident2 == 0) && (ident3 == 0) && (ident4 == 0))
+                    {
+                        //nop
+                        program.Add(new nop(instructionsCode, pic));
+                    }
 
-                case "0110":
-                    program.Add(new btfsc(instructionsCode, pic));
+                    if ((ident2 == 0) && (ident3 == 6) && (ident4 == 3))
+                    {
+                        //sleep
+                        program.Add(new sleep(instructionsCode, pic));
+                    }
+                }
                     break;
+                case 1:
+                {
 
-                case "0111":
-                    program.Add(new btfss(instructionsCode, pic));
-                    break;
+                    if ((ident2 & 0b1100) == 0)
+                    {
+                        //BCF
+                        program.Add(new bcf(instructionsCode, pic));
+                    }
 
-                case "111110":
-                    program.Add(new addlw(instructionsCode, pic));
-                    break;
+                    if ((ident2 & 0b1100) == 4)
+                    {
+                        //BSF
+                        program.Add(new bsf(instructionsCode, pic));
+                    }
 
-                case "111001":
-                    program.Add(new andlw(instructionsCode, pic));
-                    break;
+                    if ((ident2 & 0b1100) == 8)
+                    {
+                        //"BTFSC"
+                        program.Add(new btfsc(instructionsCode, pic));
+                    }
 
-                case "100000":
-                    program.Add(new call(instructionsCode, pic));
+                    if ((ident2 & 0b1100) == 12)
+                    {
+                        // "BTFSS"
+                        program.Add(new btfss(instructionsCode, pic));
+                    }
+                }
                     break;
+                case 2:
+                {
+                    if (ident2 > 7)
+                    {
+                                       // goto
+                        program.Add(new Goto(instructionsCode, pic));
+                    }
+                    if (ident2 < 8)
+                    {
+                        //call
+                        program.Add(new call(instructionsCode, pic));
+                    }
 
-                case "00000001100100":
-                    program.Add(new clrwdt(instructionsCode, pic));
+                }
                     break;
+                case 3:
+                {
+                    if (ident2 < 4)
+                    {
+                        //MOVLW
+                        program.Add(new movlw(instructionsCode, pic));
+                    }
 
-                case "101000":
-                    program.Add(new Goto(instructionsCode, pic));
-                    break;
+                    if ((ident2 == 4) || (ident2 == 5) || (ident2 == 6) || (ident2 == 7))
+                    {
+                        //RETLW
+                        program.Add(new retlw(instructionsCode, pic));
+                    }
 
-                case "111000":
-                    program.Add(new iorlw(instructionsCode, pic));
-                    break;
+                    if (ident2 == 8)
+                    {
+                        //IORLW
+                        program.Add(new iorlw(instructionsCode, pic));
+                    }
 
-                case "110000":
-                    program.Add(new movlw(instructionsCode, pic));
-                    break;
+                    if (ident2 == 9)
+                    {
+                        //ANDLW
+                        program.Add(new andlw(instructionsCode, pic));
+                    }
 
-                case "00000000001001":
-                    program.Add(new retfie(instructionsCode, pic));
-                    break;
+                    if (ident2 == 10)
+                    {
+                        //XORLW
+                        program.Add(new xorlw(instructionsCode, pic));
+                    }
 
-                case "110100":
-                    program.Add(new retlw(instructionsCode, pic));
-                    break;
+                    if ((ident2 == 12) || (ident2 == 13))
+                    {
+                        //SUBLW
+                        program.Add(new sublw(instructionsCode, pic));
+                    }
 
-                case ("00000000001000"):
-                    program.Add(new Return(instructionsCode, pic));
-                    break;
-
-                case "00000001000011":
-                    program.Add(new sleep(instructionsCode, pic));
-                    break;
-
-                case "111100":
-                    program.Add(new sublw(instructionsCode, pic));
-                    break;
-
-                case "111010":
-                    program.Add(new xorlw(instructionsCode, pic));
-                    break;
-                default:
+                    if ((ident2 == 14) || (ident2 == 15))
+                    {
+                        //ADDLW
+                        program.Add(new addlw(instructionsCode, pic));
+                    }
+                }
                     break;
             }
         }
@@ -315,10 +398,12 @@ namespace picsim
 
         public void Execute()
         {
+            pic.checkinterrupt();
             RefreshRegisters();
             Debug.WriteLine(program[pic.ProgCntr]);
             program[pic.ProgCntr].Execute();
             pic.ProgCntr += 1;
+            RefreshRegisters();
         }
 
         public void InitPic()
@@ -394,9 +479,8 @@ namespace picsim
             pic.RamBank1[0x04].Value = pic.RamBank0[0x04].Value; //mirroring of FSR
             pic.RamBank1[0x0A].Value = pic.RamBank0[0x0A].Value; //mirroring of PCLATH
             pic.RamBank1[0x0B].Value = pic.RamBank0[0x0B].Value; //mirroring of INTCON
-            pic.RamBank0[0x00].Value = pic.RamBank0[pic.RamBank0[0x04].Value].Value; // Indirect addressing
             pic.RamBank1[0x00].Value = pic.RamBank0[0x00].Value; //mirroring of INDF
-            pic.RamBank0[0x02].Value = PicObject.ProgCntr & 0b_1111_1111; //PCL
+            pic.RamBank0[0x02].Value = pic.ProgCntr & 0b_1111_1111; //PCL
         }
 
         private void SetPclath()
@@ -406,9 +490,6 @@ namespace picsim
             var result = pic.RotateRight(Convert.ToUInt16(temp1), 17);
             pic.RamBank0[0x0A].Value = Convert.ToInt32(result);
         }
-
-        public void ResetPic()
-        {
-        }
+        
     }
 }

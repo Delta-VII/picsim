@@ -20,7 +20,7 @@ namespace picsim.Instructions.ByteOrientedInstructions
 
         public override void Execute()
         {
-            _pic.IncRuntime(false);
+            _pic.Timercycle();
         }
     }
 }

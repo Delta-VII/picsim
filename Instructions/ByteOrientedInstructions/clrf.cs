@@ -25,7 +25,7 @@ namespace picsim.Instructions.ByteOrientedInstructions
             Decode();
             _pic.WriteByte(_f, 0);
             _pic.SetZFlag(true);
-            _pic.IncRuntime(false);
+            _pic.Timercycle();
         }
     }
 }

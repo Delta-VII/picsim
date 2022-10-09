@@ -46,6 +46,7 @@
             this.btnStep = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.btnResetMcu = new System.Windows.Forms.Button();
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxProgram = new System.Windows.Forms.GroupBox();
             this.DgProgram = new System.Windows.Forms.DataGridView();
@@ -173,6 +174,9 @@
             this.labelWregister = new System.Windows.Forms.Label();
             this.groupBoxMisc = new System.Windows.Forms.GroupBox();
             this.tableLayoutSfr = new System.Windows.Forms.TableLayoutPanel();
+            this.labelWdgDescription = new System.Windows.Forms.Label();
+            this.buttonWdg = new System.Windows.Forms.Button();
+            this.labelWdg = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelRuntime = new System.Windows.Forms.Label();
             this.labelRuntimeDesc = new System.Windows.Forms.Label();
@@ -236,6 +240,7 @@
             this.tableLayoutPanelSfrWRuntime.SuspendLayout();
             this.tableLayoutPanelWregister.SuspendLayout();
             this.groupBoxMisc.SuspendLayout();
+            this.tableLayoutSfr.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxStatus.SuspendLayout();
             this.tableLayoutPanelStatus.SuspendLayout();
@@ -331,6 +336,7 @@
             this.flowLayoutPanelButtons.Controls.Add(this.btnStep);
             this.flowLayoutPanelButtons.Controls.Add(this.btnStop);
             this.flowLayoutPanelButtons.Controls.Add(this.btnReset);
+            this.flowLayoutPanelButtons.Controls.Add(this.btnResetMcu);
             this.flowLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelButtons.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
@@ -381,11 +387,21 @@
             // 
             this.btnReset.Location = new System.Drawing.Point(327, 3);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.Size = new System.Drawing.Size(98, 23);
             this.btnReset.TabIndex = 4;
-            this.btnReset.Text = "Reset";
+            this.btnReset.Text = "Reset Simulator";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnResetMcu
+            // 
+            this.btnResetMcu.Location = new System.Drawing.Point(431, 3);
+            this.btnResetMcu.Name = "btnResetMcu";
+            this.btnResetMcu.Size = new System.Drawing.Size(75, 23);
+            this.btnResetMcu.TabIndex = 5;
+            this.btnResetMcu.Text = "Reset Pic";
+            this.btnResetMcu.UseVisualStyleBackColor = true;
+            this.btnResetMcu.Click += new System.EventHandler(this.btnResetMcu_Click);
             // 
             // tableLayoutPanelMain
             // 
@@ -426,8 +442,7 @@
             this.DgProgram.AllowUserToResizeRows = false;
             this.DgProgram.AutoGenerateColumns = false;
             this.DgProgram.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgProgram.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codeDataGridViewTextBoxColumn});
+            this.DgProgram.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.codeDataGridViewTextBoxColumn });
             this.DgProgram.DataSource = this.codeLineBindingSource;
             this.DgProgram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgProgram.Location = new System.Drawing.Point(3, 17);
@@ -435,6 +450,7 @@
             this.DgProgram.ReadOnly = true;
             this.DgProgram.Size = new System.Drawing.Size(589, 817);
             this.DgProgram.TabIndex = 1;
+            this.DgProgram.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgProgram_CellContentDoubleClick);
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -467,9 +483,7 @@
             this.DgRamBank0.AllowUserToResizeRows = false;
             this.DgRamBank0.AutoGenerateColumns = false;
             this.DgRamBank0.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgRamBank0.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.addressDataGridViewTextBoxColumn,
-            this.valueDataGridViewTextBoxColumn});
+            this.DgRamBank0.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.addressDataGridViewTextBoxColumn, this.valueDataGridViewTextBoxColumn });
             this.DgRamBank0.DataSource = this.ramCellBindingSource;
             this.DgRamBank0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRamBank0.Location = new System.Drawing.Point(3, 17);
@@ -513,9 +527,7 @@
             this.DgRamBank1.AllowUserToResizeRows = false;
             this.DgRamBank1.AutoGenerateColumns = false;
             this.DgRamBank1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgRamBank1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.addressDataGridViewTextBoxColumn1,
-            this.valueDataGridViewTextBoxColumn1});
+            this.DgRamBank1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.addressDataGridViewTextBoxColumn1, this.valueDataGridViewTextBoxColumn1 });
             this.DgRamBank1.DataSource = this.ramCellBindingSource1;
             this.DgRamBank1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgRamBank1.Location = new System.Drawing.Point(3, 17);
@@ -647,6 +659,7 @@
             this.buttonRb0.TabIndex = 16;
             this.buttonRb0.Text = "RB0";
             this.buttonRb0.UseVisualStyleBackColor = true;
+            this.buttonRb0.Click += new System.EventHandler(this.buttonRb0_Click);
             // 
             // buttonRb1
             // 
@@ -657,6 +670,7 @@
             this.buttonRb1.TabIndex = 15;
             this.buttonRb1.Text = "RB1";
             this.buttonRb1.UseVisualStyleBackColor = true;
+            this.buttonRb1.Click += new System.EventHandler(this.buttonRb1_Click);
             // 
             // buttonRb2
             // 
@@ -667,6 +681,7 @@
             this.buttonRb2.TabIndex = 14;
             this.buttonRb2.Text = "RB2";
             this.buttonRb2.UseVisualStyleBackColor = true;
+            this.buttonRb2.Click += new System.EventHandler(this.buttonRb2_Click);
             // 
             // buttonRb3
             // 
@@ -677,6 +692,7 @@
             this.buttonRb3.TabIndex = 13;
             this.buttonRb3.Text = "RB3";
             this.buttonRb3.UseVisualStyleBackColor = true;
+            this.buttonRb3.Click += new System.EventHandler(this.buttonRb3_Click);
             // 
             // buttonRb4
             // 
@@ -687,6 +703,7 @@
             this.buttonRb4.TabIndex = 12;
             this.buttonRb4.Text = "RB4";
             this.buttonRb4.UseVisualStyleBackColor = true;
+            this.buttonRb4.Click += new System.EventHandler(this.buttonRb4_Click);
             // 
             // buttonRb5
             // 
@@ -697,6 +714,7 @@
             this.buttonRb5.TabIndex = 11;
             this.buttonRb5.Text = "RB5";
             this.buttonRb5.UseVisualStyleBackColor = true;
+            this.buttonRb5.Click += new System.EventHandler(this.buttonRb5_Click);
             // 
             // buttonRb6
             // 
@@ -707,6 +725,7 @@
             this.buttonRb6.TabIndex = 10;
             this.buttonRb6.Text = "RB6";
             this.buttonRb6.UseVisualStyleBackColor = true;
+            this.buttonRb6.Click += new System.EventHandler(this.buttonRb6_Click);
             // 
             // labelRb5
             // 
@@ -813,6 +832,7 @@
             this.buttonRb7.TabIndex = 9;
             this.buttonRb7.Text = "RB7";
             this.buttonRb7.UseVisualStyleBackColor = true;
+            this.buttonRb7.Click += new System.EventHandler(this.buttonRb7_Click);
             // 
             // groupBoxPortA
             // 
@@ -863,6 +883,7 @@
             this.buttonRa0.TabIndex = 10;
             this.buttonRa0.Text = "RA0";
             this.buttonRa0.UseVisualStyleBackColor = true;
+            this.buttonRa0.Click += new System.EventHandler(this.buttonRa0_Click);
             // 
             // buttonRa1
             // 
@@ -873,6 +894,7 @@
             this.buttonRa1.TabIndex = 9;
             this.buttonRa1.Text = "RA1";
             this.buttonRa1.UseVisualStyleBackColor = true;
+            this.buttonRa1.Click += new System.EventHandler(this.buttonRa1_Click);
             // 
             // buttonRa2
             // 
@@ -883,6 +905,7 @@
             this.buttonRa2.TabIndex = 8;
             this.buttonRa2.Text = "RA2";
             this.buttonRa2.UseVisualStyleBackColor = true;
+            this.buttonRa2.Click += new System.EventHandler(this.buttonRa2_Click);
             // 
             // buttonRa3
             // 
@@ -893,6 +916,7 @@
             this.buttonRa3.TabIndex = 7;
             this.buttonRa3.Text = "RA3";
             this.buttonRa3.UseVisualStyleBackColor = true;
+            this.buttonRa3.Click += new System.EventHandler(this.buttonRa3_Click);
             // 
             // labelRa2
             // 
@@ -963,6 +987,7 @@
             this.buttonRa4.TabIndex = 6;
             this.buttonRa4.Text = "RA4";
             this.buttonRa4.UseVisualStyleBackColor = true;
+            this.buttonRa4.Click += new System.EventHandler(this.buttonRa4_Click);
             // 
             // groupBoxTrisB
             // 
@@ -1411,8 +1436,7 @@
             this.DgStack.AllowUserToDeleteRows = false;
             this.DgStack.AutoGenerateColumns = false;
             this.DgStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgStack.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.valueDataGridViewTextBoxColumn2});
+            this.DgStack.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.valueDataGridViewTextBoxColumn2 });
             this.DgStack.DataSource = this.stackItemBindingSource;
             this.DgStack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgStack.Location = new System.Drawing.Point(3, 17);
@@ -1928,6 +1952,9 @@
             this.tableLayoutSfr.ColumnCount = 2;
             this.tableLayoutSfr.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutSfr.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutSfr.Controls.Add(this.labelWdgDescription, 0, 1);
+            this.tableLayoutSfr.Controls.Add(this.buttonWdg, 0, 0);
+            this.tableLayoutSfr.Controls.Add(this.labelWdg, 1, 1);
             this.tableLayoutSfr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutSfr.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutSfr.Name = "tableLayoutSfr";
@@ -1941,6 +1968,39 @@
             this.tableLayoutSfr.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutSfr.Size = new System.Drawing.Size(146, 299);
             this.tableLayoutSfr.TabIndex = 2;
+            // 
+            // labelWdgDescription
+            // 
+            this.labelWdgDescription.AutoSize = true;
+            this.labelWdgDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelWdgDescription.Location = new System.Drawing.Point(3, 42);
+            this.labelWdgDescription.Name = "labelWdgDescription";
+            this.labelWdgDescription.Size = new System.Drawing.Size(67, 42);
+            this.labelWdgDescription.TabIndex = 2;
+            this.labelWdgDescription.Text = "WDG ";
+            this.labelWdgDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonWdg
+            // 
+            this.tableLayoutSfr.SetColumnSpan(this.buttonWdg, 2);
+            this.buttonWdg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonWdg.Location = new System.Drawing.Point(3, 3);
+            this.buttonWdg.Name = "buttonWdg";
+            this.buttonWdg.Size = new System.Drawing.Size(140, 36);
+            this.buttonWdg.TabIndex = 0;
+            this.buttonWdg.Text = "WDG";
+            this.buttonWdg.UseVisualStyleBackColor = true;
+            this.buttonWdg.Click += new System.EventHandler(this.buttonWdg_Click);
+            // 
+            // labelWdg
+            // 
+            this.labelWdg.AutoSize = true;
+            this.labelWdg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelWdg.Location = new System.Drawing.Point(76, 42);
+            this.labelWdg.Name = "labelWdg";
+            this.labelWdg.Size = new System.Drawing.Size(67, 42);
+            this.labelWdg.TabIndex = 1;
+            this.labelWdg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -2248,13 +2308,14 @@
             this.tableLayoutPanelWregister.ResumeLayout(false);
             this.tableLayoutPanelWregister.PerformLayout();
             this.groupBoxMisc.ResumeLayout(false);
+            this.tableLayoutSfr.ResumeLayout(false);
+            this.tableLayoutSfr.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBoxStatus.ResumeLayout(false);
             this.tableLayoutPanelStatus.ResumeLayout(false);
             this.tableLayoutPanelStatus.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -2280,7 +2341,7 @@
         private BindingSource ramCellBindingSource;
         private BindingSource codeLineBindingSource;
         private GroupBox groupBoxProgram;
-        private DataGridView DgProgram;
+        private System.Windows.Forms.DataGridView DgProgram;
         private DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private GroupBox groupBoxRamBank0;
         private DataGridView DgRamBank0;
@@ -2352,11 +2413,11 @@
         private Label labelTrisA2Desc;
         private Label labelTrisA3Desc;
         private System.Windows.Forms.Label labelTrisA4Desc;
-        private Button buttonRa0;
-        private Button buttonRa1;
-        private Button buttonRa2;
-        private Button buttonRa3;
-        private Button buttonRa4;
+        private System.Windows.Forms.Button buttonRa0;
+        private System.Windows.Forms.Button buttonRa1;
+        private System.Windows.Forms.Button buttonRa2;
+        private System.Windows.Forms.Button buttonRa3;
+        private System.Windows.Forms.Button buttonRa4;
         private Label labelRb5;
         private Label labelRb1;
         private Label labelRb2;
@@ -2381,14 +2442,14 @@
         private Label labelTrisB5Desc;
         private Label labelTrisB6Desc;
         private Label labelTrisB7Desc;
-        private Button buttonRb0;
-        private Button buttonRb1;
-        private Button buttonRb2;
-        private Button buttonRb3;
-        private Button buttonRb4;
-        private Button buttonRb5;
-        private Button buttonRb6;
-        private Button buttonRb7;
+        private System.Windows.Forms.Button buttonRb0;
+        private System.Windows.Forms.Button buttonRb1;
+        private System.Windows.Forms.Button buttonRb2;
+        private System.Windows.Forms.Button buttonRb3;
+        private System.Windows.Forms.Button buttonRb4;
+        private System.Windows.Forms.Button buttonRb5;
+        private System.Windows.Forms.Button buttonRb6;
+        private System.Windows.Forms.Button buttonRb7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelOption;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelIntcon;
         private Label labelRbpuDesc;
@@ -2423,6 +2484,10 @@
         private Label labelT0if;
         private Label labelIntf;
         private Label labelRbif;
+        private System.Windows.Forms.Button btnResetMcu;
+        private Label labelWdgDescription;
+        private System.Windows.Forms.Button buttonWdg;
+        private Label labelWdg;
     }
 }
 

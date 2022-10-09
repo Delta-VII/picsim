@@ -16,12 +16,14 @@ namespace picsim.Instructions.ControlOperations
 
         public override void Decode()
         {
-            throw new NotImplementedException();
         }
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            _pic.ProgCntr = _pic.pop();
+            _pic.RamBank0[0x0B].Value |= 0b_1000_0000;
+            _pic.Timercycle();
+            _pic.Timercycle();
         }
     }
 }

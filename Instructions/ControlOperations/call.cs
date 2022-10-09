@@ -23,10 +23,11 @@ namespace picsim.Instructions.ControlOperations
         {
             Decode();
             _pic.push(_pic.ProgCntr + 1);
-            var pclath = _pic.ProgCntr & 0b_0110_0000_0000_0000;
+            var pclath = _pic.RamBank0[0x0A].Value << 8;
             var result = pclath + _k;
             _pic.ProgCntr = result - 1;
-            _pic.IncRuntime(false);
+            _pic.Timercycle();
+            _pic.Timercycle();
         }
     }
 }

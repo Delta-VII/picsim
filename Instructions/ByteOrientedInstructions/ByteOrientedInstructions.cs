@@ -11,6 +11,6 @@ namespace picsim.Instructions.ByteOrientedInstructions
         protected int _f;
         protected int _d;
         protected int _fBitmask = 0b_00_0000_0111_1111;
-        protected int _dBitmask = 0b_00_0000_0100_0000;
+        protected int _dBitmask = 0b_00_0000_1000_0000;
     }
 }

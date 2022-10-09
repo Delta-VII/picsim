@@ -23,13 +23,17 @@ namespace picsim.Instructions.ByteOrientedInstructions
         public override void Execute()
         {
             Decode();
-            var register = Convert.ToUInt32(_pic.GetByte(_f));
+            var register = _pic.GetByte(_f);
             var result = register << 1;
             if (_pic.GetCFlag())
             {
                 result++;
             }
-            //_pic.SetCFlag();
+            
+            _pic.CFlag(result);
+            result &= 0b_1111_1111;
+            _pic.WriteResult(_d,_f,result);
+            _pic.Timercycle();
         }
     }
 }

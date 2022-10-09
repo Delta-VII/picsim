@@ -21,7 +21,7 @@ namespace picsim.Instructions.ControlOperations
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            _pic.Timercycle();
         }
     }
 }

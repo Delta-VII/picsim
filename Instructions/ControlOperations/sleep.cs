@@ -16,12 +16,23 @@ namespace picsim.Instructions.ControlOperations
 
         public override void Decode()
         {
-            throw new NotImplementedException();
         }
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            if((_pic.RamBank1[3].Value & 0b00001000)==8)
+            {
+                _pic.Cyclecount1 = 500;
+                _pic.Quarzcycle1 = 0;}
+                _pic.RamBank0[3].Value &= 0b11110111;
+            if((_pic.RamBank1[3].Value & 0b00001000) == 0)
+            {
+                _pic.watchdogcycle();
+                if ((_pic.RamBank1[3].Value & 0b00001000) == 0)
+                {
+                    _pic.ProgCntr--;
+                }
+            }
         }
     }
 }

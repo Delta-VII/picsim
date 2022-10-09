@@ -17,14 +17,18 @@ namespace picsim.Instructions.BitOrientedInstructions
         public override void Decode()
         {
             _f = _instruction & _fBitmask;
-            _b = _instruction & _bBitmask;
+            _b = (_instruction & _bBitmask) >> 7;
         }
 
         public override void Execute()
         {
             Decode();
-            _pic.WriteBit(false, _b, _f);
-            _pic.IncRuntime(false);
+            var register = _pic.GetByte(_f);
+            var mask = Convert.ToInt32(Math.Pow(2, _b));
+            mask = (~mask) & 0b_1111_1111;
+            var result = register & mask;
+            _pic.WriteResult(1,_f,result);
+            _pic.Timercycle();
         }
     }
 }

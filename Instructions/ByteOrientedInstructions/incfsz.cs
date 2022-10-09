@@ -24,17 +24,14 @@ namespace picsim.Instructions.ByteOrientedInstructions
         {
             Decode();
             var register = _pic.GetByte(_f);
-            var result = register + 1;
-            if (result != 0)
-            {
-                _pic.WriteResult(_d, _f, result);
-                _pic.IncRuntime(false);
+            register += 0b00000001;
+            register &= 0b11111111;
+            if (register == 0) {
+                _pic.ProgCntr++;
+                _pic.Timercycle();
             }
-            else
-            {
-                _pic.ProgCntr = +2;
-                _pic.IncRuntime(true);
-            }
+            _pic.WriteResult(_d,_f,register);
+            _pic.Timercycle();
         }
     }
 }

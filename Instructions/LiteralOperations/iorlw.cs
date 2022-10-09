@@ -23,7 +23,7 @@ namespace picsim.Instructions.LiteralOperations
         {
             Decode();
             _pic.Wreg |= _k;
-            _pic.IncRuntime(false);
+            _pic.Timercycle();
             _pic.ZFlag(_pic.Wreg);
         }
     }

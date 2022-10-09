@@ -11,6 +11,7 @@ using System.IO;
 using System.Collections;
 using picsim.Instructions;
 using picsim.Instructions.ByteOrientedInstructions;
+using Timer = System.Threading.Timer;
 
 namespace picsim
 {
@@ -28,8 +29,11 @@ namespace picsim
         private List<Label> TrisB = new List<Label>();
         private List<Label> PortBLabels = new List<Label>();
         private List<Button> PortBButtons = new List<Button>();
-        private BitArray PortAbits = new BitArray(5);
-        private BitArray PortBbits = new BitArray(8);
+        private BitArray PortAbits = new BitArray(32);
+        private BitArray PortBbits = new BitArray(32);
+        private bool _breakPointReached;
+        private System.Timers.Timer _timer = new System.Timers.Timer();
+        private bool _watchdog;
         
         
 
@@ -115,19 +119,26 @@ namespace picsim
             PortBButtons.Add(buttonRb5);
             PortBButtons.Add(buttonRb6);
             PortBButtons.Add(buttonRb7);
-            
+
+            _timer.Interval = 1000;
+            _timer.Elapsed += OnTimedEvent;
+            _timer.AutoReset = true;
+
+            labelWdg.Text = "OFF";
         }
         
-        private void btnStart_Click(object sender, System.EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
             Stop.Enabled = true;
             Start.Enabled = false;
+            _timer.Start();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             Stop.Enabled = false;
             Start.Enabled = true;
+            _timer.Stop();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -186,10 +197,6 @@ namespace picsim
             }
         }
 
-        private void DgProgram_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
         private void btnStep_Click(object sender, EventArgs e)
         {
             Run();
@@ -197,11 +204,20 @@ namespace picsim
 
         private void Run()
         {
+            
+            if (ProgramLines[_pU.PicObject.ProgCntr].BreakPoint && _breakPointReached)
+            {
+                _timer.Stop();
+               _breakPointReached = false;
+            }
+            RefreshDisplay();
             DgProgram.ClearSelection();
             DgProgram.Rows[ProgramLines[_pU.PicObject.ProgCntr].LineNumber].Selected = true;
-            RefreshDisplay();
             _pU.Execute();
             RefreshDisplay();
+            _breakPointReached = true;
+            MatchTris();
+            MatchPorts();
         }
 
         private void RefreshDisplay()
@@ -212,6 +228,7 @@ namespace picsim
             SetTrisA();
             SetTrisB();
             labelWregister.Text = "0x" + (_pU.PicObject.Wreg & 0b_1111_1111).ToString("X");
+            labelRuntime.Text = _pU.PicObject.Runtime.ToString() + " us";
             DgStack.Refresh();
             DgRamBank0.Refresh();
             DgRamBank1.Refresh();
@@ -271,6 +288,286 @@ namespace picsim
                 TrisB[i].Text = Convert.ToString(Convert.ToInt16(temp[i]));
             }
         }
+        
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            Run();
+        }
 
+        private void DgProgram_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgProgram.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Crimson)
+            {
+                DgProgram.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Empty;
+                ProgramLines[e.RowIndex].BreakPoint = false;
+                _breakPointReached = false;
+            }
+            else if (DgProgram.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Empty)
+            {
+                DgProgram.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Crimson;
+                ProgramLines[e.RowIndex].BreakPoint = true;
+                _breakPointReached = true;
+            }
+
+        }
+
+        private void buttonRa0_Click(object sender, EventArgs e)
+        {
+            setButtonA(0);
+        }
+
+        private void setButtonA(int index)
+        {
+            if (PortAbits[index])
+            {
+                PortALabels[index].BackColor = Color.Empty;
+                PortAbits[index] = false;
+                switch (index)
+                {
+                    case 0:
+                        _pU.PicObject.RamBank0[5].Value &= ~(1 << 0);
+                        break;
+                    case 1:
+                        _pU.PicObject.RamBank0[5].Value &= ~(1 << 1);
+                        break;
+                    case 2:
+                        _pU.PicObject.RamBank0[5].Value &= ~(1 << 2);
+                        break;
+                    case 3:
+                        _pU.PicObject.RamBank0[5].Value &= ~(1 << 3);
+                        break;
+                    case 4:
+                        _pU.PicObject.RamBank0[5].Value &= ~(1 << 4);
+                        break;
+                    case 5:
+                        _pU.PicObject.RamBank0[5].Value &= ~(1 << 5);
+                        break;
+                    case 6:
+                        _pU.PicObject.RamBank0[5].Value &= ~(1 << 6);
+                        break;
+                    case 7:
+                        _pU.PicObject.RamBank0[5].Value &= ~(1 << 7);
+                        break;
+                    default:
+                        break;
+                    
+                }
+            }
+            else
+            {
+                PortALabels[index].BackColor = Color.Crimson;
+                PortAbits[index] = true;
+                switch (index)
+                {
+                    case 0:
+                        _pU.PicObject.RamBank0[5].Value |= 1 << 0;
+                        break;
+                    case 1:
+                        _pU.PicObject.RamBank0[5].Value |= 1 << 1;
+                        break;
+                    case 2:
+                        _pU.PicObject.RamBank0[5].Value |= 1 << 2;
+                        break;
+                    case 3:
+                        _pU.PicObject.RamBank0[5].Value |= 1 << 3;
+                        break;
+                    case 4:
+                        _pU.PicObject.RamBank0[5].Value |= 1 << 4;
+                        break;
+                    case 5:
+                        _pU.PicObject.RamBank0[5].Value |= 1 << 5;
+                        break;
+                    case 6:
+                        _pU.PicObject.RamBank0[5].Value |= 1 << 6;
+                        break;
+                    case 7:
+                        _pU.PicObject.RamBank0[5].Value |= 1 << 7;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void setButtonB(int index)
+        {
+            if (PortBbits[index])
+            {
+                PortBLabels[index].BackColor = Color.Empty;
+                PortBbits[index] = false;
+                int[] array = new int[1];
+                PortBbits.CopyTo(array, 0);
+                _pU.PicObject.RamBank0[6].Value = array[0];
+            }
+            else
+            {
+                PortBLabels[index].BackColor = Color.Crimson;
+                PortBbits[index] = true;
+                int[] array = new int[1];
+                PortBbits.CopyTo(array, 0);
+                _pU.PicObject.RamBank0[6].Value = array[0];
+            }
+        }
+        
+        private void buttonRb0_Click(object sender, EventArgs e)
+        {
+            setButtonB(0);
+        }
+
+        private void buttonRb1_Click(object sender, EventArgs e)
+        {
+            setButtonB(1);
+        }
+
+        private void buttonRb2_Click(object sender, EventArgs e)
+        {
+            setButtonB(2);
+        }
+        
+        private void buttonRb3_Click(object sender, EventArgs e)
+        {
+            setButtonB(3);
+        }
+
+        private void buttonRb4_Click(object sender, EventArgs e)
+        {
+            setButtonB(4);
+        }
+
+        private void buttonRb5_Click(object sender, EventArgs e)
+        {
+            setButtonB(5);
+        }
+
+        private void buttonRb6_Click(object sender, EventArgs e)
+        {
+            setButtonB(6);
+        }
+
+        private void buttonRb7_Click(object sender, EventArgs e)
+        {
+            setButtonB(7);
+        }
+
+        private void MatchTris()
+        {
+            var valueA = _pU.PicObject.RamBank1[0x05].Value;
+            var valueB = _pU.PicObject.RamBank1[0x06].Value;
+
+            BitArray bA = new BitArray(new int[] { valueA });
+            BitArray bB = new BitArray(new int[] { valueB });
+
+            for (int i = 0; i <= 4; i++)
+            {
+                if (bA[i])
+                {
+                    PortAButtons[i].Enabled = true;
+                }
+                else
+                {
+                    PortAButtons[i].Enabled = false;
+                }
+            }
+            
+            for (int i = 0; i <= 7; i++)
+            {
+                if (bB[i])
+                {
+                    PortBButtons[i].Enabled = true;
+                }
+                else
+                {
+                    PortBButtons[i].Enabled = false;
+                }
+            }
+
+        }
+
+        private void MatchPorts()
+        {
+            var valueA = _pU.PicObject.RamBank0[0x05].Value;
+            var valueB = _pU.PicObject.RamBank0[0x06].Value;
+            var valueTA = _pU.PicObject.RamBank1[0x05].Value;
+            var valueTB = _pU.PicObject.RamBank1[0x06].Value;
+
+            BitArray bA = new BitArray(new int[] { valueA });
+            BitArray bB = new BitArray(new int[] { valueB });
+            BitArray bTA = new BitArray(new int[] { valueTA });
+            BitArray bTB = new BitArray(new int[] { valueTB });
+            
+            for (int i = 0; i <= 4; i++)
+            {
+                if (bA[i])
+                {
+                    PortALabels[i].BackColor = Color.Crimson;
+                    PortAbits[i] = false;
+                }
+                else if (bA[i] == false)
+                {
+                    PortALabels[i].BackColor = Color.Empty;
+                    PortAbits[i] = true;
+                }
+            }
+            
+            for (int i = 0; i <= 7; i++)
+            {
+                if (bB[i])
+                {
+                    PortBLabels[i].BackColor = Color.Crimson;
+                    PortBbits[i] = false;
+                }
+                else if (bB[i] == false)
+                {
+                    PortBLabels[i].BackColor = Color.Empty;
+                    PortBbits[i] = true;
+                }
+            }
+        }
+
+        private void buttonRa1_Click(object sender, EventArgs e)
+        {
+            setButtonA(1);
+        }
+
+        private void buttonRa2_Click(object sender, EventArgs e)
+        {
+            setButtonA(2);
+        }
+
+        private void buttonRa3_Click(object sender, EventArgs e)
+        {
+            setButtonA(3);
+        }
+
+        private void buttonRa4_Click(object sender, EventArgs e)
+        {
+            setButtonA(4);
+            _pU.PicObject.TimersetIO();
+        }
+
+        private void btnResetMcu_Click(object sender, EventArgs e)
+        {
+            _pU.PicObject.Reset();
+            DgProgram.ClearSelection();
+            DgProgram.Rows[ProgramLines[_pU.PicObject.ProgCntr].LineNumber].Selected = true;
+            DgRamBank0.Refresh();
+            DgRamBank1.Refresh();
+        }
+
+        private void buttonWdg_Click(object sender, EventArgs e)
+        {
+            if (_watchdog == false)
+            {
+                _watchdog = true;
+                _pU.PicObject.Watchdogtrigger = true;
+                labelWdg.Text = "ON";
+            }
+            else
+            {
+                _watchdog = false;
+                _pU.PicObject.Watchdogtrigger = false;
+                labelWdg.Text = "OFF";
+            }
+        }
     }
 }

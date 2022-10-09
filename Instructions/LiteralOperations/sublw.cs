@@ -26,7 +26,7 @@ namespace picsim.Instructions.LiteralOperations
             var w_2comp = (~wreg & 0b_1111_1111) + 1;
             var result = _k + w_2comp;
             _pic.Wreg = result;
-            _pic.IncRuntime(false);
+            _pic.Timercycle();
             _pic.ZFlag(result);
             _pic.CFlag(result);
             _pic.DcFlag(_k,w_2comp);

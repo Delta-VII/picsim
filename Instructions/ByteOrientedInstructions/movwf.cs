@@ -20,11 +20,12 @@ namespace picsim.Instructions.ByteOrientedInstructions
             _d = _instruction & _dBitmask;
         }
 
-        public override void Execute()
+        public override void Execute()                                 
         {
             Decode();
+            _pic.Wreg &= 0b_1111_1111;
             _pic.WriteByte(_f, _pic.Wreg);
-            _pic.IncRuntime(false);
+            _pic.Timercycle();
         }
     }
 }

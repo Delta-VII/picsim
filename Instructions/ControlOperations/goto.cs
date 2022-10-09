@@ -22,7 +22,12 @@ namespace picsim.Instructions.ControlOperations
         public override void Execute()
         {
             Decode();
-            _pic.ProgCntr = (_pic.ProgCntr & 0b00_0111_1111_1111) - 1;
+            var pclath = _pic.RamBank0[0x0A].Value << 8;
+            var result = pclath + _k;
+            _pic.ProgCntr = result - 1;
+            _pic.Timercycle();
+            _pic.Timercycle();
+            _pic.watchdogcycle();
         }
     }
 }

@@ -23,7 +23,8 @@ namespace picsim.Instructions.ControlOperations
         {
             Decode();
             _pic.ProgCntr = _pic.pop();
-            _pic.IncRuntime(true);
+            _pic.Timercycle();
+            _pic.Timercycle();
         }
     }
 }
